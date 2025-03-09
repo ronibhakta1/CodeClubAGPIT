@@ -7,11 +7,11 @@ import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import PresidentDescription from "@/components/ui/presidentDescription";
 
 // Dummy member data
-const members = Array.from({ length: 20 }, (_, index) => ({
+const members = Array.from({ length: 10 }, (_, index) => ({
   id: index,
   name: `Member ${index + 1}`,
   role: index === 0 ? "Vice President" : "Member",
-  avatar: "https://via.placeholder.com/100", // Replace with actual images
+  avatar: "https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg", // Replace with actual images
   skills: ["React", "Python", "ML"],
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.",
   social: {
@@ -47,7 +47,7 @@ const Members = () => {
         <div className="flex items-start gap-6">
           <div className="flex-shrink-0">
             <Avatar
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm_a8MOMAIrMVmT29DtMXP4F86JFmzVJFJAw&s"
+              src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
               alt="Roni Bhakta"
               fallback="RB"
               className="w-40 h-40 rounded-full"
@@ -111,7 +111,7 @@ const Members = () => {
               </div>
 
               {/* Expandable Bio */}
-              <Accordion type="single" collapsible className="w-full mt-3">
+              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="bio">
                   <AccordionTrigger className="text-sm font-medium text-blue-600">
                     View Bio
@@ -123,7 +123,7 @@ const Members = () => {
               </Accordion>
 
               {/* Past Events */}
-              <Accordion type="single" collapsible className="w-full mt-2">
+              <Accordion type="single" collapsible className="w-full ">
                 <AccordionItem value="events">
                   <AccordionTrigger className="text-sm font-medium text-blue-600">
                     Past Events Organized
