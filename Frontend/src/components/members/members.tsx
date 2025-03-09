@@ -46,12 +46,13 @@ const Members = () => {
       <Card className="w-full max-w-4xl shadow-lg p-8 flex items-start gap-6">
         <div className="flex items-start gap-6">
           <div className="flex-shrink-0">
-            <Avatar
-              src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
-              alt="Roni Bhakta"
-              fallback="RB"
-              className="w-40 h-40 rounded-full"
-            />
+            <Avatar className="w-40 h-40 rounded-full">
+              <img
+                src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
+                alt="Roni Bhakta"
+                className="w-full h-full rounded-full"
+              />
+            </Avatar>
           </div>
           <div className="flex-1">
             <PresidentDescription />
@@ -63,7 +64,9 @@ const Members = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl">
         {members.map((member) => (
           <Card key={member.id} className="shadow-lg p-4 flex flex-col items-center text-center">
-            <Avatar src={member.avatar} alt={member.name} className="w-24 h-24 rounded-full" />
+            <Avatar className="w-24 h-24 rounded-full">
+              <img src={member.avatar} alt={member.name} className="w-full h-full rounded-full" />
+            </Avatar>
             <CardHeader className="mt-2">
               <CardTitle className="text-lg font-semibold">{member.name}</CardTitle>
               <p className="text-sm text-gray-500">{member.role}</p>
