@@ -71,7 +71,7 @@ const Members = () => {
 
             <CardContent className="flex flex-col items-center gap-2">
               {/* Skills */}
-              
+
               <div className="flex gap-2">
                 {member.skills.map((skill) => (
                   <span key={skill} className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs">
@@ -144,5 +144,4 @@ const Members = () => {
     </div>
   );
 };
-
 export default Members;
