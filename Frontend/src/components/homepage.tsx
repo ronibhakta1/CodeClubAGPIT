@@ -10,7 +10,6 @@ const Homepage = () => {
             <Button onClick={() => console.log("clicked")}>Click Me</Button>
         </div>
         <Skeleton className="w-[100px] h-[20px] rounded-full" />
-
         </>
     )
 }
