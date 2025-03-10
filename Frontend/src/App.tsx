@@ -2,6 +2,9 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import './App.css'
 import Homepage from './components/homepage'
 import Members from './components/members/members'
+import About from './components/About/about'
+import Events from './components/Events/Events'
+import Userpage from './components/user_page/Userpage'
 
 
 function App() {
@@ -13,9 +16,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/members" element={<Members />} />
-      <Route path="/about" element={<h1>About</h1>} />
-      <Route path="/events" element={<h1>Events</h1>} />
-      <Route path="/contact" element={<h1>Contact</h1>} />
+      <Route path="/about" element={<About />} />
+      <Route path="/events" element={<Events />} />
+      <Route path="/users" element={<Userpage />} />
     </Routes>
     </BrowserRouter>
     </>
