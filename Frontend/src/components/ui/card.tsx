@@ -29,7 +29,6 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold ", className)}
       className={cn("leading-none font-semibold", className)}
       {...props}
     />
@@ -67,4 +66,3 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
-
