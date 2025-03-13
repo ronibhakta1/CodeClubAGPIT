@@ -3,7 +3,7 @@ import './App.css'
 import Homepage from './components/homepage'
 import Members from './components/members/members'
 import About from './components/About/about'
-import Events from './components/Events/Events'
+import Events from './components/Events/Event'
 import Userpage from './components/user_page/Userpage'
 
 
