@@ -1,6 +1,3 @@
-import {
-  type LucideIcon,
-} from "lucide-react"
 
 import {
   SidebarGroup,
@@ -11,10 +8,10 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavProjects({
-  projects,
+export function Navbars({
+  navbar,
 }: {
-  projects: {
+  navbar: {
     name: string
     url: string
   }[]
@@ -24,8 +21,8 @@ export function NavProjects({
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel></SidebarGroupLabel>
-      <SidebarMenu>
-        {projects.map((item) => (
+      <SidebarMenu  className=" w-f">
+        {navbar.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
               <a href={item.url}>

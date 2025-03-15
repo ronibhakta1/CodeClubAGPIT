@@ -1,5 +1,5 @@
 import * as React from "react"
-import { NavProjects } from "@/components/user_page/nav-projects"
+import { Navbars } from "@/components/user_page/nav-bars"
 import { NavUser } from "@/components/user_page/nav-user"
 import {
   Sidebar,
@@ -17,18 +17,22 @@ const data = {
     avatar: "https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg",
   },
   
-  projects: [
+  Navbar: [
     {
-      name: "Basic Info",
-      url: "#",
+      name: "Home",
+      url: "/",
     },
     {
-      name: "Club Info",
-      url: "#",
+      name: "Events",
+      url: "/events",
     },
     {
-      name: "Past Events",
-      url: "#",
+      name: "Main Board",
+      url: "/members",
+    },
+    {
+      name: "About",
+      url: "/about",
     },
   ],
 }
@@ -37,9 +41,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
+        
       </SidebarHeader>
       <SidebarContent>
-        <NavProjects projects={data.projects} />
+        <Navbars  navbar={data.Navbar} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

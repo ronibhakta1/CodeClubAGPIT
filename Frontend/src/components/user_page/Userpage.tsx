@@ -8,6 +8,17 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EditProfile from "./Editprofile";
+import {
+  Activity,
+  Component,
+  HomeIcon,
+  Mail,
+  Package,
+  ScrollText,
+  SunMoon,
+} from 'lucide-react';
+
+
 
 // User Data
 const user = {
@@ -29,21 +40,74 @@ const user = {
     "CodeFest 2023 - Judge",
   ],
   
+  
 };
+const data = [
+  {
+    title: 'Home',
+    icon: (
+      <HomeIcon className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+  {
+    title: 'Products',
+    icon: (
+      <Package className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+  {
+    title: 'Components',
+    icon: (
+      <Component className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+  {
+    title: 'Activity',
+    icon: (
+      <Activity className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+  {
+    title: 'Change Log',
+    icon: (
+      <ScrollText className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+  {
+    title: 'Email',
+    icon: (
+      <Mail className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+  {
+    title: 'Theme',
+    icon: (
+      <SunMoon className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '#',
+  },
+];
 
 const Userpage = () => {
   return (
     <SidebarProvider>
+      
       <AppSidebar />
       <SidebarInset>
         {/* Header with Breadcrumbs */}
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-          <SidebarTrigger className="-ml-1" />
+        <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2  bg-white px-4 shadow-md">
+          <SidebarTrigger className="-ml-1 " />
           <Separator orientation="vertical" className="mr-2 h-4" />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">Code Club AGPIT</BreadcrumbLink>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
@@ -54,7 +118,7 @@ const Userpage = () => {
         </header>
 
         {/* Main Content */}
-        <div className="flex-1 flex-col ">
+        <div className="flex-1 ">
           {/* User Profile Card */}
           <Card className="flex flex-col items-center text-center h-full p-6">
             <Avatar className="w-32 h-32 rounded-full ">
@@ -129,7 +193,9 @@ const Userpage = () => {
           </Card>
         </div>
       </SidebarInset>
+      
     </SidebarProvider>
+    
   );
 }
 
