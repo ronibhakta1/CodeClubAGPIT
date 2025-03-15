@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import PresidentDescription from "@/components/ui/presidentDescription";
 
 // Dummy member data
-const members = Array.from({ length: 10 }, (_, index) => ({
+const members = Array.from({ length: 20 }, (_, index) => ({
   id: index,
   name: `Member ${index + 1}`,
   role: index === 0 ? "Vice President" : "Member",
