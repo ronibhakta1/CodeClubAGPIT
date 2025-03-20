@@ -3,8 +3,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 
 const Homepage = () => {
-    const navigate = useNavigate();
-
     return (
         <>
         <div className="flex flex-col items-center justify-center min-h-svh">
