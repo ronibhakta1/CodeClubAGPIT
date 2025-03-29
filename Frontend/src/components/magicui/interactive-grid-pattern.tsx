@@ -70,3 +70,4 @@ export function InteractiveGridPattern({
     </svg>
   );
 }
+

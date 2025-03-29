@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { Card, CardHeader,CardContent } from "@/components/ui/card";
 // import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
@@ -27,17 +28,29 @@ const user = {
 };
 
 
-const About = () => {
+const About = () => {  
+  const navigate = useNavigate();
   return (
     
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 px-4 text-gray-900">
-      
+    <div className="flex flex-col justify-center items-center min-h-screen  text-gray-900  bg-black h-screen w-screen ">
+                <div className=" grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between items-start w-full px-10 py-3 outline">
+                <img src="./logo.png" alt="logo" className="w-10 h-8 ml-40" />
+                    <div className="logo text-white -ml-105 text-xl justify-between font-bold cursor-pointer">CODE CLUB AGPIT</div>
+                    <div className="nav-links flex justify-between items-center w-1/2 pr-40 ">
+                        <ul className="flex justify-between items-center w-full">
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/")}>Home</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/about")}>About</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/events")}>Events</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/members")}>Members</li>
+                        </ul>
+                    </div>
+                </div>
       {/* About Us Section with Background Image */}
-      <div className="relative w-screen py-20 text-center bg-[url('https://source.unsplash.com/1600x900/?coding,technology')] bg-cover bg-center ">
+      <div className="relative w-screen py-50 text-center bg-[url('https://source.unsplash.com/1600x900/?coding,technology')] bg-cover bg-center ">
         <div className="absolute inset-0 bg-black bg-opacity-50"></div> {/* Overlay */}
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1 className="text-5xl font-bold text-white">About Us</h1><br></br>
-          <p className="mt-4 text-lg text-gray-200">
+          <p className="mt-4 text-lg text-white">
             Welcome to <strong>A.G. Patil Code Club</strong>! We are a community of passionate tech enthusiasts,
             dedicated to fostering a culture of innovation and continuous learning. Our goal is to empower
             students with coding skills, encourage collaboration, and drive technological advancements
@@ -48,7 +61,7 @@ const About = () => {
 
       {/* Mission & Vision Section */}
       <div className="max-w-5xl w-full mt-10 px-6 ">
-      <h2 className="text-3xl font-bold text-center mb-6 flex items-center justify-center gap-2"> Mission & Vision </h2>       
+      <h2 className="text-3xl font-bold text-center mb-6 flex items-center text-white justify-center gap-2"> Mission & Vision </h2>       
        <Card className="bg-white rounded-2xl shadow-xl border  ">
           <CardHeader className="text-center">
             
@@ -63,7 +76,7 @@ const About = () => {
 
       {/* Our Activities Section */}
       <div className="max-w-5xl w-full mt-10 px-6">
-      <h2 className="text-3xl font-bold text-center mb-6 flex items-center justify-center gap-2"> Our Activities </h2>       
+      <h2 className="text-3xl font-bold text-center mb-6 flex items-center text-white justify-center gap-2"> Our Activities </h2>       
 
         <Card className="bg-white rounded-2xl shadow-xl border ">
           <CardHeader className="text-center">
@@ -82,7 +95,7 @@ const About = () => {
       </div>
      {/* Success Stories Section */}
 <div className="max-w-5xl w-full mt-16 px-6">
-  <h2 className="text-3xl font-bold text-center mb-6 flex items-center justify-center gap-2">
+  <h2 className="text-3xl font-bold text-center mb-6 flex items-center justify-center text-white gap-2">
      Success Stories
   </h2>
   <Card className="bg-white rounded-2xl shadow-lg p-6 border ">
@@ -98,7 +111,7 @@ const About = () => {
 
       {/* FAQ Section */}
       <div className="w-full max-w-3xl mx-auto mt-10">
-        <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions </h2>
+        <h2 className="text-3xl font-bold text-center text-white mb-6">Frequently Asked Questions </h2>
         <Accordion type="single" collapsible className="space-y-4">
           <AccordionItem value="question-2">
             <AccordionTrigger>How can I join the club?</AccordionTrigger>
