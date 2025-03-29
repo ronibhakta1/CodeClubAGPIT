@@ -52,70 +52,70 @@ const Members = () => {
 
       {/* 3rd Section: Members Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-5xl">
-      {members.map((member) => (
-  <HoverCard key={member.id}>
-  <Card className="relative shadow-lg p-4 flex flex-col items-center text-center transition-opacity duration-500 hover:opacity-50">
-    <Avatar className="w-24 h-24 rounded-full">
-      <img src={member.avatar} alt={member.name} className="w-full h-full rounded-full" />
-    </Avatar>
-    <CardHeader className="mt-2">
-      <CardTitle className="text-lg font-semibold">{member.name}</CardTitle>
-      <p className="text-sm text-gray-500">{member.role}</p>
-    </CardHeader>
+        {members.map((member) => (
+          <Card key={member.id} className="relative shadow-lg p-4 flex flex-col items-center text-center">
+            <Avatar className="w-24 h-24 rounded-full">
+              <img src={member.avatar} alt={member.name} className="w-full h-full rounded-full" />
+            </Avatar>
+            <CardHeader className="mt-2">
+              <CardTitle className="text-lg font-semibold">{member.name}</CardTitle>
+              <p className="text-sm text-gray-500">{member.role}</p>
+            </CardHeader>
 
-    <CardContent className="flex flex-col items-center gap-2">
-      {/* Skills */}
-      <div className="flex gap-2">
-        {member.skills.map((skill) => (
-          <span key={skill} className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs">
-            {skill}
-          </span>
+            <CardContent className="flex flex-col items-center gap-2">
+              {/* Skills */}
+              <div className="flex gap-2">
+                {member.skills.map((skill) => (
+                  <span key={skill} className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Social Links */}
+              <div className="flex gap-3 mt-2">
+                <Tooltip>
+                  <TooltipTrigger>
+                    <a href={member.social.github} target="_blank" rel="noopener noreferrer">
+                      <FaGithub className="w-5 h-5 text-gray-700 hover:text-black" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>GitHub</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger>
+                    <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin className="w-5 h-5 text-blue-600 hover:text-blue-800" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>LinkedIn</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger>
+                    <a href={member.social.portfolio} target="_blank" rel="noopener noreferrer">
+                      <FaGlobe className="w-5 h-5 text-green-600 hover:text-green-800" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>Portfolio</TooltipContent>
+                </Tooltip>
+              </div>
+
+              {/* Bio Section */}
+              <div className="mt-3">
+                <HoverCard>
+                  <HoverCardTrigger className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600">
+                    View Bio
+                  </HoverCardTrigger>
+                  <HoverCardContent className="p-2 mt-1 w-52 max-w-xs bg-white text-black shadow-lg rounded-lg">
+                    <p className="text-sm">{member.bio}</p>
+                  </HoverCardContent>
+                </HoverCard>
+              </div>
+            </CardContent>
+          </Card>
         ))}
-      </div>
-
-      {/* Social Links */}
-      <div className="flex gap-3 mt-2">
-        <Tooltip>
-          <TooltipTrigger>
-            <a href={member.social.github} target="_blank" rel="noopener noreferrer">
-              <FaGithub className="w-5 h-5 text-gray-700 hover:text-black" />
-            </a>
-          </TooltipTrigger>
-          <TooltipContent>GitHub</TooltipContent>
-        </Tooltip>
-
-        <Tooltip>
-          <TooltipTrigger>
-            <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="w-5 h-5 text-blue-600 hover:text-blue-800" />
-            </a>
-          </TooltipTrigger>
-          <TooltipContent>LinkedIn</TooltipContent>
-        </Tooltip>
-
-        <Tooltip>
-          <TooltipTrigger>
-            <a href={member.social.portfolio} target="_blank" rel="noopener noreferrer">
-              <FaGlobe className="w-5 h-5 text-green-600 hover:text-green-800" />
-            </a>
-          </TooltipTrigger>
-          <TooltipContent>Portfolio</TooltipContent>
-        </Tooltip>
-      </div>
-
-      {/* Hover Card for Bio */}
-      <HoverCardTrigger className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600">
-        View Bio
-      </HoverCardTrigger>
-
-      <HoverCardContent className="p-2 mt-1 w-52 max-w-xs bg-white text-black shadow-lg rounded-lg transition-opacity duration-500">  <p className="text-sm">{member.bio}</p>
-      </HoverCardContent>
-    </CardContent>
-  </Card>
-</HoverCard>
-
-))}
-
       </div>
     </div>
   );
