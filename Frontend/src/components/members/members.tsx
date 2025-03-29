@@ -8,6 +8,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Member {
   id: number;
@@ -25,8 +26,8 @@ interface Member {
     portfolio: string;
   };
 }
-
 const Members = () => {
+  const navigate = useNavigate();
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -64,12 +65,24 @@ const Members = () => {
 
   const president = members.find(member => member.role === "President");
 
-  return (
-    <div className="flex flex-col items-center gap-4 p-4 w-full">
-      <h1 className="text-2xl font-semibold mb-2">MAIN BOARD MEMBERS</h1>
+  return (<div className="bg-black h-screen w-full">
+<div className="flex flex-col items-center gap-4 pb-4 bg-black max-h-fit w-full">
+                <div className="grid-cols-1 bg-black max-h-fit border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between items-start w-full px-10 py-3 outline">
+                <img src="./logo.png" alt="logo" className="w-10 h-8 ml-40" />
+                    <div className="logo text-white -ml-105 text-xl justify-between font-bold cursor-pointer">CODE CLUB AGPIT</div>
+                    <div className="nav-links flex justify-between items-center w-1/2 pr-40 ">
+                        <ul className="flex justify-between items-center w-full">
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/about")}>About</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/events")}>Events</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/members")}>Members</li>
+                        </ul>
+                    </div>
+                </div>
+      <h1 className="text-2xl text-white font-semibold mb-2">MAIN BOARD MEMBERS</h1>
 
       {president && (
-        <Card className="w-full max-w-3xl p-4">
+        <Card className="w-full max-w-3xl p-4 ">
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Avatar className="w-40 h-40">
               <img
@@ -181,6 +194,7 @@ const Members = () => {
           ))}
       </div>
     </div>
+</div>
   );
 };
 

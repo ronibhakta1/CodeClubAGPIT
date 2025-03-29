@@ -29,6 +29,7 @@ import {
   HoverCardTrigger,
 } from "@/components/Events/hover-card"
 import { PlusIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { ScrollArea } from "@/components/Events/scroll-area";
 
@@ -111,20 +112,30 @@ const activeEvent = [
     image3: "https://media.licdn.com/dms/image/v2/D5622AQF2Qx_PPEWErQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1729000381999?e=1746057600&v=beta&t=TzDE08mHQr9EdmaMiqmESe0QMq_tdZQt0uIfp32jh88",
   },
 ];
-
 const Events = () => {
-  const eventList = activeEvent.slice(3);
+  const navigate = useNavigate();
+const eventList = activeEvent.slice(3);
 
 
   return (
-    <div className="p-20">
-
+          <div className=" bg-black h-screen w-screen ">
+                <div className=" grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between items-start w-full px-10 py-3 outline">
+                <img src="./logo.png" alt="logo" className="w-10 h-8 ml-40" />
+                    <div className="logo text-white -ml-105 text-xl justify-between font-bold cursor-pointer">CODE CLUB AGPIT</div>
+                    <div className="nav-links flex justify-between items-center w-1/2 pr-40 ">
+                        <ul className="flex justify-between items-center w-full">
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/")}>Home</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/about")}>About</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/events")}>Events</li>
+                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/members")}>Members</li>
+                        </ul>
+                    </div>
+                </div>
       {/* Past Event */}
-      <div className="mb-10 flex">
-        <Card className="p-8 shadow-md border border-gray-200 mt-0 w-full text-center ">
-          <h1 className="text-xl font-[1000]">{activeEvent[2].name}</h1>
-
-        </Card>
+      <div className="mb-  mt-7  flex">
+        <p className="  bg-black text-white mt-0 w-full text-center ">
+          <h1 className="text-2xl font-[1000]">{activeEvent[2].name}</h1>
+          </p>
       </div>
 
       {/* add hr line for main board */}
@@ -432,7 +443,6 @@ const Events = () => {
 
 
     </div>
-
 
 
   );
