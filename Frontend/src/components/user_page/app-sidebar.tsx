@@ -1,55 +1,57 @@
-import * as React from "react"
-import { Navbars } from "@/components/user_page/nav-bars"
-import { NavUser } from "@/components/user_page/nav-user"
+import { NavUser } from "@/components/user_page/nav-user";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 
-// This is sample data.
-const data = {
-  user: {
-    name: "Roni Bhakta",
-    email: "roni@email.com",
-    avatar: "https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg",
-  },
-  
-  Navbar: [
-    {
-      name: "Home",
-      url: "/",
-    },
-    {
-      name: "Events",
-      url: "/events",
-    },
-    {
-      name: "Main Board",
-      url: "/members",
-    },
-    {
-      name: "About",
-      url: "/about",
-    },
-  ],
+interface NavbarItem {
+  name: string;
+  url: string;
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface User {
+  id: number;
+  name: string;
+  avatar: string;
+  email: string;
+}
+
+interface SidebarProps {
+  setActiveSection: (section: string) => void;
+  user: User;
+  navbar: NavbarItem[];
+}
+
+export function AppSidebar({ setActiveSection, user, navbar }: SidebarProps) {
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        
+    <Sidebar collapsible="icon" className="bg-black text-black h-full w-64">
+      <SidebarHeader className="p-4 text-lg font-semibold border-b border-black">
+        Profile
       </SidebarHeader>
-      <SidebarContent>
-        <Navbars  navbar={data.Navbar} />
+      <SidebarContent className="p-2 space-y-2">
+        {navbar.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => setActiveSection(item.name.toLowerCase().replace(" ", ""))}
+            className={cn(
+              "w-full flex items-center px-4 py-2 text-left rounded-md transition",
+              "hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-black"
+            )}
+          >
+            {item.name}
+          </button>
+        ))}
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
+      <SidebarFooter className="border-t border-white p-4">
+        <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
+
+export default AppSidebar;
