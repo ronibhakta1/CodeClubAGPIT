@@ -5,6 +5,7 @@
             "destination": "/"
         }
     ],
+    "framework": "vite",
     "builds": [
         {
             "src": "package.json",
