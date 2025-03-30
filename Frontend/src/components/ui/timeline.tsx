@@ -38,7 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-black dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className=" md:ml-170 max-w-7xl mx-auto py-10 -mb-30 md:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto py-10 md:-mb-30 sm:mb-10 px-4 md:px-8 lg:px-10 flex justify-center">
         <TextShimmerWaveBasic />
       </div>
 
