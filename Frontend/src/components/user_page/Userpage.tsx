@@ -159,7 +159,7 @@ const UserPastEventsdirect = ({ pastEvents }: { pastEvents: string[] }) => (
 // Profile Card Component
 const UserProfileCard = ({ user }: { user: User }) => (
   
-  <Card className="flex flex-col items-center text-center h-full p-6">
+  <Card className="flex flex-col items-center text-center h-full p-6 rounded-none">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
       <CardTitle className="text-2xl font-semibold">{user.name}</CardTitle>
@@ -181,7 +181,7 @@ const UserProfileCard = ({ user }: { user: User }) => (
 
 // Profile Club Card Component
 const UserClubProfileCard = ({ user, setUser }: { user: User, setUser: React.Dispatch<React.SetStateAction<User>> }) => (
-  <Card className="flex flex-col items-center text-center h-full p-6">
+  <Card className="flex flex-col items-center text-center h-full p-6 rounded-none">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
       <CardTitle className="text-2xl font-semibold">{user.name}</CardTitle>
@@ -205,7 +205,7 @@ const UserClubProfileCard = ({ user, setUser }: { user: User, setUser: React.Dis
 // Profile Club Card Component
 const EventsCard = ({ user }: { user: User }) => (
   
-  <Card className="flex flex-col items-center text-center h-full p-6">
+  <Card className="flex flex-col items-center text-center h-full p-6 rounded-none">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
       <CardTitle className="text-2xl font-semibold">{user.name}</CardTitle>
