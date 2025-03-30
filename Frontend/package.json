@@ -48,7 +48,7 @@
     "tailwindcss": "^4.0.12",
     "tailwindcss-animate": "^1.0.7",
     "tooltip": "^1.6.1",
-    "update": "^0.7.4",
+    "update": "^0.4.2",
     "upgrade": "^1.1.0"
   },
   "devDependencies": {
