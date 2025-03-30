@@ -44,7 +44,6 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.3.0",
     "react-use-measure": "^2.1.7",
-    "rollup": "^4.35.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.12",
     "tailwindcss-animate": "^1.0.7",
