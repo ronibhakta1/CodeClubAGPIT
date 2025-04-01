@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import * as AvatarPrimitive from "@radix-ui/react-avatar"
 
@@ -12,7 +10,7 @@ function Avatar({
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
-      className={cn(
+      className={cn( 
         "relative flex size-8 shrink-0 overflow-hidden rounded-full",
         className
       )}
