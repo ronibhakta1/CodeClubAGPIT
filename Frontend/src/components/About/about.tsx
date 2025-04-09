@@ -31,22 +31,21 @@ const user = {
 
 const About = () => {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-300 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 overflow-x-hidden">
 
       {/* Hero Section */}
-      <div className="relative w-full py-12 md:py-20 lg:py-24 text-center bg-[url('https://source.unsplash.com/1600x900/?coding,technology')] bg-cover bg-center bg-no-repeat">
-        <div className="absolute inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm" />
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
-            About Us
-          </h1>
-          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-gray-200 dark:text-gray-300 leading-relaxed">
-            Welcome to <strong className="font-semibold">A.G. Patil Code Club</strong>! We are a community of passionate tech enthusiasts,
-            dedicated to fostering a culture of innovation and continuous learning. Our goal is to empower
-            students with coding skills, encourage collaboration, and drive technological advancements through hands-on projects and mentorship.
-          </p>
-        </div>
+      <div className="relative w-full py-12 md:py-20 lg:py-24 text-center bg-black">
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg"> About Us
+       </h1>
+       <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed">
+      Welcome to <strong className="font-semibold">A.G. Patil Code Club</strong>! We are a community of passionate tech enthusiasts,
+      dedicated to fostering a culture of innovation and continuous learning. Our goal is to empower
+      students with coding skills, encourage collaboration, and drive technological advancements through hands-on projects and mentorship.
+      </p>
       </div>
+     </div>
+
 
       {/* Main Content */}
       <div className="w-full max-w-6xl px-4 sm:px-6 md:px-8 space-y-6 md:space-y-10 py-8 md:py-14">
