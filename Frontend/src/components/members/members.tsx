@@ -31,14 +31,12 @@ const Members = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [members, setMembers] = useState<Member[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // Removed unused error state
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        setLoading(true);
-        setError(null);
+        // Removed setError call as error state is no longer used
 
         const params = new URLSearchParams(location.search);
         const board = params.get('board') || 'TY';
@@ -50,39 +48,14 @@ const Members = () => {
         const data = await response.json();
         setMembers(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load members');
+        // Removed setError call as error state is no longer used
         console.error("Error loading members:", err);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchMembers();
   }, [location.search]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen text-white">
-        <p>Loading members...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex justify-center items-center min-h-screen text-red-500">
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
-
-  if (members.length === 0) {
-    return (
-      <div className="flex justify-center items-center min-h-screen text-white">
-        <p>No members found</p>
-      </div>
-    );
-  }
 
   const president = members.find(member => member.role === "President");
 
@@ -109,7 +82,7 @@ const Members = () => {
         <h1 className="text-2xl text-white font-semibold my-4 underline">
           {location.search.includes('board=TY') && 'MAIN BOARD MEMBERS'}
           {location.search.includes('board=SY') && 'ASSISTANT BOARD MEMBERS'}
-          {location.search.includes('board=FY') && 'LAST YEAR BOARD MEMBERS'}
+          {location.search.includes('board=FY') && 'LAST YEAR BOARD MEMBERS'}/
         </h1>
 
         {president && (
@@ -202,13 +175,14 @@ const Members = () => {
                         </Tooltip>
                       )}
                     </div>
-
                     <div className="w-full mt-auto relative">
                       <HoverCard>
                         <HoverCardTrigger asChild>
-                          <button className="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+                    <div className="flex flex-col p-auto  items-center">
+                          <button className="w-full  text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
                             View Bio
                           </button>
+                      </div>
                         </HoverCardTrigger>
                         <HoverCardContent 
                           className="w-60 p-2 text-black absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10"
