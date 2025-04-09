@@ -4,7 +4,7 @@
         "email": "shafihudewale@gmail.com",
         "linkedin": "https://www.linkedin.com/in/shafihudewale?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "Secretary",
-        "domain": "AI & ML(python,  scikit-learn)",
+        "domain": "Artifical Intelligence & Machine Learning (python,scikit-learn)",
         "yearOfStudy": "SY",
         "yearOfPassing": 2027,
         "bio": "I\u2019m a 2nd-year CSE student at AGPIT Solapur and the Secretary of my college's code club. I focus on Python development, web technologies, and entrepreneurship, with interests in data science and Web3.",
@@ -13,6 +13,21 @@
             "portfolio": "https://sepolia.starkscan.co/contract/0x06150862a529f147a882feff06203d2b80faefd3363a0056ec54949b15892eb5"
         },
         "avatar": "https://media.licdn.com/dms/image/v2/D5603AQG5ouPh71Y9Mg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727863905154?e=1748476800&v=beta&t=5oks6xzSSM2ThXmK09kQropUawWKrlFQCLSEWaLsiT8"
+    },
+    {
+        "name": "Bhumika Dolnare",
+        "email": "dolnarebhumika4@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/bhumika-dolnare-5b5649329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "role": "Vice president",
+        "domain": "Artifical Intelligence & Machine Learning (python,scikit-learn)",
+        "yearOfStudy": "SY",
+        "yearOfPassing": 2027,
+        "bio": "\n\nVice President under assistant board @CodeClub AGPIT| Java & C Programmer | Exploring ChatGPT & AI Tools for Innovative Solutions\n",
+        "social": {
+            "github": "https://github.com/BhumikaDolnare01",
+            "portfolio": ""
+        },
+        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQENnYht_VGGew/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1731768982318?e=1744491600&v=beta&t=MjrvGaqeBy3boH08QMjlxmsgFK2kY5CQNMa-Q3lj-I8"
     },
     {
         "name": "Naseem  Irkal ",
@@ -27,10 +42,10 @@
             "github": "https://github.com/NaseemIrkal",
             "portfolio": ""
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
-        "name": "Aditi Amol Kulkarni",
+        "name": "Aditi Kulkarni",
         "email": "kulkarniaditi1709@gmail.com",
         "linkedin": "https://www.linkedin.com/in/aditi-kulkarni-9b9b72330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "Member",
@@ -42,7 +57,7 @@
             "github": "https://github.com/aditi853",
             "portfolio": ""
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
         "name": "Shoaib Inamdar",
@@ -57,10 +72,10 @@
             "github": "https://github.com/shoaib-inamdar",
             "portfolio": ""
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
-        "name": "Priyanka Nagraj Kumbhar ",
+        "name": "Priyanka Kumbhar ",
         "email": "priyankakumbhar.2405@gmail.com",
         "linkedin": "https://www.linkedin.com/in/priyanka-kumbhar-637a80286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "DSA Lead",
@@ -72,7 +87,7 @@
             "github": "https://github.com/Priya-kumbhar",
             "portfolio": ""
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
         "name": "Md.Saif ",
@@ -89,23 +104,9 @@
         },
         "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQEDtJ3n_iLweg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726553781368?e=1748476800&v=beta&t=SOST70_dvwdOZPC36_YL19L9Hs4VT0lN36IVOH8Oi0w"
     },
+   
     {
-        "name": "Bhumika Dolnare",
-        "email": "dolnarebhumika4@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/bhumika-dolnare-5b5649329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "role": "vice president under assistant board",
-        "domain": "AI & ML(python,  scikit-learn)",
-        "yearOfStudy": "SY",
-        "yearOfPassing": 2027,
-        "bio": "\n\nVice President under assistant board @CodeClub AGPIT| Java & C Programmer | Exploring ChatGPT & AI Tools for Innovative Solutions\n",
-        "social": {
-            "github": "https://github.com/BhumikaDolnare01",
-            "portfolio": ""
-        },
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQENnYht_VGGew/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1731768982318?e=1743836400&v=beta&t=YTgx3NR6Yvp7oQihW9cA8aRIq1vSAjbp_u7yF-BjQlE"
-    },
-    {
-        "name": "Sidgiddi Meghana Dwarakanath ",
+        "name": "Sidgiddi Dwarakanath ",
         "email": "meghanasidgiddi@gmail.com",
         "linkedin": "https://www.linkedin.com/in/meghana-sidgiddi-655774330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "Member",
@@ -124,7 +125,7 @@
         "email": "nageshkondabattin@gmail.com",
         "linkedin": "https://www.linkedin.com/in/nagesh-kondabattin-a43ba7285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "Member",
-        "domain": "ANDROID DEVELOPER (kotlin, or java)",
+        "domain": " FULL STACK ANDROID DEVELOPER (kotlin, or java)",
         "yearOfStudy": "SY",
         "yearOfPassing": 2027,
         "bio": "..",
@@ -147,14 +148,14 @@
             "github": "https://github.com/panchalap",
             "portfolio": ".."
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
         "name": "Pranoti Balaji Ambat",
         "email": "pranotiambat2005@gmail.com",
         "linkedin": "https://www.linkedin.com/in/pranoti-ambat-82b782311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "Developer",
-        "domain": "ANDROID DEVELOPER (kotlin, or java)",
+        "domain": " FULL STACK ANDROID DEVELOPER (kotlin, or java)",
         "yearOfStudy": "SY",
         "yearOfPassing": 2027,
         "bio": "...",
@@ -192,7 +193,7 @@
             "github": "https://github.com/MuzammilAadam?tab=projects",
             "portfolio": "https://github.com/code50/159444029"
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
         "name": "Tanushree Waghmare ",
@@ -207,14 +208,14 @@
             "github": "https://github.com/Tanuwaghmare88",
             "portfolio": ""
         },
-        "avatar": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
         "name": "Anjali Ajit Mane",
         "email": "anjaliajitmane22@gmail.com",
         "linkedin": "https://www.linkedin.com/in/anjali-mane-7161ab2bb",
         "role": "Member",
-        "domain": "ANDROID DEVELOPER (kotlin, or java)",
+        "domain": " FULL STACK ANDROID DEVELOPER (kotlin, or java)",
         "yearOfStudy": "SY",
         "yearOfPassing": 2027,
         "bio": "Member of Code club under assistant board | C programmer java programmer | exploring game\u00a0development.",
@@ -229,7 +230,7 @@
         "email": "avezchadchan@gmail.com",
         "linkedin": "https://www.linkedin.com/in/avez-chadchan-924040276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         "role": "Member",
-        "domain": "ANDROID DEVELOPER (kotlin, or java)",
+        "domain": " FULL STACK ANDROID DEVELOPER (kotlin, or java)",
         "yearOfStudy": "SY",
         "yearOfPassing": 2027,
         "bio": "Software Developer | Android Enthusiast | Web Developer",
