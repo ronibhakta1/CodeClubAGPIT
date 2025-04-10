@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,47 +14,62 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// Sample User Data
-const userData = {
-  name: "Roni Bhakta",
-  username: "@ronibhakta",
-  avatar: "https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg",
-  role: "Full Stack Developer",
-  codeClubRole: "President",
-  skills: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-  yearOfPursuing: "3rd",
-  yearOfPassing: "2026",
-  bio: "Experienced full-stack developer passionate about building scalable web applications and open-source contributions.",
+interface User {
+  avatar: string;
+  name: string;
+  bio: string;
+  role: string;
+  codeClubRole: string;
+  skills: string[];
+  yearOfPursuing: string;
+  yearOfPassing: string;
   social: {
-    github: "https://github.com/ronibhakta1",
-    linkedin: "https://linkedin.com/in/ronibhakta1",
-    portfolio: "https://ronibhakta1.dev",
-  },
-};
+    github: string;
+    linkedin: string;
+    portfolio: string;
+  };
+}
 
-const EditProfile = () => {
-  const [user, setUser] = useState(userData);
-  const [formData, setFormData] = useState(user);
+interface EditProfileProps {
+  user: User;
+  setUser: (user: User) => void;
+}
 
-  // Handle Input Change
+const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
+  const [formData, setFormData] = useState<User>(user);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setFormData(user);
+  }, [user]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  // Handle Skill Change
   const handleSkillsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prev) => ({ ...prev, skills: e.target.value.split(",") }));
+    setFormData((prev) => ({ ...prev, skills: e.target.value.split(",").map((skill) => skill.trim()) }));
   };
 
-  // Handle Save Changes
+  const handleSelectChange = (field: keyof User, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSocialChange = (platform: keyof User["social"], value: string) => {
+    setFormData((prev) => ({ ...prev, social: { ...prev.social, [platform]: value } }));
+  };
+
   const handleSave = () => {
+    if (!formData.name.trim()) return alert("Name is required");
+    if (!formData.yearOfPassing.match(/^\d{4}$/)) return alert("Enter a valid passing year (e.g., 2025)");
+
     setUser(formData);
-    alert("Profile updated successfully!");
+    setIsOpen(false);
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
@@ -72,13 +87,7 @@ const EditProfile = () => {
           {/* Name */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">Name</Label>
-            <Input id="name" value={formData.name} onChange={handleChange} className="col-span-3" />
-          </div>
-
-          {/* Username */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">Username</Label>
-            <Input id="username" value={formData.username} onChange={handleChange} className="col-span-3" />
+            <Input id="name" value={formData.name} onChange={handleChange} className="col-span-3" required />
           </div>
 
           {/* Bio */}
@@ -90,16 +99,16 @@ const EditProfile = () => {
           {/* Role */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label className="text-right">Role</Label>
-            <Select>
+            <Select value={formData.role} onValueChange={(value) => handleSelectChange("role", value)}>
               <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select Role" />
+                <SelectValue placeholder="Select Role">{formData.role}</SelectValue>
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Role</SelectLabel>
-                  <SelectItem value="fullstack">Full Stack Developer</SelectItem>
-                  <SelectItem value="android">Android Developer</SelectItem>
-                  <SelectItem value="python">Python Developer</SelectItem>
+                  <SelectItem value="Full Stack Developer">Full Stack Developer</SelectItem>
+                  <SelectItem value="Android Developer">Android Developer</SelectItem>
+                  <SelectItem value="Python Developer">Python Developer</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -108,18 +117,18 @@ const EditProfile = () => {
           {/* Code Club Role */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label className="text-right">Club Role</Label>
-            <Select>
+            <Select value={formData.codeClubRole} onValueChange={(value) => handleSelectChange("codeClubRole", value)}>
               <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select Role" />
+                <SelectValue placeholder="Select Role">{formData.codeClubRole}</SelectValue>
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>Club Role</SelectLabel>
-                  <SelectItem value="member">Member</SelectItem>
-                  <SelectItem value="president">President</SelectItem>
-                  <SelectItem value="vice_president">Vice President</SelectItem>
-                  <SelectItem value="secretary">Secretary</SelectItem>
-                  <SelectItem value="developer">Developer</SelectItem>
+                  <SelectItem value="Member">Member</SelectItem>
+                  <SelectItem value="President">President</SelectItem>
+                  <SelectItem value="Vice President">Vice President</SelectItem>
+                  <SelectItem value="Secretary">Secretary</SelectItem>
+                  <SelectItem value="Developer">Developer</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -134,9 +143,9 @@ const EditProfile = () => {
           {/* Year of Pursuing */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label className="text-right">Year of Pursuing</Label>
-            <Select>
+            <Select value={formData.yearOfPursuing} onValueChange={(value) => handleSelectChange("yearOfPursuing", value)}>
               <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select Year" />
+                <SelectValue placeholder="Select Year">{formData.yearOfPursuing}</SelectValue>
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
@@ -144,7 +153,7 @@ const EditProfile = () => {
                   <SelectItem value="1st">1st</SelectItem>
                   <SelectItem value="2nd">2nd</SelectItem>
                   <SelectItem value="3rd">3rd</SelectItem>
-                  <SelectItem value="final">Final Year</SelectItem>
+                  <SelectItem value="Final">Final Year</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -153,24 +162,14 @@ const EditProfile = () => {
           {/* Year of Passing */}
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="yearOfPassing" className="text-right">Year of Passing</Label>
-            <Input id="yearOfPassing" value={formData.yearOfPassing} onChange={handleChange} className="col-span-3" />
+            <Input id="yearOfPassing" value={formData.yearOfPassing} onChange={handleChange} className="col-span-3" required />
           </div>
 
           {/* Social Links */}
           {["github", "linkedin", "portfolio"].map((platform) => (
             <div key={platform} className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor={platform} className="text-right capitalize">{platform}</Label>
-              <Input
-                id={platform}
-                value={formData.social[platform as keyof typeof formData.social]}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    social: { ...prev.social, [platform]: e.target.value },
-                  }))
-                }
-                className="col-span-3"
-              />
+              <Input id={platform} value={formData.social[platform]} onChange={(e) => handleSocialChange(platform as keyof User["social"], e.target.value)} className="col-span-3" />
             </div>
           ))}
         </div>
