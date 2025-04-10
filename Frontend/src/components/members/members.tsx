@@ -9,6 +9,13 @@ import {
 } from "@/components/ui/hover-card";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 interface Member {
   id: number;
@@ -31,15 +38,14 @@ const Members = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [members, setMembers] = useState<Member[]>([]);
-  // Removed unused error state
+  const [selectedBoard, setSelectedBoard] = useState<string>("TY");
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        // Removed setError call as error state is no longer used
-
         const params = new URLSearchParams(location.search);
         const board = params.get('board') || 'TY';
+        setSelectedBoard(board);
         const fileName = `/club_members_${board}.json`;
 
         const response = await fetch(fileName);
@@ -48,7 +54,6 @@ const Members = () => {
         const data = await response.json();
         setMembers(data);
       } catch (err) {
-        // Removed setError call as error state is no longer used
         console.error("Error loading members:", err);
       } 
     };
@@ -56,6 +61,18 @@ const Members = () => {
     fetchMembers();
   }, [location.search]);
 
+  const handleBoardChange = (board: string) => {
+    navigate(`/members?board=${board}`);
+  };
+
+  const getBoardTitle = () => {
+    switch (selectedBoard) {
+      case "TY": return "MAIN BOARD MEMBERS";
+      case "SY": return "ASSISTANT BOARD MEMBERS";
+      case "FY": return "LAST YEAR BOARD MEMBERS";
+      default: return "MEMBERS";
+    }
+  };
 
   const president = members.find(member => member.role === "President");
 
@@ -73,20 +90,46 @@ const Members = () => {
               <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
               <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/about")}>About</li>
               <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/events")}>Events</li>
-              <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/members")}>Members</li>
+              
+              {/* Members with Dropdown */}
+              <li className="text-white text-lg font-semibold">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
+                    Members <ChevronDown className="h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-black border-gray-700 text-white">
+                    <DropdownMenuItem 
+                      className="cursor-pointer hover:bg-gray-800"
+                      onClick={() => handleBoardChange("TY")}
+                    >
+                      Main Board
+                    </DropdownMenuItem>
+                    <DropdownMenuItem 
+                      className="cursor-pointer hover:bg-gray-800"
+                      onClick={() => handleBoardChange("SY")}
+                    >
+                      Assistant Board
+                    </DropdownMenuItem>
+                    <DropdownMenuItem 
+                      className="cursor-pointer hover:bg-gray-800"
+                      onClick={() => handleBoardChange("FY")}
+                    >
+                      Last Year Board
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Content */}
+        {/* Content - Everything below remains exactly the same */}
         <h1 className="text-2xl text-white font-semibold my-4 underline">
-          {location.search.includes('board=TY') && 'MAIN BOARD MEMBERS'}
-          {location.search.includes('board=SY') && 'ASSISTANT BOARD MEMBERS'}
-          {location.search.includes('board=FY') && 'LAST YEAR BOARD MEMBERS'}/
+          {getBoardTitle()}
         </h1>
 
         {president && (
-            <Card className="w-full max-w-3xl p-4 text-black h-auto">
+          <Card className="w-full max-w-3xl p-4 text-black h-auto">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <Avatar className="w-40 h-40">
                 <img
@@ -178,11 +221,11 @@ const Members = () => {
                     <div className="w-full mt-auto relative">
                       <HoverCard>
                         <HoverCardTrigger asChild>
-                    <div className="flex flex-col p-auto  items-center">
-                          <button className="w-full  text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
-                            View Bio
-                          </button>
-                      </div>
+                          <div className="flex flex-col p-auto items-center">
+                            <button className="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+                              View Bio
+                            </button>
+                          </div>
                         </HoverCardTrigger>
                         <HoverCardContent 
                           className="w-60 p-2 text-black absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10"

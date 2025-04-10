@@ -1,6 +1,16 @@
 import { Button } from "@/components/ui/button"; // Import ShadCN button
 
 
+import { useNavigate } from "react-router-dom";
+
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 import { Card } from "@/components/ui/card"
 import {
   Carousel,
@@ -29,7 +39,7 @@ import {
   HoverCardTrigger,
 } from "@/components/Events/hover-card"
 import { PlusIcon } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 
 import { ScrollArea } from "@/components/Events/scroll-area";
 
@@ -115,32 +125,63 @@ const activeEvent = [
 const Events = () => {
   const navigate = useNavigate();
 const eventList = activeEvent.slice(3);
+const handleBoardChange = (board: string) => {
+  navigate(`/members?board=${board}`);
+};
 
-
-  return (
-          <div className=" bg-black h-screen w-screen ">
-                    <div className=" grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
-                    <div className="flex items-center gap-2">
-                        <img src="./logo.png" alt="logo" className="w-10 h-8" />
-                    <div className="logo text-white text-xl  font-bold cursor-pointer">CODE CLUB AGPIT</div>
-                    </div>
-                    <div className="nav-links flex justify-between  items-center w-1/2 pr-40">
-                        <ul className="flex justify-between items-center w-full md:text-2xl lg:text-3x">
-                            <div>
-                                <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/")}>Home</li>
-                            </div>
-                            <div>
-                                <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/about")}>About</li>
-                            </div>
-                            <div>
-                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/events")}>Events</li>
-                            </div>
-                            <div>
-                            <li className="text-white text-lg font-semibold cursor-pointer" onClick={ () => navigate("/members")}>Members</li>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
+return (
+  <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-black w-full overflow-x-hidden">
+    {/* Navbar with Dropdown */}
+    <div className="grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+      <div className="flex items-center gap-2">
+        <img src="./logo.png" alt="logo" className="w-10 h-8" />
+        <div className="logo text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>
+          CODE CLUB AGPIT
+        </div>
+      </div>
+      <div className="nav-links flex justify-between items-center w-1/2 pr-40">
+        <ul className="flex justify-between items-center w-full md:text-2xl lg:text-3x">
+          <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/")}>
+            Home
+          </li>
+          <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/about")}>
+            About
+          </li>
+          <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/events")}>
+            Events
+          </li>
+          
+          {/* Members Dropdown */}
+          <li className="text-white text-lg font-semibold">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
+                Members <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-black border-gray-700 text-white">
+                <DropdownMenuItem 
+                  className="cursor-pointer hover:bg-gray-800"
+                  onClick={() => handleBoardChange("TY")}
+                >
+                  Main Board
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="cursor-pointer hover:bg-gray-800"
+                  onClick={() => handleBoardChange("SY")}
+                >
+                  Assistant Board
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="cursor-pointer hover:bg-gray-800"
+                  onClick={() => handleBoardChange("FY")}
+                >
+                  Last Year Board
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </li>
+        </ul>
+      </div>
+    </div>
       {/* Past Event */}
       <div className="mb-  mt-7  flex">
         <p className="  bg-black text-white mt-0 w-full text-center ">
@@ -359,7 +400,7 @@ const eventList = activeEvent.slice(3);
       <div className="flex gap-30 mb-12 px-50 py-4">
 
         {/* Active Event Box */}
-        <Card className="p-6 shadow-md w-1/2 transition delay-150 duration-300 ease-in-out hover:-translate-y-2 text-left">
+        <Card className="p-6 shadow-md w-100 transition delay-150 duration-300 ease-in-out hover:-translate-y-2 text-left">
           <h2 className="text-lg font-bold leading-tight">{activeEvent[0].name}</h2>
           <p className="text-sm"><strong>🔹 Event Name: </strong> {activeEvent[0].eventname}</p>
           <p className="text-sm"><strong>🔹 Date: </strong> {activeEvent[0].date}</p>
@@ -405,7 +446,7 @@ const eventList = activeEvent.slice(3);
 
 
         {/* New Upcoming Event Box */}
-        <Card className="p-6 shadow-md w-1/2 transition delay-150 duration-300 ease-in-out hover:-translate-y-2 ">
+        <Card className="p-6 shadow-md w-100 transition delay-150 duration-300 ease-in-out hover:-translate-y-2 ">
           <h2 className="text-lg font-bold space-y-0 leading-tight">{activeEvent[1].name}</h2>
           <p className="text-sm"> <strong>🔹Event Name: </strong> {activeEvent[1].eventname} </p>
           <p className=" text-sm"><strong>🔹 Date: </strong> {activeEvent[1].date} </p>
