@@ -102,19 +102,19 @@ const Members = () => {
                       className="cursor-pointer hover:bg-gray-800"
                       onClick={() => handleBoardChange("TY")}
                     >
-                      Main Board
+                      Main Board (TY)
                     </DropdownMenuItem>
                     <DropdownMenuItem 
                       className="cursor-pointer hover:bg-gray-800"
                       onClick={() => handleBoardChange("SY")}
                     >
-                      Assistant Board
+                      Assistant Board (SY)
                     </DropdownMenuItem>
                     <DropdownMenuItem 
                       className="cursor-pointer hover:bg-gray-800"
                       onClick={() => handleBoardChange("FY")}
                     >
-                      Last Year Board
+                      Last Year Board (FY)
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
