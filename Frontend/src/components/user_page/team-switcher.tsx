@@ -15,6 +15,7 @@ export function TeamSwitcher({
 }: {
   teams: {
     name: string
+    logo: React.ElementType
   }[]
 }) {
 

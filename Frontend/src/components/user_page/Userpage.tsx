@@ -12,7 +12,6 @@ import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/s
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import EditProfile from "./Editprofile";
 import React from "react";
 import EditClubDetails from "./EditClubDetails";
@@ -124,23 +123,6 @@ const UserSocialLinks = ({ social }: { social: SocialLinks }) => (
   </div>
 );
 
-// User Past Events Component
-const UserPastEvents = ({ pastEvents }: { pastEvents: string[] }) => (
-  <Accordion type="single" collapsible className="w-full">
-    <AccordionItem value="events">
-      <AccordionTrigger className="text-sm font-medium text-blue-600">
-        Past Events Organized
-      </AccordionTrigger>
-      <AccordionContent>
-        <ul className="list-disc list-inside text-sm text-gray-600">
-          {pastEvents.map((event, index) => (
-            <li key={index}>{event}</li>
-          ))}
-        </ul>
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>
-);
 
 const UserPastEventsdirect = ({ pastEvents }: { pastEvents: string[] }) => (
   <div className="space-y-2 w-[90%]">
