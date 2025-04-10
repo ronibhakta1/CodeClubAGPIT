@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GalleryVerticalEnd, LucideIcon } from "lucide-react";
 
-import { NavMain } from "./nav-Main";
+import { NavMain } from "./nav-main";
 import { NavUser } from "@/components/user_page/nav-user";
 import { TeamSwitcher } from "@/components/user_page/team-switcher";
 import {
