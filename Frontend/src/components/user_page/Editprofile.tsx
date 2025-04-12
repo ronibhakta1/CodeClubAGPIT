@@ -169,17 +169,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
           {["github", "linkedin", "portfolio"].map((platform) => (
             <div key={platform} className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor={platform} className="text-right capitalize">{platform}</Label>
-              <Input
-                id={platform}
-                value={formData.social[platform as keyof typeof formData.social]}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    social: { ...prev.social, [platform]: e.target.value },
-                  }))
-                }
-                className="col-span-3"
-              />
+              <Input id={platform} value={formData.social[platform as keyof User["social"]]} onChange={(e) => handleSocialChange(platform as keyof User["social"], e.target.value)} className="col-span-3" />
             </div>
           ))}
         </div>
