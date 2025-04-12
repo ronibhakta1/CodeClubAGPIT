@@ -1,80 +1,52 @@
-import * as React from "react";
-import { GalleryVerticalEnd, LucideIcon } from "lucide-react";
-
-import { NavMain } from "./nav-main";
-import { NavUser } from "@/components/user_page/nav-user";
-import { TeamSwitcher } from "@/components/user_page/team-switcher";
+import * as React from "react"
+import { NavProjects } from "@/components/user_page/nav-projects"
+import { NavUser } from "@/components/user_page/nav-user"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/sidebar"
 
-type User = {
-  id: number;
-  name: string;
-  avatar: string;
-  role: string;
-  codeClubRole: string;
-  skills: string[];
-  bio: string;
-  social: {
-    github: string;
-    linkedin: string;
-    portfolio: string;
-  };
-  pastEvents: string[];
-  yearOfPursuing: string;
-  yearOfPassing: string;
-  email: string;
-};
+// This is sample data.
+const data = {
+  user: {
+    name: "Roni Bhakta",
+    email: "roni@email.com",
+    avatar: "https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg",
+  },
+  
+  projects: [
+    {
+      name: "Basic Info",
+      url: "#",
+    },
+    {
+      name: "Club Info",
+      url: "#",
+    },
+    {
+      name: "Past Events",
+      url: "#",
+    },
+  ],
+}
 
-export function AppSidebar({
-  user,
-  activeSection,
-  setActiveSection,
-  navItems,
-  ...props
-}: {
-  user: User;
-  activeSection: string;
-  setActiveSection: (section: string) => void;
-  navItems: {
-    title: string;
-    icon?: LucideIcon;
-    sectionKey: string;
-  }[];
-} & React.ComponentProps<typeof Sidebar>) {
-  const data = {
-    teams: [
-      {
-        name: "Profile",
-        logo: GalleryVerticalEnd,
-      },
-    ],
-  };
-
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain
-          items={navItems.map((item) => ({
-            ...item,
-            isActive: activeSection === item.sectionKey,
-          }))}
-          activeSection={activeSection}
-          setActiveSection={setActiveSection}
-        />
+        <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={user} />
+        <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
 }
+
+export default AppSidebar;
