@@ -1,5 +1,5 @@
 import * as React from "react";
-import {  LucideIcon } from "lucide-react";
+import { GalleryVerticalEnd, LucideIcon } from "lucide-react";
 
 import { NavMain } from "./nav-main";
 import { NavUser } from "@/components/user_page/nav-user";
@@ -47,29 +47,36 @@ export function AppSidebar({
     sectionKey: string;
   }[];
 } & React.ComponentProps<typeof Sidebar>) {
-  
+  const data = {
+    teams: [
+      {
+        name: "Profile",
+        logo: GalleryVerticalEnd,
+      },
+    ],
+  };
 
   return (
-    <Sidebar collapsible="icon" {...props}  >
-      <SidebarHeader className="bg-black text-white">
-        <TeamSwitcher  />
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
-      <SidebarContent className="bg-black text-white">
-        <NavMain 
+      <SidebarContent>
+        <NavMain
           items={navItems.map((item) => ({
             ...item,
             isActive: activeSection === item.sectionKey,
-            
           }))}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
-          
         />
       </SidebarContent>
-      <SidebarFooter className="bg-black text-white">
+      <SidebarFooter>
         <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
 }
+
+export default AppSidebar;

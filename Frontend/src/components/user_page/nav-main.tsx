@@ -1,35 +1,25 @@
-"use client"
 
-import {  type LucideIcon } from "lucide-react"
-
-import {
-  Collapsible,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavMain({
-  items,
-  activeSection,
-  setActiveSection,
+export function Navbars({
+  navbar,
 }: {
-  items: {
-    title: string
-    icon?: LucideIcon
-    isActive?: boolean
-    sectionKey: string // new: unique key for section
+  navbar: {
+    name: string
+    url: string
   }[]
-  activeSection: string
-  setActiveSection: (key: string) => void
 }) {
+  const {  } = useSidebar()
+
   return (
-    <SidebarGroup className="bg-black text-white">
+    <SidebarGroup>
       <SidebarGroupLabel></SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
@@ -37,14 +27,14 @@ export function NavMain({
             key={item.title}
             asChild
             defaultOpen={item.isActive}
-            className="group/collapsible bg-black text-white"
+            className="group/collapsible"
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton
                   tooltip={item.title}
                   onClick={() => setActiveSection(item.sectionKey)}
-                  className={activeSection === item.sectionKey ? "bg-white text-black" : ""}
+                  className={activeSection === item.sectionKey ? "bg-muted" : ""}
                 >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
@@ -53,6 +43,7 @@ export function NavMain({
             </SidebarMenuItem>
           </Collapsible>
         ))}
+        
       </SidebarMenu>
     </SidebarGroup>
   )
