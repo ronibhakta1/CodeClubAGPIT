@@ -19,15 +19,15 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setIsOpen(true)}>Edit Club Details</Button>
+        <Button variant="outline" onClick={() => setIsOpen(true)} className="bg-white text-black">Edit Club Details</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] p-6 rounded-lg">
+      <DialogContent className="sm:max-w-[500px] p-6 rounded-lg bg-black text-white">
         <DialogHeader>
           <DialogTitle>Edit Club Details</DialogTitle>
           <DialogDescription>Update your club role and academic details below.</DialogDescription>
         </DialogHeader>
 
-        <div className="grid gap-5 py-2">
+        <div className="grid gap-5 py-2 ">
           {/* Role */}
           <div className="grid grid-cols-4 items-center gap-4">
             <span className="text-right font-medium">Role</span>
@@ -88,7 +88,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
         </div>
 
         <DialogFooter>
-          <Button onClick={handleSave} type="button">
+          <Button onClick={handleSave} type="button" >
             Save Changes
           </Button>
         </DialogFooter>

@@ -71,11 +71,11 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline" className="bg-white text-black">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg">
-        <DialogHeader>
-          <DialogTitle>Edit Profile</DialogTitle>
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg bg-black text-white">
+        <DialogHeader >
+          <DialogTitle >Edit Profile</DialogTitle>
         </DialogHeader>
 
         <div className="grid gap-5 py-2">
