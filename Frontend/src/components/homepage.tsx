@@ -25,7 +25,7 @@ const Homepage = () => {
     return (
         <>
             <div className="bg-black h-screen w-screen">
-                <div className="grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+                <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
                     <div className="flex items-center gap-2">
                         <img src="./logo.png" alt="logo" className="w-10 h-8" />
                         <div className="logo text-white text-xl font-bold cursor-pointer">CODE CLUB AGPIT</div>
