@@ -123,9 +123,9 @@ const Events = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-black w-full overflow-x-hidden">
+    <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-zinc-950 w-full overflow-x-hidden">
       {/* Navbar with Dropdown */}
-      <div className="grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+      <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
         <div className="flex items-center gap-2">
           <img src="./logo.png" alt="logo" className="w-10 h-8" />
           <div className="logo text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>
@@ -159,7 +159,7 @@ const Events = () => {
                 <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
                   Members <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-black border-gray-700 text-white">
+                <DropdownMenuContent className="bg-zinc-950 border-gray-700 text-white">
                   <DropdownMenuItem
                     className="cursor-pointer hover:bg-gray-800"
                     onClick={() => handleBoardChange("TY")}
@@ -187,7 +187,7 @@ const Events = () => {
 
       {/* Mobile Side Navigation */}
       <div
-        className={`fixed top-0 right-0 h-full bg-black w-64 z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full bg-zinc-950 w-64 z-50 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
@@ -264,14 +264,14 @@ const Events = () => {
       {/* Overlay when mobile menu is open */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 bg-zinc-950 bg-opacity-50 z-40 md:hidden"
           onClick={toggleMobileMenu}
         ></div>
       )}
 
       {/* Past Event */}
       <div className="mb-2 mt-7 flex">
-        <p className="bg-black text-white mt-0 w-full text-center">
+        <p className="bg-zinc-950 text-white mt-0 w-full text-center">
           <h1 className="text-2xl font-[1000]">{activeEvent[2].name}</h1>
         </p>
       </div>
@@ -382,8 +382,8 @@ const Events = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
-          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
         </Carousel>
       </div>
 
@@ -495,8 +495,8 @@ const Events = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
-          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
         </Carousel>
       </div>
 
@@ -553,7 +553,7 @@ const Events = () => {
           </div>
 
           <div className="mt-4">
-            <Button className="w-48 px-4 py-3 text-sm bg-black text-white hover:bg-sky-700">
+            <Button className="w-48 px-4 py-3 text-sm bg-zinc-950 text-white hover:bg-sky-700">
               Registration [open/close]
             </Button>
           </div>
@@ -613,7 +613,7 @@ const Events = () => {
             </HoverCard>
           </div>
 
-          <Button className="w-48 px-4 py-3 text-sm bg-black text-white self-start hover:bg-sky-700">
+          <Button className="w-48 px-4 py-3 text-sm bg-zinc-950 text-white self-start hover:bg-sky-700">
             Registration/More details
           </Button>
         </Card>

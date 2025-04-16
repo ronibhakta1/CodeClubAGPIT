@@ -82,10 +82,10 @@ const Members = () => {
   const president = members.find(member => member.role === "President");
 
   return (
-    <div className="bg-black min-h-screen w-full">
-      <div className="flex flex-col items-center gap-4 pb-4 bg-black w-full">
+    <div className="bg-zinc-950 min-h-screen w-full">
+      <div className="flex flex-col items-center gap-4 pb-4 bg-zinc-950 w-full">
         {/* Navigation Header */}
-        <div className="grid-cols-1 bg-black border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+        <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
           <div className="flex items-center gap-2">
             <img src="/logo.png" alt="logo" className="w-10 h-8" />
             <div className="logo text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>CODE CLUB AGPIT</div>
@@ -114,7 +114,7 @@ const Members = () => {
                   <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
                     Members <ChevronDown className="h-4 w-4" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-black border-gray-700 text-white">
+                  <DropdownMenuContent className="bg-zinc-950 border-gray-700 text-white">
                     <DropdownMenuItem 
                       className="cursor-pointer hover:bg-gray-800"
                       onClick={() => handleBoardChange("TY")}
@@ -141,7 +141,7 @@ const Members = () => {
         </div>
 
         {/* Mobile Side Navigation */}
-        <div className={`fixed top-0 right-0 h-full bg-black w-64 z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+        <div className={`fixed top-0 right-0 h-full bg-zinc-950 w-64 z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
           <div className="flex justify-end p-4">
             <button onClick={toggleMobileMenu} className="text-white">
               <X size={24} />
@@ -188,7 +188,7 @@ const Members = () => {
         {/* Overlay when mobile menu is open */}
         {isMobileMenuOpen && (
           <div 
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+            className="fixed inset-0 bg-zinc-950 bg-opacity-50 z-40 md:hidden"
             onClick={toggleMobileMenu}
           ></div>
         )}
