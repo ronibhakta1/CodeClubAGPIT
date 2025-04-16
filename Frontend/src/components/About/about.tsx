@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const user = {
   id: 1,
@@ -37,7 +36,6 @@ const user = {
 const About = () => {  
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);

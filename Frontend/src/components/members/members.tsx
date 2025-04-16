@@ -16,7 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Member {
   id: number;
@@ -41,7 +40,6 @@ const Members = () => {
   const [members, setMembers] = useState<Member[]>([]);
   const [selectedBoard, setSelectedBoard] = useState<string>("TY");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
