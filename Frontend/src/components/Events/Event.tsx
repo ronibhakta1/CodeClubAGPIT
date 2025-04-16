@@ -32,7 +32,6 @@ import {
 import { PlusIcon } from "lucide-react";
 import { ScrollArea } from "@/components/Events/scroll-area";
 import { useState } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 // Team members data
 const activeEvent = [
@@ -58,7 +57,6 @@ const activeEvent = [
     name: "Past Event",
     name1: "(Main Board)",
     year: "2023-24",
-
   },
   {
     name: "DSA Workshop! ",
@@ -114,7 +112,6 @@ const activeEvent = [
 const Events = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -273,17 +270,17 @@ const Events = () => {
       )}
 
       {/* Past Event */}
-      <div className="mb-  mt-7  flex">
-        <p className="  bg-black text-white mt-0 w-full text-center ">
+      <div className="mb-2 mt-7 flex">
+        <p className="bg-black text-white mt-0 w-full text-center">
           <h1 className="text-2xl font-[1000]">{activeEvent[2].name}</h1>
         </p>
       </div>
 
-      {/* add hr line for main board */}
+      {/* Add hr line for main board */}
       <div className="text-center my-4 font-semibold">
-        <p className="text-lg font-extralight">{activeEvent[2].name1} </p>
+        <p className="text-lg font-extralight">{activeEvent[2].name1}</p>
       </div>
-      <hr className="border-t-2 border-gray-300 max-w-[1200px]  mx-auto" />
+      <hr className="border-t-2 border-gray-300 max-w-[1200px] mx-auto" />
 
       {/* Carousel Section */}
       <div className="flex gap-30 mb-10 px-0 py-4 w-full max-w-[1200px] mx-auto">
@@ -302,7 +299,7 @@ const Events = () => {
                       <img
                         src={event.image1}
                         alt={event.name}
-                        className=" w-full h-[200px] object-cover rounded-md "
+                        className="w-full h-[200px] object-cover rounded-md"
                       />
 
                       <div className="p-3 flex-grow">
@@ -360,7 +357,7 @@ const Events = () => {
                         </Carousel>
 
                         <div className="p-6">
-                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">
+                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
                             {event.name}
                           </MorphingDialogTitle>
 
@@ -385,12 +382,12 @@ const Events = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
-          <CarouselNext className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
         </Carousel>
       </div>
 
-      {/* Add hr line for   */}
+      {/* Add hr line for second section */}
       <div className="text-center my-4 font-semibold">
         <p className="text-lg font-extralight">
           {activeEvent[2].name1} : {activeEvent[2].year}
@@ -415,7 +412,7 @@ const Events = () => {
                       <img
                         src={event.image1}
                         alt={event.name}
-                        className=" w-full h-[200px] object-cover rounded-md "
+                        className="w-full h-[200px] object-cover rounded-md"
                       />
 
                       <div className="p-3 flex-grow">
@@ -473,7 +470,7 @@ const Events = () => {
                         </Carousel>
 
                         <div className="p-6">
-                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">
+                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
                             {event.name}
                           </MorphingDialogTitle>
 
@@ -498,8 +495,8 @@ const Events = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
-          <CarouselNext className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
         </Carousel>
       </div>
 
@@ -563,19 +560,18 @@ const Events = () => {
         </Card>
 
         {/* New Upcoming Event Box */}
-        <Card className="p-6 shadow-md w-100 transition delay-150 duration-300 ease-in-out hover:-translate-y-2 ">
+        <Card className="p-6 shadow-md w-100 transition delay-150 duration-300 ease-in-out hover:-translate-y-2">
           <h2 className="text-lg font-bold space-y-0 leading-tight">{activeEvent[1].name}</h2>
           <p className="text-sm">
-            {" "}
-            <strong>🔹Event Name: </strong> {activeEvent[1].eventname}{" "}
+            <strong>🔹Event Name: </strong> {activeEvent[1].eventname}
           </p>
-          <p className=" text-sm">
-            <strong>🔹 Date: </strong> {activeEvent[1].date}{" "}
+          <p className="text-sm">
+            <strong>🔹 Date: </strong> {activeEvent[1].date}
           </p>
-          <p className=" text-sm">
+          <p className="text-sm">
             <strong>🔹 Deadline: </strong> {activeEvent[1].deadline}
           </p>
-          <p className=" text-sm">
+          <p className="text-sm">
             <strong>🔹 Location:</strong> {activeEvent[1].location}
           </p>
 
