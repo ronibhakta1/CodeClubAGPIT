@@ -1,20 +1,5 @@
 [
     {
-        "name": "Md Shafi Arif Hudewale",
-        "email": "shafihudewale@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/shafihudewale?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "role": "Secretary",
-        "domain": "Artifical Intelligence & Machine Learning (python,scikit-learn)",
-        "yearOfStudy": "SY",
-        "yearOfPassing": 2027,
-        "bio": "I\u2019m a 2nd-year CSE student at AGPIT Solapur and the Secretary of my college's code club. I focus on Python development, web technologies, and entrepreneurship, with interests in data science and Web3.",
-        "social": {
-            "github": "https://github.com/shafihudewale",
-            "portfolio": "https://sepolia.starkscan.co/contract/0x06150862a529f147a882feff06203d2b80faefd3363a0056ec54949b15892eb5"
-        },
-        "avatar": "https://media.licdn.com/dms/image/v2/D5603AQG5ouPh71Y9Mg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727863905154?e=1748476800&v=beta&t=5oks6xzSSM2ThXmK09kQropUawWKrlFQCLSEWaLsiT8"
-    },
-    {
         "name": "Bhumika Dolnare",
         "email": "dolnarebhumika4@gmail.com",
         "linkedin": "https://www.linkedin.com/in/bhumika-dolnare-5b5649329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -28,6 +13,66 @@
             "portfolio": ""
         },
         "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQENnYht_VGGew/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1731768982318?e=1745434800&v=beta&t=V-AnCcIdvT6FNObv6eUVGjUhfBgwYzQ47_2owwFwpzo"  },
+    {
+        "name": "Md Shafi Arif Hudewale",
+        "email": "shafihudewale@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/shafihudewale?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "role": "Secretary",
+        "domain": "Artifical Intelligence & Machine Learning (python,scikit-learn)",
+        "yearOfStudy": "SY",
+        "yearOfPassing": 2027,
+        "bio": "I\u2019m a 2nd-year CSE student at AGPIT Solapur and the Secretary of my college's code club. I focus on Python development, web technologies, and entrepreneurship, with interests in data science and Web3.",
+        "social": {
+            "github": "https://github.com/shafihudewale",
+            "portfolio": ""
+        },
+        "avatar": "https://media.licdn.com/dms/image/v2/D5603AQG5ouPh71Y9Mg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727863905154?e=1748476800&v=beta&t=5oks6xzSSM2ThXmK09kQropUawWKrlFQCLSEWaLsiT8"
+    },
+    {
+        "name": "Priyanka Kumbhar ",
+        "email": "priyankakumbhar.2405@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/priyanka-kumbhar-637a80286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "role": "DSA Lead",
+        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+        "yearOfStudy": "SY",
+        "yearOfPassing": 2027,
+        "bio": "Web developer ",
+        "social": {
+            "github": "https://github.com/Priya-kumbhar",
+            "portfolio": ""
+        },
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
+    },
+    {
+        "name": "Shoaib Inamdar",
+        "email": "shoaibinamdar14@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/shoaib-inamdar-0416a5263",
+        "role": "Developer",
+        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+        "yearOfStudy": "SY",
+        "yearOfPassing": 2027,
+        "bio": "Currently learning Web development ",
+        "social": {
+            "github": "https://github.com/shoaib-inamdar",
+            "portfolio": ""
+        },
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
+    },
+    {
+        "name": "Pranoti Balaji Ambat",
+        "email": "pranotiambat2005@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/pranoti-ambat-82b782311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "role": "Developer",
+        "domain": " FULL STACK ANDROID DEVELOPER (kotlin, or java)",
+        "yearOfStudy": "SY",
+        "yearOfPassing": 2027,
+        "bio": "...",
+        "social": {
+            "github": "https://github.com/Pranoti2005",
+            "portfolio": "..."
+        },
+        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQFnnnZGAMqNFw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718222065435?e=1748476800&v=beta&t=fS9uN0XNmWIKi_SAe0Jjtd6weCKJKdRrHJZG56kPog8"
+    },
     {
         "name": "Naseem  Irkal ",
         "email": "naseemirkal@gmail.com",
@@ -58,36 +103,8 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
-    {
-        "name": "Shoaib Inamdar",
-        "email": "shoaibinamdar14@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/shoaib-inamdar-0416a5263",
-        "role": "Developer",
-        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
-        "yearOfStudy": "SY",
-        "yearOfPassing": 2027,
-        "bio": "Currently learning Web development ",
-        "social": {
-            "github": "https://github.com/shoaib-inamdar",
-            "portfolio": ""
-        },
-        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
-    },
-    {
-        "name": "Priyanka Kumbhar ",
-        "email": "priyankakumbhar.2405@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/priyanka-kumbhar-637a80286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "role": "DSA Lead",
-        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
-        "yearOfStudy": "SY",
-        "yearOfPassing": 2027,
-        "bio": "Web developer ",
-        "social": {
-            "github": "https://github.com/Priya-kumbhar",
-            "portfolio": ""
-        },
-        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
-    },
+  
+   
     {
         "name": "Md.Saif ",
         "email": "saifnaikwadi2005@gmail.com",
@@ -149,21 +166,7 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
-    {
-        "name": "Pranoti Balaji Ambat",
-        "email": "pranotiambat2005@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/pranoti-ambat-82b782311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "role": "Developer",
-        "domain": " FULL STACK ANDROID DEVELOPER (kotlin, or java)",
-        "yearOfStudy": "SY",
-        "yearOfPassing": 2027,
-        "bio": "...",
-        "social": {
-            "github": "https://github.com/Pranoti2005",
-            "portfolio": "..."
-        },
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQFnnnZGAMqNFw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718222065435?e=1748476800&v=beta&t=fS9uN0XNmWIKi_SAe0Jjtd6weCKJKdRrHJZG56kPog8"
-    },
+
     {
         "name": "Adil Doka ",
         "email": "adildoka35@gmail.com",
