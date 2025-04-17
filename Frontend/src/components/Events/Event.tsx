@@ -1,46 +1,35 @@
-import { Button } from "@/components/ui/button"; // Import ShadCN button
-
-
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
-import { Card } from "@/components/ui/card"
+import { ChevronDown, Menu, X } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/Events/carousel"
-
+} from "@/components/Events/carousel";
 import {
   MorphingDialog,
   MorphingDialogTrigger,
   MorphingDialogContent,
   MorphingDialogTitle,
-
-
   MorphingDialogClose,
   MorphingDialogDescription,
   MorphingDialogContainer,
 } from "@/components/Events/morphing-dialog";
-
-
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/Events/hover-card"
+} from "@/components/Events/hover-card";
 import { PlusIcon } from "lucide-react";
-
-
 import { ScrollArea } from "@/components/Events/scroll-area";
 
 import eventData from "@/components/Events/eventData.json";
@@ -61,6 +50,7 @@ export function BorderTrailHr() {
   );
 }
 
+import { useState } from "react";
 
 // Team members data
 const activeEvent = [
@@ -86,7 +76,6 @@ const activeEvent = [
     name: "Past Event",
     name1: "(Main Board)",
     year: "2023-24",
-
   },
   {
     name: "DSA Workshop! ",
@@ -138,12 +127,170 @@ const activeEvent = [
     image3: "https://media.licdn.com/dms/image/v2/D5622AQF2Qx_PPEWErQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1729000381999?e=1746057600&v=beta&t=TzDE08mHQr9EdmaMiqmESe0QMq_tdZQt0uIfp32jh88",
   },
 ];
+
 const Events = () => {
   const navigate = useNavigate();
   const eventList = activeEvent.slice(3);
   const handleBoardChange = (board: string) => {
     navigate(`/members?board=${board}`);
   };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const eventList = activeEvent.slice(3);
+  const handleBoardChange = (board: string) => {
+    navigate(`/members?board=${board}`);
+  };
+
+  return (
+    <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-zinc-950 w-full overflow-x-hidden">
+      {/* Navbar with Dropdown */}
+      <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+        <div className="flex items-center gap-2">
+          <img src="./logo.png" alt="logo" className="w-10 h-8" />
+          <div className="logo text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>
+            CODE CLUB AGPIT
+          </div>
+        </div>
+
+        {/* Mobile menu toggle button */}
+        <div className="md:hidden">
+          <button onClick={toggleMobileMenu} className="text-white p-2">
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="nav-links hidden md:flex justify-between items-center w-1/2 pr-40">
+          <ul className="flex justify-between items-center w-full md:text-2xl lg:text-3x">
+            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/")}>
+              Home
+            </li>
+            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/about")}>
+              About
+            </li>
+            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/events")}>
+              Events
+            </li>
+
+            {/* Members Dropdown */}
+            <li className="text-white text-lg font-semibold">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
+                  Members <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-zinc-950 border-gray-700 text-white">
+                  <DropdownMenuItem
+                    className="cursor-pointer hover:bg-gray-800"
+                    onClick={() => handleBoardChange("TY")}
+                  >
+                    Main Board
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="cursor-pointer hover:bg-gray-800"
+                    onClick={() => handleBoardChange("SY")}
+                  >
+                    Assistant Board
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="cursor-pointer hover:bg-gray-800"
+                    onClick={() => handleBoardChange("FY")}
+                  >
+                    Last Year Board
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Mobile Side Navigation */}
+      <div
+        className={`fixed top-0 right-0 h-full bg-zinc-950 w-64 z-50 transform transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        } md:hidden`}
+      >
+        <div className="flex justify-end p-4">
+          <button onClick={toggleMobileMenu} className="text-white">
+            <X size={24} />
+          </button>
+        </div>
+        <ul className="flex flex-col p-4 space-y-6">
+          <li
+            className="text-white text-lg font-semibold cursor-pointer"
+            onClick={() => {
+              navigate("/");
+              toggleMobileMenu();
+            }}
+          >
+            Home
+          </li>
+          <li
+            className="text-white text-lg font-semibold cursor-pointer"
+            onClick={() => {
+              navigate("/about");
+              toggleMobileMenu();
+            }}
+          >
+            About
+          </li>
+          <li
+            className="text-white text-lg font-semibold cursor-pointer"
+            onClick={() => {
+              navigate("/events");
+              toggleMobileMenu();
+            }}
+          >
+            Events
+          </li>
+          <li className="text-white text-lg font-semibold">
+            <div className="flex flex-col space-y-3">
+              <span>Members</span>
+              <ul className="pl-4 space-y-3">
+                <li
+                  className="text-gray-300 cursor-pointer hover:text-white"
+                  onClick={() => {
+                    handleBoardChange("TY");
+                    toggleMobileMenu();
+                  }}
+                >
+                  Main Board
+                </li>
+                <li
+                  className="text-gray-300 cursor-pointer hover:text-white"
+                  onClick={() => {
+                    handleBoardChange("SY");
+                    toggleMobileMenu();
+                  }}
+                >
+                  Assistant Board
+                </li>
+                <li
+                  className="text-gray-300 cursor-pointer hover:text-white"
+                  onClick={() => {
+                    handleBoardChange("FY");
+                    toggleMobileMenu();
+                  }}
+                >
+                  Last Year Board
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      {/* Overlay when mobile menu is open */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-zinc-950 bg-opacity-50 z-40 md:hidden"
+          onClick={toggleMobileMenu}
+        ></div>
+      )}
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-black w-full overflow-x-hidden">
@@ -205,16 +352,24 @@ const Events = () => {
         <p className="bg-black text-white mt-0 w-full text-center py-3">
           <h1 className="text-2xl font-extrabold sm:text-3xl">{activeEvent[2].name}</h1>
         </p>
+      <div className="mb-2 mt-7 flex">
+        <p className="bg-zinc-950 text-white mt-0 w-full text-center">
+          <h1 className="text-2xl font-[1000]">{activeEvent[2].name}</h1>
+        </p>
       </div>
 
       {/* add hr line for main board */}
       <div className="text-center my-4 font-semibold text-white ">
         <p className="text-lg font-extralight py-4">{activeEvent[2].name1}</p>
+      {/* Add hr line for main board */}
+      <div className="text-center my-4 font-semibold">
+        <p className="text-lg font-extralight">{activeEvent[2].name1}</p>
       </div>
       <BorderTrailHr />
 
     
 
+      <hr className="border-t-2 border-gray-300 max-w-[1200px] mx-auto" />
 
       {/* Carousel Section */}
       <Carousel className="w-full max-w-[1000px] md:max-w-[1200px] h-[400px] relative mx-auto py-10">
@@ -232,13 +387,39 @@ const Events = () => {
                     <img src={event.image1} alt={event.name} className=" w-full h-[200px] object-cover rounded-md " />
 
 
+      <div className="flex gap-30 mb-10 px-0 py-4 w-full max-w-[1200px] mx-auto">
+        <Carousel className="w-full max-w-[1000px] md:max-w-[1200px] h-[400px] relative mx-auto">
+          <CarouselContent className="w-full">
+            {eventList.map((event, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
+                <div className="p-4">
+                  <MorphingDialog transition={{ type: "spring", bounce: 0.05, duration: 0.25 }}>
+                    {/* Clickable Event Card */}
+                    <MorphingDialogTrigger
+                      style={{ borderRadius: "12px", height: "380px" }}
+                      className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+                    >
+                      {/*  New Carousel for Multiple Images */}
+                      <img
+                        src={event.image1}
+                        alt={event.name}
+                        className="w-full h-[200px] object-cover rounded-md"
+                      />
 
+                      <div className="p-3 flex-grow">
+                        <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
+                          {event.name}
+                        </MorphingDialogTitle>
                     <div className="p-3 flex-grow">
                       <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
                         {event.name}
                       </MorphingDialogTitle>
 
 
+                        <div className="event-card flex-grow font-extralight">
+                          <p className="line-clamp-3">{event.detail?.substring(0, 100)}...</p>
+                        </div>
+                      </div>
                       <div className="event-card flex-grow font-extralight">
                         <p className="line-clamp-3">{event.detail?.substring(0, 100)}...</p>
                       </div>
@@ -276,10 +457,79 @@ const Events = () => {
                         <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
                         <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
                       </Carousel>
+                    {/* Expanded Dialog Content */}
+                    <MorphingDialogContainer>
+                      <MorphingDialogContent
+                        style={{ borderRadius: "24px" }}
+                        className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[400px] sm:max-h-[600px]"
+                      >
+                        {/*  New Carousel for Multiple Images */}
+                        <Carousel>
+                          <CarouselContent>
+                            <CarouselItem>
+                              <img
+                                src={event.image1}
+                                alt="Event Image 1"
+                                className="h-80 w-full object-cover"
+                              />
+                            </CarouselItem>
+                            <CarouselItem>
+                              <img
+                                src={event.image2}
+                                alt="Event Image 2"
+                                className="h-80 w-full object-cover"
+                              />
+                            </CarouselItem>
+                            <CarouselItem>
+                              <img
+                                src={event.image3}
+                                alt="Event Image 3"
+                                className="h-80 w-full object-cover"
+                              />
+                            </CarouselItem>
+                          </CarouselContent>
+                          <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                          <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                        </Carousel>
 
                       <div className="p-6">
                         <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">{event.name}</MorphingDialogTitle>
+                        <div className="p-6">
+                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
+                            {event.name}
+                          </MorphingDialogTitle>
 
+                          <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+                            <MorphingDialogDescription
+                              disableLayoutAnimation
+                              variants={{
+                                initial: { opacity: 0, scale: 0.8, y: 100 },
+                                animate: { opacity: 1, scale: 1, y: 0 },
+                                exit: { opacity: 0, scale: 0.8, y: 100 },
+                              }}
+                            >
+                              <p className="mt-2 text-zinc-500 dark:text-zinc-500">{event.detail}</p>
+                            </MorphingDialogDescription>
+                          </ScrollArea>
+                        </div>
+                        <MorphingDialogClose className="text-zinc-50" />
+                      </MorphingDialogContent>
+                    </MorphingDialogContainer>
+                  </MorphingDialog>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+        </Carousel>
+      </div>
+
+      {/* Add hr line for second section */}
+      <div className="text-center my-4 font-semibold">
+        <p className="text-lg font-extralight">
+          {activeEvent[2].name1} : {activeEvent[2].year}
+        </p>
                         <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
                           <MorphingDialogDescription disableLayoutAnimation variants={{
                             initial: { opacity: 0, scale: 0.8, y: 100 },
@@ -314,10 +564,28 @@ const Events = () => {
 
 
 
+      <div className="flex gap-30 mb-10 px-0 py-4 w-full max-w-[1200px] mx-auto">
       <div className="flex gap-30 mb-10 px-0 w-full max-w-[1200px] mx-auto">
 
 
         {/* Carousel Section */}
+        <Carousel className="w-full max-w-[1000px] md:max-w-[1200px] h-[400px] relative mx-auto">
+          <CarouselContent className="w-full">
+            {eventList.map((event, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
+                <div className="p-4">
+                  <MorphingDialog transition={{ type: "spring", bounce: 0.05, duration: 0.25 }}>
+                    {/* Clickable Event Card */}
+                    <MorphingDialogTrigger
+                      style={{ borderRadius: "12px", height: "380px" }}
+                      className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+                    >
+                      {/*  New Carousel for Multiple Images */}
+                      <img
+                        src={event.image1}
+                        alt={event.name}
+                        className="w-full h-[200px] object-cover rounded-md"
+                      />
 
 
 
@@ -345,12 +613,20 @@ const Events = () => {
                             {event.name}
                           </MorphingDialogTitle>
 
+                      <div className="p-3 flex-grow">
+                        <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
+                          {event.name}
+                        </MorphingDialogTitle>
 
                           <div className="event-card flex-grow font-extralight">
                             <p className="line-clamp-3">{event.description?.substring(0, 100)}...</p>
                           </div>
 
                         </div>
+                        <div className="event-card flex-grow font-extralight">
+                          <p className="line-clamp-3">{event.detail?.substring(0, 100)}...</p>
+                        </div>
+                      </div>
 
                         <button
                           type="button"
@@ -383,10 +659,73 @@ const Events = () => {
                             <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
                             <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
                           </Carousel>
+                    {/* Expanded Dialog Content */}
+                    <MorphingDialogContainer>
+                      <MorphingDialogContent
+                        style={{ borderRadius: "24px" }}
+                        className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[400px] sm:max-h-[600px]"
+                      >
+                        {/*  New Carousel for Multiple Images */}
+                        <Carousel>
+                          <CarouselContent>
+                            <CarouselItem>
+                              <img
+                                src={event.image1}
+                                alt="Event Image 1"
+                                className="h-80 w-full object-cover"
+                              />
+                            </CarouselItem>
+                            <CarouselItem>
+                              <img
+                                src={event.image2}
+                                alt="Event Image 2"
+                                className="h-80 w-full object-cover"
+                              />
+                            </CarouselItem>
+                            <CarouselItem>
+                              <img
+                                src={event.image3}
+                                alt="Event Image 3"
+                                className="h-80 w-full object-cover"
+                              />
+                            </CarouselItem>
+                          </CarouselContent>
+                          <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                          <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                        </Carousel>
 
                           <div className="p-6">
                             <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">{event.name}</MorphingDialogTitle>
+                        <div className="p-6">
+                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
+                            {event.name}
+                          </MorphingDialogTitle>
 
+                          <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+                            <MorphingDialogDescription
+                              disableLayoutAnimation
+                              variants={{
+                                initial: { opacity: 0, scale: 0.8, y: 100 },
+                                animate: { opacity: 1, scale: 1, y: 0 },
+                                exit: { opacity: 0, scale: 0.8, y: 100 },
+                              }}
+                            >
+                              <p className="mt-2 text-zinc-500 dark:text-zinc-500">{event.detail}</p>
+                            </MorphingDialogDescription>
+                          </ScrollArea>
+                        </div>
+                        <MorphingDialogClose className="text-zinc-50" />
+                      </MorphingDialogContent>
+                    </MorphingDialogContainer>
+                  </MorphingDialog>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselNext className="absolute top-1/2 transform -translate-y-1/2 bg-zinc-950 text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+        </Carousel>
+      </div>
                             <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
                               <MorphingDialogDescription disableLayoutAnimation variants={{
                                 initial: { opacity: 0, scale: 0.8, y: 100 },
@@ -417,26 +756,40 @@ const Events = () => {
       </div>
 
 
+      <div className="flex gap-30 mb-12 px-50 py-4">
 
       <div className="flex flex-col lg:flex-row gap-10 mb-12 px-4 sm:px-6 md:px-12 py-4 w-200">
         {/* Active Event Box */}
         <Card className="p-4 sm:p-6 shadow-md w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 text-left mx-auto">
           <h2 className="text-lg font-bold leading-tight">{activeEvent[0].name}</h2>
-          <p className="text-sm"><strong>🔹 Event Name: </strong> {activeEvent[0].eventname}</p>
-          <p className="text-sm"><strong>🔹 Date: </strong> {activeEvent[0].date}</p>
-          <p className="text-sm"><strong>🔹 Location: </strong> {activeEvent[0].location}</p>
+          <p className="text-sm">
+            <strong>🔹 Event Name: </strong> {activeEvent[0].eventname}
+          </p>
+          <p className="text-sm">
+            <strong>🔹 Date: </strong> {activeEvent[0].date}
+          </p>
+          <p className="text-sm">
+            <strong>🔹 Location: </strong> {activeEvent[0].location}
+          </p>
 
           <div className="flex flex-col items-start space-y-3 mt-2">
             {/* Description HoverCard */}
             <HoverCard>
               <HoverCardTrigger asChild>
                 <Button variant="link" className="text-left p-0 m-0 leading-none">
-                  <p className="text-sm"><strong>🔹 Description</strong></p>
+                  <p className="text-sm">
+                    <strong>🔹 Description</strong>
+                  </p>
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="w-72 sm:w-80">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold"><strong>🔹 Description</strong></h4>
+              <HoverCardContent className="w-80">
+                <div className="mt-0 ">
+                  <h4 className="text-sm font-semibold">
+                    <strong>🔹 Description</strong>
+                  </h4>
                   <p className="text-sm text-gray-600">{activeEvent[0].disc}</p>
                 </div>
               </HoverCardContent>
@@ -446,12 +799,16 @@ const Events = () => {
             <HoverCard>
               <HoverCardTrigger asChild>
                 <Button variant="link" className="text-left p-0 m-0 leading-none">
-                  <p className="text-sm"><strong>🔹 Type</strong></p>
+                  <p className="text-sm">
+                    <strong>🔹 Type</strong>
+                  </p>
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="w-72 sm:w-80">
                 <div className="mt-0">
-                  <h4 className="text-sm font-semibold"><strong>🔹 Type</strong></h4>
+                  <h4 className="text-sm font-semibold">
+                    <strong>🔹 Type</strong>
+                  </h4>
                   <p className="text-sm text-gray-600">{activeEvent[0].type}</p>
                 </div>
               </HoverCardContent>
@@ -460,14 +817,14 @@ const Events = () => {
 
           <div className="mt-4">
             <Button className="w-full sm:w-48 px-4 py-3 text-sm bg-black text-white hover:bg-sky-700">
+            <Button className="w-48 px-4 py-3 text-sm bg-zinc-950 text-white hover:bg-sky-700">
               Registration [open/close]
             </Button>
           </div>
         </Card>
 
-
-
         {/* New Upcoming Event Box */}
+        <Card className="p-6 shadow-md w-100 transition delay-150 duration-300 ease-in-out hover:-translate-y-2">
 
         <Card className="p-4 sm:p-6 shadow-md w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 mx-auto text-left">
           <h2 className="text-lg font-bold space-y-0 leading-tight">{activeEvent[1].name}</h2>
@@ -475,19 +832,37 @@ const Events = () => {
           <p className="text-sm"><strong>🔹 Date: </strong> {activeEvent[1].date}</p>
           <p className="text-sm"><strong>🔹 Deadline: </strong> {activeEvent[1].deadline}</p>
           <p className="text-sm"><strong>🔹 Location: </strong> {activeEvent[1].location}</p>
+          <p className="text-sm">
+            <strong>🔹Event Name: </strong> {activeEvent[1].eventname}
+          </p>
+          <p className="text-sm">
+            <strong>🔹 Date: </strong> {activeEvent[1].date}
+          </p>
+          <p className="text-sm">
+            <strong>🔹 Deadline: </strong> {activeEvent[1].deadline}
+          </p>
+          <p className="text-sm">
+            <strong>🔹 Location:</strong> {activeEvent[1].location}
+          </p>
 
           <div className="flex flex-col items-start gap-3 mt-2">
             {/* Description HoverCard */}
             <HoverCard>
               <HoverCardTrigger asChild>
                 <Button variant="link" className="text-left p-0 m-0 leading-none">
-                  <p className="text-sm"><strong>🔹 Description</strong></p>
+                  <p className="text-sm">
+                    <strong>🔹 Description</strong>
+                  </p>
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="w-72 sm:w-80">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold"><strong>🔹 Description</strong></h4>
                   <p className="text-sm text-gray-600">{activeEvent[1].disc}</p>
+                  <h4 className="text-sm font-semibold">
+                    <strong>🔹 Description</strong>
+                  </h4>
+                  <p className="text-sm text-gray-600">{activeEvent[0].disc}</p>
                 </div>
               </HoverCardContent>
             </HoverCard>
@@ -496,13 +871,19 @@ const Events = () => {
             <HoverCard>
               <HoverCardTrigger asChild>
                 <Button variant="link" className="text-left p-0 m-0 leading-none">
-                  <p className="text-sm"><strong>🔹 Type</strong></p>
+                  <p className="text-sm">
+                    <strong>🔹 Type</strong>
+                  </p>
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="w-72 sm:w-80">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold"><strong>🔹 Type</strong></h4>
                   <p className="text-sm text-gray-600">{activeEvent[1].type}</p>
+                  <h4 className="text-sm font-semibold">
+                    <strong>🔹 Type</strong>
+                  </h4>
+                  <p className="text-sm text-gray-600">{activeEvent[0].type}</p>
                 </div>
               </HoverCardContent>
             </HoverCard>
@@ -516,12 +897,20 @@ const Events = () => {
         </Card>
       </div>
 
+          <Button className="w-48 px-4 py-3 text-sm bg-zinc-950 text-white self-start hover:bg-sky-700">
+            Registration/More details
+          </Button>
+          <div className="mt-4">
+            <Button className="w-full sm:w-48 px-4 py-3 text-sm bg-black text-white hover:bg-sky-700">
+              Registration / More Details
+            </Button>
+          </div>
+        </Card>
+      </div>
+
 
     </div>
-
-
   );
-
 };
 
-export default Events;  
+export default Events;
