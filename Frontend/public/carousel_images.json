@@ -1,32 +1,26 @@
 [
   {
     "id": 1,
-    "image": "/PresidentDesk.png",
-    "title": "President",
-    "tagline": "Education is the chief defence of a nation"
-  },
-  {
-    "id": 2,
     "image": "/SecretaryDesk.png",
-    "title": "Learning Together",
+    "title": "President",
     "tagline": "Young, ignited minds is the need of the hour."
   },
   {
-    "id": 3,
+    "id": 2,
     "image": "/campus_director_chougule_sir.jpg",
-    "title": "Technology Enthusiasts",
+    "title": "Campus Dicrector",
     "tagline": "Fostering an environment where ambition thrives and success follows."
   },
   {
-    "id": 4,
+    "id": 3,
     "image": "/Principal-desk.jpeg.jpg",
-    "title": "Modern Development",
+    "title": "Principal",
     "tagline": "Inspiring Leadership, Empowering Futures"
   },
   {
     "id": 5,
     "image": "/Kulkarni.jpg",
-    "title": "Modern Development",
+    "title": "HOD CSE",
     "tagline": "Guiding brilliance, nurturing innovation, and unlocking potential."
   }
 ]
