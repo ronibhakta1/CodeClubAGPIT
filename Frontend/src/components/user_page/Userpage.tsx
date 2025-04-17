@@ -21,8 +21,6 @@ import {
   SquareTerminal,
 } from "lucide-react"
 
-// Define interfaces for user, social, and pastEvents
-
 interface SocialLinks {
   github: string;
   linkedin: string;
@@ -46,11 +44,8 @@ interface User {
   yearOfPursuing: string;
   yearOfPassing: string;
   email: string;
-  
 }
 
-
-// Avatar Component
 const UserAvatar = ({ user }: { user: User }) => (
   <Avatar className="w-32 h-32 rounded-full">
     <AvatarImage src={user.avatar} alt={user.name} />
@@ -58,14 +53,13 @@ const UserAvatar = ({ user }: { user: User }) => (
   </Avatar>
 );
 
-// User Details Component
 const UserDetails = ({ user }: { user: User }) => (
-  <div className="space-y-2 w-[90%]">
-    <div className="flex items-center justify-between ">
+  <div className="space-y-2 w-[90%] text-white">
+    <div className="flex items-center justify-between">
       <span className="font-medium">Role:</span>
       <span className="text-muted-foreground">{user.role}</span>
     </div>
-    <div className="flex items-center justify-between ">
+    <div className="flex items-center justify-between">
       <span className="font-medium">Year of Pursuing:</span>
       <span className="text-muted-foreground">{user.yearOfPursuing}</span>
     </div>
@@ -77,14 +71,13 @@ const UserDetails = ({ user }: { user: User }) => (
       <span className="font-medium">Email:</span>
       <span className="text-muted-foreground">{user.email}</span>
     </div>
-    <p className="text-sm text-gray-600 mt-4">{user.bio}</p>
+    <p className="text-sm text-gray-300 mt-4">{user.bio}</p>
   </div>
 );
 
-// User Club Details Component
 const UserClubDetails = ({ user }: { user: User }) => (
-  <div className="space-y-2 w-[90%]">
-    <div className="flex items-center justify-between ">
+  <div className="space-y-2 w-[90%] text-white">
+    <div className="flex items-center justify-between">
       <span className="font-medium">Role:</span>
       <span className="text-muted-foreground">{user.role}</span>
     </div>
@@ -99,7 +92,6 @@ const UserClubDetails = ({ user }: { user: User }) => (
   </div>
 );
 
-// User Skills Component
 const UserSkills = ({ skills }: { skills: string[] }) => (
   <div className="flex gap-2 flex-wrap">
     {skills.map(skill => (
@@ -108,7 +100,6 @@ const UserSkills = ({ skills }: { skills: string[] }) => (
   </div>
 );
 
-// User Social Links Component
 const UserSocialLinks = ({ social }: { social: SocialLinks }) => (
   <div className="flex gap-4">
     <a href={social.github} target="_blank" rel="noopener noreferrer">
@@ -123,12 +114,11 @@ const UserSocialLinks = ({ social }: { social: SocialLinks }) => (
   </div>
 );
 
-
 const UserPastEventsdirect = ({ pastEvents }: { pastEvents: string[] }) => (
-  <div className="space-y-2 w-[90%]">
-    <div className="flex"> <span className="font-medium">Past Events Organized:</span>
+  <div className="space-y-2 w-[90%] text-white">
+    <div className="flex">
+      <span className="font-medium">Past Events Organized:</span>
     </div>
-    
     <div className="space-y-1">
       {pastEvents.length > 0 ? (
         pastEvents.map((event, index) => (
@@ -143,90 +133,79 @@ const UserPastEventsdirect = ({ pastEvents }: { pastEvents: string[] }) => (
   </div>
 );
 
-// Profile Card Component
 const UserProfileCard = ({ user }: { user: User }) => (
-  
-  <Card className="flex flex-col items-center text-center h-full p-6">
+  <Card className="flex flex-col items-center text-center h-full p-6 bg-black">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
-      <CardTitle className="text-2xl font-semibold">{user.name}</CardTitle>
+      <CardTitle className="text-2xl font-semibold text-white">{user.name}</CardTitle>
       <p className="text-md text-blue-600 font-semibold">{user.codeClubRole}</p>
     </CardHeader>
     <CardContent className="flex flex-col items-center gap-4 w-full">
       <UserSkills skills={user.skills} />
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-white" />
       <div className="flex gap-6 w-full text-left text-sm">
         <UserDetails user={user} />
         <EditProfile user={user} setUser={() => {}} />
       </div>
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-white" />
       <UserSocialLinks social={user.social} />
     </CardContent>
   </Card>
 );
 
-
-// Profile Club Card Component
 const UserClubProfileCard = ({ user, setUser }: { user: User, setUser: React.Dispatch<React.SetStateAction<User>> }) => (
-  <Card className="flex flex-col items-center text-center h-full p-6">
+  <Card className="flex flex-col items-center text-center h-full p-6 bg-black">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
-      <CardTitle className="text-2xl font-semibold">{user.name}</CardTitle>
+      <CardTitle className="text-2xl font-semibold text-white">{user.name}</CardTitle>
       <p className="text-md text-blue-600 font-semibold">{user.codeClubRole}</p>
     </CardHeader>
     <CardContent className="flex flex-col items-center gap-4 w-full">
       <UserSkills skills={user.skills} />
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-white" />
       <div className="flex gap-6 w-full text-left text-sm">
-        <UserClubDetails user={user}  />
+        <UserClubDetails user={user} />
         <EditClubDetails user={user} setUser={setUser} />
       </div>
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-white" />
       <UserSocialLinks social={user.social} />
     </CardContent>
   </Card>
 );
 
-
-
-// Profile Club Card Component
 const EventsCard = ({ user }: { user: User }) => (
-  
-  <Card className="flex flex-col items-center text-center h-full p-6">
+  <Card className="flex flex-col items-center text-center h-full p-6 bg-black">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
-      <CardTitle className="text-2xl font-semibold">{user.name}</CardTitle>
+      <CardTitle className="text-2xl font-semibold text-white">{user.name}</CardTitle>
       <p className="text-md text-blue-600 font-semibold">{user.codeClubRole}</p>
     </CardHeader>
     <CardContent className="flex flex-col items-center gap-4 w-full">
       <UserSkills skills={user.skills} />
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-white" />
       <UserPastEventsdirect pastEvents={user.pastEvents} />
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-white" />
       <UserSocialLinks social={user.social} />
     </CardContent>
   </Card>
 );
 
-// Breadcrumb Navigation Component
 const BreadcrumbNav = () => (
   <Breadcrumb>
     <BreadcrumbList>
       <BreadcrumbItem className="hidden md:block">
-        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <BreadcrumbLink href="/" className="text-white">Home</BreadcrumbLink>
       </BreadcrumbItem>
-      <BreadcrumbSeparator className="hidden md:block" />
+      <BreadcrumbSeparator className="hidden md:block text-white" />
       <BreadcrumbItem>
-        <BreadcrumbPage>Profile</BreadcrumbPage>
+        <BreadcrumbPage className="text-white">Profile</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>
 );
 
-// User Page Layout
 const UserPage = () => {
   const [user, setUser] = React.useState<User>({
-    
     id: 1,
     name: "Roni Bhakta",
     avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEvEHK2KOMLwQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1705087348506?e=1748476800&v=beta&t=IVnehed4T53hvzHeeNxaKQdN9EJknAu4iM4tpBddSvE",
@@ -247,8 +226,8 @@ const UserPage = () => {
     yearOfPursuing: "3rd",
     yearOfPassing: "2026",
     email: "roni123@gmail.com",
-    
   });
+
   const navMain = [
     {
       title: "Main",
@@ -269,36 +248,38 @@ const UserPage = () => {
           },
         ]
       : []),
-  ]
-  
+  ];
 
-  const [activeSection, setActiveSection] = React.useState("main"); // Default to 'main'
+  const [activeSection, setActiveSection] = React.useState("main");
 
   return (
-    <SidebarProvider>
-      <AppSidebar
-  user={user}
-  activeSection={activeSection}
-  setActiveSection={setActiveSection}
-  navItems={navMain}
-/>
+    <div className="bg-black text-white min-h-screen">
+      <SidebarProvider>
+        <div className="bg-black">
+          <AppSidebar
+            user={user}
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+            navItems={navMain}
+          />
+        </div>
 
-
-      <SidebarInset>
-      <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-white px-4 shadow-md">
-        <SidebarTrigger className="-ml-1" />
-        <Separator orientation="vertical" className="mr-2 h-4" />
-        <BreadcrumbNav />
-      </header>
-    
-      <div className="flex-1 overflow-y-auto">
-        {activeSection === "main" && <UserProfileCard user={user} />}
-        {activeSection === "clubinfo" && <UserClubProfileCard user={user} setUser={setUser} />}
-        {activeSection === "pastevents" && user.codeClubRole === "president" && <EventsCard user={user} />}
-      </div>
-      </SidebarInset>
-    </SidebarProvider>
-  
+        <SidebarInset>
+          <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-black px-4 shadow-md">
+            <SidebarTrigger className="-ml-1 text-white" />
+            <Separator orientation="vertical" className="mr-2 h-4 bg-white" />
+            <BreadcrumbNav />
+          </header>
+        
+          <div className="flex-1 overflow-y-auto ">
+            {activeSection === "main" && <UserProfileCard user={user} />}
+            {activeSection === "clubinfo" && <UserClubProfileCard user={user} setUser={setUser} />}
+            {activeSection === "pastevents" && user.codeClubRole === "president" && <EventsCard user={user} />}
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
+    </div>
   );
 };
+
 export default UserPage;
