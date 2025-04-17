@@ -1,26 +1,32 @@
 [
   {
     "id": 1,
-    "image": "/agpit_logo.png",
+    "image": "/PresidentDesk.png",
     "title": "Code Club AGPIT",
-    "tagline": "Inspiring future developers"
+    "tagline": "Education is the chief defence of a nation"
   },
   {
     "id": 2,
-    "image": "/Code Club Logo.png",
+    "image": "/SecretaryDesk.png",
     "title": "Learning Together",
-    "tagline": "Building skills through collaboration"
+    "tagline": "Young, ignited minds is the need of the hour."
   },
   {
     "id": 3,
-    "image": "/logo.png",
+    "image": "/campus_director_chougule_sir.jpg",
     "title": "Technology Enthusiasts",
-    "tagline": "Exploring the digital frontier"
+    "tagline": "Fostering an environment where ambition thrives and success follows."
   },
   {
     "id": 4,
-    "image": "/vite.svg",
+    "image": "/Principal-desk.jpeg.jpg",
     "title": "Modern Development",
-    "tagline": "Using cutting-edge technologies"
+    "tagline": "Inspiring Leadership, Empowering Futures"
+  },
+  {
+    "id": 5,
+    "image": "/Kulkarni.jpg",
+    "title": "Modern Development",
+    "tagline": "Guiding brilliance, nurturing innovation, and unlocking potential."
   }
 ]
