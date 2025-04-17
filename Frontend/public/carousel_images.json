@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "image": "/agpit_logo.png",
+    "title": "Code Club AGPIT",
+    "tagline": "Inspiring future developers"
+  },
+  {
+    "id": 2,
+    "image": "/Code Club Logo.png",
+    "title": "Learning Together",
+    "tagline": "Building skills through collaboration"
+  },
+  {
+    "id": 3,
+    "image": "/logo.png",
+    "title": "Technology Enthusiasts",
+    "tagline": "Exploring the digital frontier"
+  },
+  {
+    "id": 4,
+    "image": "/vite.svg",
+    "title": "Modern Development",
+    "tagline": "Using cutting-edge technologies"
+  }
+]

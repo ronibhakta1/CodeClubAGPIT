@@ -213,9 +213,9 @@ const Members = () => {
         </h1>
 
         {president && (
-          <Card className="w-full max-w-3xl p-4 text-white bg-zinc-900 h-auto border-zinc-700">
+          <Card className="w-full max-w-3xl p-4 text-white bg-zinc-900 h-auto border-zinc-700 mx-8 sm:mx-10 md:mx-14">
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <Avatar className="w-40 h-40 border-2 border-zinc-600">
+              <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-2 border-zinc-600">
                 <img
                   src={president.avatar || "/default-avatar.jpg"}
                   alt={president.name}
@@ -227,17 +227,17 @@ const Members = () => {
                 />
               </Avatar>
               <div className="text-center sm:text-left space-y-2">
-                <h2 className="text-xl font-bold">{president.name}</h2>
+                <h2 className="text-lg sm:text-xl font-bold">{president.name}</h2>
                 <p className="text-zinc-300">{president.role}</p>
-                <p className="text-sm text-zinc-200">{president.bio}</p>
-                <div className="flex gap-3 mt-1">
+                <p className="text-xs sm:text-sm text-zinc-200">{president.bio}</p>
+                <div className="flex justify-center sm:justify-start gap-3 mt-1">
                   {president.social.github && president.social.github !== "None" && (
                     <a href={president.social.github} target="_blank" rel="noopener noreferrer">
-                      <FaGithub className="w-5 h-5 text-zinc-300 hover:text-white" />
+                      <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-300 hover:text-white" />
                     </a>
                   )}
                   <a href={president.linkedin} target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className="w-5 h-5 text-blue-400 hover:text-blue-300" />
+                    <FaLinkedin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 hover:text-blue-300" />
                   </a>
                 </div>
               </div>
@@ -245,15 +245,17 @@ const Members = () => {
           </Card>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-270 px-4">
+        {/* Grid layout - modified with increased padding and better centering */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full px-6 sm:px-16 md:px-24 lg:px-32 xl:px-40 sm:place-items-start place-items-center">
           {otherMembers.map((member) => (
             <div 
               key={member.id} 
-              className="relative transition-transform duration-200 hover:scale-[1.03] hover:z-10"
+              className={`relative transition-transform duration-200 hover:scale-[1.03] hover:z-10 w-full max-w-full sm:max-w-none ${member.role === "President" ? "col-span-full sm:col-span-2 md:col-span-3" : ""}`}
+              data-member-id={member.id}
             >
-              <Card className="h-[350px] flex flex-col text-white bg-zinc-900 w-full group border-zinc-700">
+              <Card className={`${member.role === "President" ? "sm:h-auto h-auto" : "sm:h-[350px] h-[280px]"} flex flex-col text-white bg-zinc-900 w-full group border-zinc-700`}>
                 <div className="p-4 flex flex-col items-center h-full">
-                  <Avatar className="w-24 h-24 mb-4 border-2 border-zinc-600">
+                  <Avatar className={`${member.role === "President" ? "w-32 h-32 sm:w-40 sm:h-40" : "sm:w-24 sm:h-24 w-16 h-16"} mb-4 border-2 border-zinc-600`}>
                     {loadedAvatars[member.id] ? (
                       <img 
                         src={member.avatar || "/default-avatar.jpg"} 
@@ -269,19 +271,19 @@ const Members = () => {
                     )}
                   </Avatar>
                   
-                  <CardHeader className="p-0 text-center mb-4 w-full">
-                    <CardTitle className="text-base">{member.name}</CardTitle>
-                    <p className="text-sm text-zinc-300">{member.role}</p>
+                  <CardHeader className="p-0 text-center mb-2 sm:mb-4 w-full">
+                    <CardTitle className={`${member.role === "President" ? "text-lg sm:text-xl" : "sm:text-base text-sm"}`}>{member.name}</CardTitle>
+                    <p className={`${member.role === "President" ? "text-base" : "sm:text-sm text-xs"} text-zinc-300`}>{member.role}</p>
                     <p className="text-xs text-zinc-400 break-words px-2">{member.domain}</p>
                   </CardHeader>
 
                   <div className="flex flex-col items-center justify-between flex-grow w-full">
-                    <div className="flex gap-3 mb-4 group-hover:[&:not(:hover)]:opacity-70 transition-opacity duration-200">
+                    <div className="flex gap-3 mb-2 sm:mb-4 group-hover:[&:not(:hover)]:opacity-70 transition-opacity duration-200">
                       {member.social.github && member.social.github !== "None" && (
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <a href={member.social.github} target="_blank" rel="noopener noreferrer">
-                              <FaGithub className="w-5 h-5 text-zinc-300 hover:text-white" />
+                              <FaGithub className="sm:w-5 sm:h-5 w-4 h-4 text-zinc-300 hover:text-white" />
                             </a>
                           </TooltipTrigger>
                           <TooltipContent className="bg-zinc-800 text-white border-zinc-700">
@@ -293,7 +295,7 @@ const Members = () => {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin className="w-5 h-5 text-blue-400 hover:text-blue-300" />
+                            <FaLinkedin className="sm:w-5 sm:h-5 w-4 h-4 text-blue-400 hover:text-blue-300" />
                           </a>
                         </TooltipTrigger>
                         <TooltipContent className="bg-zinc-800 text-white border-zinc-700">
@@ -305,7 +307,7 @@ const Members = () => {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <a href={member.social.portfolio} target="_blank" rel="noopener noreferrer">
-                              <FaGlobe className="w-5 h-5 text-green-400 hover:text-green-300" />
+                              <FaGlobe className="sm:w-5 sm:h-5 w-4 h-4 text-green-400 hover:text-green-300" />
                             </a>
                           </TooltipTrigger>
                           <TooltipContent className="bg-zinc-800 text-white border-zinc-700">
@@ -318,7 +320,7 @@ const Members = () => {
                       <HoverCard>
                         <HoverCardTrigger asChild>
                           <button 
-                            className="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-colors duration-150 z-20 relative"
+                            className="w-full sm:text-sm text-xs bg-blue-600 hover:bg-blue-700 text-white sm:py-2 py-1.5 rounded transition-colors duration-150 z-20 relative"
                             onMouseEnter={() => {
                               const card = document.querySelector(`[data-member-id="${member.id}"]`);
                               if (card) {

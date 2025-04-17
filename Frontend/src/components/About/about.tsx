@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { GalleryCarousel } from "./gallery_carousel"; // Import the GalleryCarousel component instead of AboutMembers
 
 const user = {
   id: 1,
@@ -24,7 +25,7 @@ const user = {
   social: {
     github: "https://github.com/ronibhakta1",
     linkedin: "https://linkedin.com/in/ronibhakta1",
-    portfolio: "https://ronibhakta1.dev",
+    portfolio: "https://linkedin.com/in/ronibhakta1",
   },
   pastEvents: [
     "Hackathon 2024 - Lead Organizer",
@@ -187,6 +188,11 @@ const About = () => {
             </p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* GalleryCarousel Component */}
+      <div className="max-w-7xl w-full mt-10">
+        <GalleryCarousel />
       </div>
 
       {/* Our Activities Section */}
