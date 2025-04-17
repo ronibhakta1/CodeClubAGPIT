@@ -317,27 +317,23 @@ const Members = () => {
                     <div className="w-full mt-auto relative">
                       <HoverCard>
                         <HoverCardTrigger asChild>
-                          <div className="flex flex-col items-center">
-                            <button 
-                              className="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-colors duration-150 z-20 relative"
-                              onMouseEnter={() => {
-                                const card = document.querySelector(`[data-member-id="${member.id}"]`);
-                                if (card) {
-                                  card.classList.add('opacity-70');
-                                }
-                              }}
-                              onMouseLeave={() => {
-                                const card = document.querySelector(`[data-member-id="${member.id}"]`);
-                                if (card) {
-                                  card.classList.remove('opacity-70');
-                                }
-                              }}
-                            >
-                          <div className="flex flex-col p-auto items-center">
-                            <button className="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
-                              View Bio
-                            </button>
-                          </div>
+                          <button 
+                            className="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-colors duration-150 z-20 relative"
+                            onMouseEnter={() => {
+                              const card = document.querySelector(`[data-member-id="${member.id}"]`);
+                              if (card) {
+                                card.classList.add('opacity-70');
+                              }
+                            }}
+                            onMouseLeave={() => {
+                              const card = document.querySelector(`[data-member-id="${member.id}"]`);
+                              if (card) {
+                                card.classList.remove('opacity-70');
+                              }
+                            }}
+                          >
+                            View Bio
+                          </button>
                         </HoverCardTrigger>
                         <HoverCardContent 
                           className="w-60 p-2 text-white bg-zinc-800 absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-30 transition-all duration-75 border-zinc-700"
