@@ -89,8 +89,8 @@ export function GalleryCarousel() {
                 transition={{ duration: 0.2, ease: 'easeOut' }}
               >
                 <div className="flex flex-col items-start gap-0 px-2 py-2 sm:px-3 sm:py-3">
-                  <p className="text-sm sm:text-base font-semibold text-white line-clamp-1">{item.title}</p>
-                  <span className="text-xs text-zinc-200 line-clamp-2">{item.tagline}</span>
+                  <p className="text-sm sm:text-base font-semibold text-zinc-900 line-clamp-1">{item.title}</p>
+                  <span className="text-xs text-zinc-900 line-clamp-2">{item.tagline}</span>
                 </div>
               </motion.div>
             </div>
