@@ -51,7 +51,7 @@ export function BorderTrailHr() {
     <div className="relative h-[4px] w-full max-w-[1200px] mx-auto overflow-hidden ">
       {/* Background line base */}
       <div className="absolute inset-0 " />
-      
+
       {/* Animated border trail */}
       <BorderTrail
         className="bg-gradient-to-r from-blue via-blue-500 to-blue"
@@ -200,7 +200,7 @@ const Events = () => {
       </div>
 
       {/* Past Event */}
-      
+
       <div className="mt-7 flex w-full px-5 py-2 sm:px-10">
         <p className="bg-black text-white mt-0 w-full text-center py-3">
           <h1 className="text-2xl font-extrabold sm:text-3xl">{activeEvent[2].name}</h1>
@@ -213,104 +213,113 @@ const Events = () => {
       </div>
       <BorderTrailHr />
 
-    
+
 
 
       {/* Carousel Section */}
-      <Carousel className="w-full max-w-[1000px] md:max-w-[1200px] h-[400px] relative mx-auto py-10">
-        <CarouselContent className="w-full">
-          {eventList.map((event, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
-              <div className="p-4">
-                <MorphingDialog transition={{ type: 'spring', bounce: 0.05, duration: 0.25 }}>
-                  {/* Clickable Event Card */}
-                  <MorphingDialogTrigger
-                    style={{ borderRadius: "12px", height: "380px" }}
-                    className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
-                  >
-                    {/*  New Carousel for Multiple Images */}
-                    <img src={event.image1} alt={event.name} className=" w-full h-[200px] object-cover rounded-md " />
+      <div className="flex gap-30 mb-10 px-0 py-4 w-full max-w-[1200px] mx-auto">
 
+        <Carousel className="w-full max-w-[1000px] md:max-w-[1200px] h-[400px] relative overflow-visible mx-auto py-10">
 
-
-                    <div className="p-3 flex-grow">
-                      <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
-                        {event.name}
-                      </MorphingDialogTitle>
-
-
-                      <div className="event-card flex-grow font-extralight">
-                        <p className="line-clamp-3">{event.detail?.substring(0, 100)}...</p>
-                      </div>
-
-                    </div>
-
-                    <button
-                      type="button"
-                      className="relative -translate-y-2 ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
-                      aria-label="Open dialog"
+          <CarouselContent className="w-full">
+            {eventList.map((event, index) => (
+              <CarouselItem key={index} className="basis-1/2 sm:basis-1/2 md:basis-1/2 lg:basis-1/4">
+                <div className="p-4">
+                  <MorphingDialog transition={{ type: 'spring', bounce: 0.05, duration: 0.25 }}>
+                    {/* Clickable Event Card */}
+                    <MorphingDialogTrigger
+                      style={{ borderRadius: "12px", height: "380px" }}
+                      className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
                     >
-                      <PlusIcon size={12} />
-                    </button>
-                  </MorphingDialogTrigger>
-
-                  {/* Expanded Dialog Content */}
-                  <MorphingDialogContainer>
-                    <MorphingDialogContent style={{ borderRadius: "24px" }} className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[400px] sm:max-h-[600px]">
-
-
                       {/*  New Carousel for Multiple Images */}
-                      <Carousel >
-                        <CarouselContent>
-                          <CarouselItem>
-                            <img src={event.image1} alt="Event Image 1" className="h-80 w-full object-cover" />
-                          </CarouselItem>
-                          <CarouselItem>
-                            <img src={event.image2} alt="Event Image 2" className="h-80 w-full object-cover" />
-                          </CarouselItem>
-                          <CarouselItem>
-                            <img src={event.image3} alt="Event Image 3" className="h-80 w-full object-cover" />
-                          </CarouselItem>
+                      <img src={event.image1} alt={event.name} className=" w-full h-[200px] object-cover rounded-md " />
 
-                        </CarouselContent>
-                        <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
-                        <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
-                      </Carousel>
 
-                      <div className="p-6">
-                        <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">{event.name}</MorphingDialogTitle>
 
-                        <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
-                          <MorphingDialogDescription disableLayoutAnimation variants={{
-                            initial: { opacity: 0, scale: 0.8, y: 100 },
-                            animate: { opacity: 1, scale: 1, y: 0 },
-                            exit: { opacity: 0, scale: 0.8, y: 100 },
-                          }}>
+                      <div className="p-3 flex-grow">
+                        <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
+                          {event.name}
+                        </MorphingDialogTitle>
 
-                            <p className="mt-2 text-zinc-500 dark:text-zinc-500">
-                              {event.detail}
-                            </p>
 
-                          </MorphingDialogDescription>
-                        </ScrollArea>
+                        <div className="event-card flex-grow font-extralight">
+                          <p className="line-clamp-3">{event.detail?.substring(0, 100)}...</p>
+                        </div>
+
                       </div>
-                      <MorphingDialogClose className="text-zinc-50" />
-                    </MorphingDialogContent>
-                  </MorphingDialogContainer>
-                </MorphingDialog>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
-        <CarouselNext className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
-      </Carousel>
+
+                      <button
+                        type="button"
+                        className="relative -translate-y-2 ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
+                        aria-label="Open dialog"
+                      >
+                        <PlusIcon size={12} />
+                      </button>
+                    </MorphingDialogTrigger>
+
+                    {/* Expanded Dialog Content */}
+                    <MorphingDialogContainer>
+                      <MorphingDialogContent style={{ borderRadius: "24px" }} className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[400px] sm:max-h-[600px]">
+
+
+                        {/*  New Carousel for Multiple Images */}
+                        <Carousel >
+                          <CarouselContent>
+                            <CarouselItem>
+                              <img src={event.image1} alt="Event Image 1" className="h-80 w-full object-cover" />
+                            </CarouselItem>
+                            <CarouselItem>
+                              <img src={event.image2} alt="Event Image 2" className="h-80 w-full object-cover" />
+                            </CarouselItem>
+                            <CarouselItem>
+                              <img src={event.image3} alt="Event Image 3" className="h-80 w-full object-cover" />
+                            </CarouselItem>
+
+                          </CarouselContent>
+                          <CarouselPrevious className="absolute z-30 left-2 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition block" />
+                          <CarouselNext className="absolute z-30 right-2 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition block" />
+
+
+                        </Carousel>
+
+                        <div className="p-6">
+                          <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">{event.name}</MorphingDialogTitle>
+
+                          <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+                            <MorphingDialogDescription disableLayoutAnimation variants={{
+                              initial: { opacity: 0, scale: 0.8, y: 100 },
+                              animate: { opacity: 1, scale: 1, y: 0 },
+                              exit: { opacity: 0, scale: 0.8, y: 100 },
+                            }}>
+
+                              <p className="mt-2 text-zinc-500 dark:text-zinc-500">
+                                {event.detail}
+                              </p>
+
+                            </MorphingDialogDescription>
+                          </ScrollArea>
+                        </div>
+                        <MorphingDialogClose className="text-zinc-50" />
+                      </MorphingDialogContent>
+                    </MorphingDialogContainer>
+                  </MorphingDialog>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition " />
+          <CarouselNext className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+
+
+        </Carousel>
+      </div>
+
       {/* Add hr line for  main board */}
 
       <div className="text-center mt-16 mb-4 font-semibold text-white py-6">
         <p className="text-lg font-extralight">{activeEvent[2].name1} : {activeEvent[2].year}</p>
       </div>
-    <BorderTrailHr/>
+      <BorderTrailHr />
 
 
 
@@ -321,35 +330,36 @@ const Events = () => {
 
 
 
-        <div className="flex gap-30 mb-10 px-30 py-4  w-full max-w-[1200px] mx-auto">
+        <div className="flex flex-col gap-6 mb-10 px-4 sm:px-6 md:px-10 py-4 w-full max-w-[1200px] mx-auto">
 
-
-          <Carousel className="w-full max-w-[1000px]  md:max-w-[1200px] h-[400px] relative mx-auto">
+          <Carousel className="w-full max-w-full md:max-w-[1200px] h-[400px] overflow-visible relative mx-auto">
             <CarouselContent className="w-full">
               {eventData.events.map((event, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-4">
+                <CarouselItem
+                  key={index}
+                  className="basis-full sm:basis-1/2 md:basis-1/3"
+                >
+                  <div className="p-4 h-full">
                     <MorphingDialog transition={{ type: 'spring', bounce: 0.05, duration: 0.25 }}>
-                      {/* Clickable Event Card */}
+                      {/* Trigger */}
                       <MorphingDialogTrigger
-                        style={{ borderRadius: "12px", height: "380px" }}
+                        style={{ borderRadius: "12px", height: "100%" }}
                         className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
                       >
-                        {/*  New Carousel for Multiple Images */}
-                        <img src={event.image1} alt={event.name} className=" w-full h-[200px] object-cover rounded-md " />
-
-
+                        <img
+                          src={event.image1}
+                          alt={event.name}
+                          className="w-full h-[200px] object-cover rounded-md"
+                        />
 
                         <div className="p-3 flex-grow">
                           <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
                             {event.name}
                           </MorphingDialogTitle>
 
-
                           <div className="event-card flex-grow font-extralight">
                             <p className="line-clamp-3">{event.description?.substring(0, 100)}...</p>
                           </div>
-
                         </div>
 
                         <button
@@ -361,43 +371,44 @@ const Events = () => {
                         </button>
                       </MorphingDialogTrigger>
 
-                      {/* Expanded Dialog Content */}
+                      {/* Dialog Content */}
                       <MorphingDialogContainer>
-                        <MorphingDialogContent style={{ borderRadius: "24px" }} className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[400px] sm:max-h-[600px]">
-
-
-                          {/*  New Carousel for Multiple Images */}
-                          <Carousel >
+                        <MorphingDialogContent
+                          style={{ borderRadius: "24px" }}
+                          className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 w-full sm:w-[400px] max-h-[600px]"
+                        >
+                          <Carousel>
                             <CarouselContent>
-                              <CarouselItem>
-                                <img src={event.image1} alt="Event Image 1" className="h-80 w-full object-cover" />
-                              </CarouselItem>
-                              <CarouselItem>
-                                <img src={event.image2} alt="Event Image 2" className="h-80 w-full object-cover" />
-                              </CarouselItem>
-                              <CarouselItem>
-                                <img src={event.image3} alt="Event Image 3" className="h-80 w-full object-cover" />
-                              </CarouselItem>
-
+                              {[event.image1, event.image2, event.image3].map((img, i) => (
+                                <CarouselItem key={i}>
+                                  <img src={img} alt={`Event Image ${i + 1}`} className="h-80 w-full object-cover" />
+                                </CarouselItem>
+                              ))}
                             </CarouselContent>
-                            <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
-                            <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                            <div className="md:hidden block">
+                              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                            </div>
+
                           </Carousel>
 
                           <div className="p-6">
-                            <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">{event.name}</MorphingDialogTitle>
+                            <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
+                              {event.name}
+                            </MorphingDialogTitle>
 
-                            <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
-                              <MorphingDialogDescription disableLayoutAnimation variants={{
-                                initial: { opacity: 0, scale: 0.8, y: 100 },
-                                animate: { opacity: 1, scale: 1, y: 0 },
-                                exit: { opacity: 0, scale: 0.8, y: 100 },
-                              }}>
-
+                            <ScrollArea className="h-[200px] w-full rounded-md border p-4">
+                              <MorphingDialogDescription
+                                disableLayoutAnimation
+                                variants={{
+                                  initial: { opacity: 0, scale: 0.8, y: 100 },
+                                  animate: { opacity: 1, scale: 1, y: 0 },
+                                  exit: { opacity: 0, scale: 0.8, y: 100 },
+                                }}
+                              >
                                 <p className="mt-2 text-zinc-500 dark:text-zinc-500">
                                   {event.description}
                                 </p>
-
                               </MorphingDialogDescription>
                             </ScrollArea>
                           </div>
@@ -409,16 +420,15 @@ const Events = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            
           </Carousel>
-
         </div>
+
 
       </div>
 
 
 
-      <div className="flex flex-col lg:flex-row gap-10 mb-12 px-4 sm:px-6 md:px-12 py-4 w-200">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 mb-12 px-4 sm:px-6 md:px-12 py-4 w-full max-w-[1200px] mx-auto">
         {/* Active Event Box */}
         <Card className="p-4 sm:p-6 shadow-md w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 text-left mx-auto">
           <h2 className="text-lg font-bold leading-tight">{activeEvent[0].name}</h2>
