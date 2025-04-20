@@ -21,6 +21,11 @@ import { cn } from '@/lib/utils';
 import { XIcon } from 'lucide-react';
 import useClickOutside from '@/components/Events/useClickOutside';
 
+// When using the dialog, recommend this transition for snappier UX:
+// transition={{ type: 'tween', duration: 0.18, ease: 'easeInOut' }}
+// If you export a default transition, set it here:
+export const FAST_DIALOG_TRANSITION = { type: 'tween', duration: 0.18, ease: 'easeInOut' };
+
 export type MorphingDialogContextType = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;

@@ -25,6 +25,7 @@ import {
   MorphingDialogClose,
   MorphingDialogDescription,
   MorphingDialogContainer,
+  FAST_DIALOG_TRANSITION,
 } from "@/components/Events/morphing-dialog";
 
 import {
@@ -334,7 +335,8 @@ const Events = () => {
       <BorderTrailHr />
 
       {/* Carousel Section */}
-      <div className="flex gap-30 mb-10 px-0 py-4 w-full max-w-[1200px] mx-auto">
+      <div className="flex gap-30 mb-10 px-0 py-4 w-full max-w-[1200px] mx-auto relative">
+        {/* Main carousel */}
         <Carousel className="w-full max-w-[1000px] md:max-w-[1200px] h-[400px] relative overflow-visible mx-auto py-10">
           <CarouselContent className="w-full">
             {eventList.map((event, index) => (
@@ -343,9 +345,7 @@ const Events = () => {
                 className="basis-1/2 sm:basis-1/2 md:basis-1/2 lg:basis-1/4"
               >
                 <div className="p-4">
-                  <MorphingDialog
-                    transition={{ type: "spring", bounce: 0.05, duration: 0.25 }}
-                  >
+                  <MorphingDialog transition={FAST_DIALOG_TRANSITION}>
                     {/* Clickable Event Card */}
                     <MorphingDialogTrigger
                       style={{ borderRadius: "12px", height: "380px" }}
@@ -357,19 +357,16 @@ const Events = () => {
                         alt={event.name}
                         className=" w-full h-[200px] object-cover rounded-md "
                       />
-
                       <div className="p-3 flex-grow">
                         <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-semibold">
                           {event.name}
                         </MorphingDialogTitle>
-
                         <div className="event-card flex-grow font-extralight">
                           <p className="line-clamp-3">
                             {event.detail?.substring(0, 100)}...
                           </p>
                         </div>
                       </div>
-
                       <button
                         type="button"
                         className="relative -translate-y-2 ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
@@ -378,7 +375,6 @@ const Events = () => {
                         <PlusIcon size={12} />
                       </button>
                     </MorphingDialogTrigger>
-
                     {/* Expanded Dialog Content */}
                     <MorphingDialogContainer>
                       <MorphingDialogContent
@@ -410,16 +406,14 @@ const Events = () => {
                               />
                             </CarouselItem>
                           </CarouselContent>
-                          <CarouselPrevious className="absolute z-30 left-2 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition block" />
-                          <CarouselNext className="absolute z-30 right-2 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition block" />
+                          <CarouselPrevious className="absolute z-30 left-2 top-1/2 -translate-y-1/2 flex items-center justify-center aspect-square w-10 h-10 p-0 rounded-full shadow-lg bg-black text-white hover:bg-gray-700 transition" />
+                          <CarouselNext className="absolute z-30 right-2 top-1/2 -translate-y-1/2 flex items-center justify-center aspect-square w-10 h-10 p-0 rounded-full shadow-lg bg-black text-white hover:bg-gray-700 transition" />
                         </Carousel>
-
                         <div className="p-6">
                           <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 ">
                             {event.name}
                           </MorphingDialogTitle>
-
-                          <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+                          <ScrollArea className="h-[200px] w-full max-w-xs sm:max-w-sm rounded-md border p-4 mx-auto">
                             <MorphingDialogDescription
                               disableLayoutAnimation
                               variants={{
@@ -432,7 +426,7 @@ const Events = () => {
                                 exit: { opacity: 0, scale: 0.8, y: 100 },
                               }}
                             >
-                              <p className="mt-2 text-zinc-500 dark:text-zinc-500">
+                              <p className="mt-2 text-zinc-500 dark:text-zinc-500 text-center">
                                 {event.detail}
                               </p>
                             </MorphingDialogDescription>
@@ -446,8 +440,8 @@ const Events = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition " />
-          <CarouselNext className="absolute  top-1/2 transform -translate-y-1/2 bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition" />
+          <CarouselPrevious className="absolute z-30 left-2 top-1/2 -translate-y-1/2 flex items-center justify-center aspect-square w-10 h-10 p-0 rounded-full shadow-lg bg-black text-white hover:bg-gray-700 transition" />
+          <CarouselNext className="absolute z-30 right-2 top-1/2 -translate-y-1/2 flex items-center justify-center aspect-square w-10 h-10 p-0 rounded-full shadow-lg bg-black text-white hover:bg-gray-700 transition" />
         </Carousel>
       </div>
 
@@ -473,11 +467,7 @@ const Events = () => {
                 >
                   <div className="p-4 h-full">
                     <MorphingDialog
-                      transition={{
-                        type: "spring",
-                        bounce: 0.05,
-                        duration: 0.25,
-                      }}
+                      transition={FAST_DIALOG_TRANSITION}
                     >
                       {/* Trigger */}
                       <MorphingDialogTrigger
@@ -533,8 +523,8 @@ const Events = () => {
                                 </CarouselItem>
                               ))}
                             </CarouselContent>
-                            <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
-                            <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-200" />
+                            <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center aspect-square w-10 h-10 p-0 rounded-full shadow-md bg-white text-black hover:bg-gray-200" />
+                            <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center aspect-square w-10 h-10 p-0 rounded-full shadow-md bg-white text-black hover:bg-gray-200" />
                           </Carousel>
 
                           <div className="p-6">
@@ -542,7 +532,7 @@ const Events = () => {
                               {event.name}
                             </MorphingDialogTitle>
 
-                            <ScrollArea className="h-[200px] w-full rounded-md border p-4">
+                            <ScrollArea className="h-[200px] w-full max-w-xs sm:max-w-sm rounded-md border p-4 mx-auto">
                               <MorphingDialogDescription
                                 disableLayoutAnimation
                                 variants={{
@@ -555,7 +545,7 @@ const Events = () => {
                                   exit: { opacity: 0, scale: 0.8, y: 100 },
                                 }}
                               >
-                                <p className="mt-2 text-zinc-500 dark:text-zinc-500">
+                                <p className="mt-2 text-zinc-500 dark:text-zinc-500 text-center">
                                   {event.description}
                                 </p>
                               </MorphingDialogDescription>
