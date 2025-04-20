@@ -1,5 +1,90 @@
  [
-     
+  {
+    "name": "Sushmita Babanagare",
+    "phone": "9022720466",
+    "email": "sushmitaba2002@gmail.com",
+    "github": "Sushmita-Babanagare",
+    "linkedin": "www.linkedin.com/in/sushmita-babanagare-7b822b234",
+    "role": "Vice President",
+    "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+    "yearOfStudy": "FY",
+    "yearOfPassing": 2025,
+    "bio": "",
+    "avatar": "https://media.licdn.com/dms/image/v2/D4E35AQGjnqV9ixX7RQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1722270451274?e=1745434800&v=beta&t=Q45jpPrNT7WbNDXkQbGYBi3OXc1tgO0bMvRHB9-kCIk",
+    "social": {
+      "github": "Sushmita-Babanagare",
+      "portfolio": ""
+    }
+    
+  },
+  {
+    "name": "Priya Dattatray Deshmukh",
+    "phone": "8380033077",
+    "email": "priyadeshmukh601@gmail.com",
+    "github": "https://github.com/PriyaD-coder",
+    "linkedin": "https://www.linkedin.com/in/priya-deshmukh-8b66b1295",
+    "role": "Secretary",
+    "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+    "yearOfStudy": "FY",
+    "yearOfPassing": 2025,
+    "bio": "",
+    "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQGB2wzAGpp6Ww/profile-displayphoto-shrink_400_400/B4DZWVjpkvHkAg-/0/1741970907726?e=1749686400&v=beta&t=FQc94x5em6BL2PsMqwj0GbJllOLWiisndtYUj9V3soY",
+    "social": {
+      "github": "https://github.com/PriyaD-coder",
+      "portfolio": ""
+    }
+  },
+  {
+    "name": "Vaishnavi Patil",
+    "phone": "9561285028",
+    "email": "vaishnavipatiled@gmail.com",
+    "github": "https://github.com/Vaishnavi-Patil-29",
+    "linkedin": "https://www.linkedin.com/in/vaishnavi-patil-0b6055210",
+    "role": "Vice Secretary",
+    "domain": " The Android Developer of (kotlin, or java)",
+    "yearOfStudy": "FY",
+    "yearOfPassing": 2025,
+    "bio": "",
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQE2YfiqD2bQfg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722704683293?e=1749686400&v=beta&t=Cb2vFXFEkAywjXeY-Z1UQeC28veH3EOQNbgbr4mR6s4",
+    "social": {
+      "github": "https://github.com/Vaishnavi-Patil-29",
+      "portfolio": ""
+    }
+  },
+  {
+    "name": "Abhishek Vilas Deshpande",
+    "phone": "7385506970",
+    "email": "abhishekdeshpande0044@gmail.com",
+    "github": "https://github.com/AbhishekD66",
+    "linkedin": "https://www.linkedin.com/in/abhishek-deshpande-71bb302bb/",
+    "role": "Revenue Manager",
+    "domain": " The Android Developer of (kotlin, or java)",
+    "yearOfStudy": "FY",
+    "yearOfPassing": 2025,
+    "bio": "",
+    "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQG5i7tZeDtkKw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723633967899?e=1749686400&v=beta&t=FY-ULNKedQESI5HCA45AgKe2qQ4P-y4VYe-D4cVuke4",
+    "social": {
+      "github": "https://github.com/AbhishekD66",
+      "portfolio": ""
+    }
+  },
+  {
+    "name": "Shesh Nalwar",
+    "phone": "7385395199",
+    "email": "sheshnalwar@gmail.com",
+    "github": "www.github.com/SheshNalwar",
+    "linkedin": "https://www.linkedin.com/in/shesh-nalwar-b5077224a/",
+    "role": "Assitant Revenue Manager",
+    "domain": " The Android Developer of (kotlin, or java)",
+    "yearOfStudy": "FY",
+    "yearOfPassing": 2025,
+    "bio": "",
+    "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg",
+    "social": {
+      "github": "www.github.com/SheshNalwar",
+      "portfolio": ""
+    }
+  },
       {
         "name": "Samiksha Bansode",
         "phone": "8485854393",
@@ -18,24 +103,6 @@
         }
       },
       {
-        "name": "Sushmita Babanagare",
-        "phone": "9022720466",
-        "email": "sushmitaba2002@gmail.com",
-        "github": "Sushmita-Babanagare",
-        "linkedin": "www.linkedin.com/in/sushmita-babanagare-7b822b234",
-        "role": "Vice President",
-        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
-        "yearOfStudy": "FY",
-        "yearOfPassing": 2025,
-        "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4E35AQGjnqV9ixX7RQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1722270451274?e=1744570800&v=beta&t=a44LWiOIfHKB5_wCO3rjhPZCM3G7W4azvvgDTplqynQ",
-        "social": {
-          "github": "Sushmita-Babanagare",
-          "portfolio": ""
-        }
-        
-      },
-      {
         "name": "Tejashri Gouda",
         "phone": "8767724645",
         "email": "goudatejashri@gmail.com",
@@ -46,29 +113,13 @@
         "yearOfStudy": "FY",
         "yearOfPassing": 2025,
         "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQH4Eb5jpzEGbw/profile-framedphoto-shrink_400_400/B4DZXqdAEAHAAc-/0/1743395226168?e=1744570800&v=beta&t=VmP90MQSsZsvk7lCeDAoqjgs7p7w3QEW59DyqqvOtMA",
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg",
         "social": {
           "github": ".",
           "portfolio": ""
         }
       },
-      {
-        "name": "Abhishek Vilas Deshpande",
-        "phone": "7385506970",
-        "email": "abhishekdeshpande0044@gmail.com",
-        "github": "https://github.com/AbhishekD66",
-        "linkedin": "https://www.linkedin.com/in/abhishek-deshpande-71bb302bb/",
-        "role": "Revenue Manager",
-        "domain": " The Android Developer of (kotlin, or java)",
-        "yearOfStudy": "FY",
-        "yearOfPassing": 2025,
-        "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQG5i7tZeDtkKw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723633967899?e=1749686400&v=beta&t=FY-ULNKedQESI5HCA45AgKe2qQ4P-y4VYe-D4cVuke4",
-        "social": {
-          "github": "https://github.com/AbhishekD66",
-          "portfolio": ""
-        }
-      },
+     
       {
         "name": "Shaarika Shaikh",
         "phone": "7776992777",
@@ -97,7 +148,7 @@
         "yearOfStudy": "FY",
         "yearOfPassing": 2025,
         "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQGBWftwbR7UFw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1737301483897?e=1744570800&v=beta&t=LodFdqlF1rm-AVXpYHMK1-Wo9Rf-f0ByIts6q7msVRk",
+        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQGBWftwbR7UFw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1737301483897?e=1745434800&v=beta&t=Luo0M3g2xtgUrcGRjfPI4LQMKmoekthJ7yQXZw0vRsU",
         "social": {
           "github": "https://github.com/VivekSolapure",
           "portfolio": ""
@@ -120,40 +171,8 @@
           "portfolio": ""
         }
       },
-      {
-        "name": "Vaishnavi Patil",
-        "phone": "9561285028",
-        "email": "vaishnavipatiled@gmail.com",
-        "github": "https://github.com/Vaishnavi-Patil-29",
-        "linkedin": "https://www.linkedin.com/in/vaishnavi-patil-0b6055210",
-        "role": "Vice Secretary",
-        "domain": " The Android Developer of (kotlin, or java)",
-        "yearOfStudy": "FY",
-        "yearOfPassing": 2025,
-        "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D5603AQE2YfiqD2bQfg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722704683293?e=1749686400&v=beta&t=Cb2vFXFEkAywjXeY-Z1UQeC28veH3EOQNbgbr4mR6s4",
-        "social": {
-          "github": "https://github.com/Vaishnavi-Patil-29",
-          "portfolio": ""
-        }
-      },
-      {
-        "name": "Shesh Nalwar",
-        "phone": "7385395199",
-        "email": "sheshnalwar@gmail.com",
-        "github": "www.github.com/SheshNalwar",
-        "linkedin": "https://www.linkedin.com/in/shesh-nalwar-b5077224a/",
-        "role": "Assitant Revenue Manager",
-        "domain": " The Android Developer of (kotlin, or java)",
-        "yearOfStudy": "FY",
-        "yearOfPassing": 2025,
-        "bio": "",
-        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg",
-        "social": {
-          "github": "www.github.com/SheshNalwar",
-          "portfolio": ""
-        }
-      },
+     
+   
       {
         "name": "Prerana Prashant Sankpal",
         "phone": "8767948946",
@@ -165,7 +184,7 @@
         "yearOfStudy": "FY",
         "yearOfPassing": 2025,
         "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D5635AQHEPe9HHODrUw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1734263525245?e=1744570800&v=beta&t=BS3vx_2X-iVWCbfWU3x8bSo2ya8Qv-WAttynLrrhXAY",
+        "avatar": "https://media.licdn.com/dms/image/v2/D5635AQHEPe9HHODrUw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1734263525245?e=1745434800&v=beta&t=WRFnvj47z64tQ7Isr6qP-t2wvIW9muQFkJvSFy4VRKY",
         "social": {
           "github": "https://github.com/LetsstartGitHub",
           "portfolio": ""
@@ -182,29 +201,13 @@
         "yearOfStudy": "FY",
         "yearOfPassing": 2025,
         "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQEaFNll9EY2Lg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1732237934449?e=1744570800&v=beta&t=-nP7SmurvS6B2gfkiiyHjrNf2vrfhKyIeuStaF4zsyc",
+        "avatar": "https://media.licdn.com/dms/image/v2/D4D35AQEaFNll9EY2Lg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1732237934449?e=1745434800&v=beta&t=nrj15YwBDi6Ez3TqkV7_NUT32Hsc4a4s4FIKLqvtVM4",
         "social": {
           "github": "https://github.com/Rup321",
           "portfolio": ""
         }
       },
-      {
-        "name": "Priya Dattatray Deshmukh",
-        "phone": "8380033077",
-        "email": "priyadeshmukh601@gmail.com",
-        "github": "https://github.com/PriyaD-coder",
-        "linkedin": "https://www.linkedin.com/in/priya-deshmukh-8b66b1295",
-        "role": "Secretary",
-        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
-        "yearOfStudy": "FY",
-        "yearOfPassing": 2025,
-        "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQGB2wzAGpp6Ww/profile-displayphoto-shrink_400_400/B4DZWVjpkvHkAg-/0/1741970907726?e=1749686400&v=beta&t=FQc94x5em6BL2PsMqwj0GbJllOLWiisndtYUj9V3soY",
-        "social": {
-          "github": "https://github.com/PriyaD-coder",
-          "portfolio": ""
-        }
-      },
+      
       {
         "name": "Ketan Shrikant Bhogshetti",
         "phone": "9503267799",
@@ -215,8 +218,8 @@
         "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
         "yearOfStudy": "FY",
         "yearOfPassing": 2025,
-        "bio": "",
-        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQHb395KA36QDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724855758652?e=1749686400&v=beta&t=S93m4S81JZEqz6_QGXwPaUgx_rGGL0_tzUHB2qa5skk",
+        "bio": "Founder of Coding Crafters AGPIT",
+        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQHb395KA36QDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724855758652?e=1750291200&v=beta&t=fimwCOCCUmx9DOKf1DQuqhrKJTxg4TJ3qnVmkpb6f9A",
         "social": {
           "github": "https://github.com/ketan-micro45",
           "portfolio": ""

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "image": "/SecretaryDesk.png",
+    "title": "President",
+    "tagline": "Young, ignited minds is the need of the hour."
+  },
+  {
+    "id": 2,
+    "image": "/campus_director_chougule_sir.jpg",
+    "title": "Campus Dicrector",
+    "tagline": "Fostering an environment where ambition thrives and success follows."
+  },
+  {
+    "id": 3,
+    "image": "/Principal-desk.jpeg.jpg",
+    "title": "Principal",
+    "tagline": "Inspiring Leadership, Empowering Futures"
+  },
+  {
+    "id": 5,
+    "image": "/Kulkarni.jpg",
+    "title": "HOD CSE",
+    "tagline": "Guiding brilliance, nurturing innovation, and unlocking potential."
+  }
+]
