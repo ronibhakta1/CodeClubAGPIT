@@ -69,11 +69,11 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen} >
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline" className="hover:cursor-pointer">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg text-slate-100 bg-neutral-900">
         <DialogHeader>
           <DialogTitle>Edit Profile</DialogTitle>
         </DialogHeader>
@@ -96,23 +96,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
             <Textarea id="bio" value={formData.bio} onChange={handleChange} className="col-span-3" />
           </div>
 
-          {/* Role */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label className="text-right">Role</Label>
-            <Select value={formData.role} onValueChange={(value) => handleSelectChange("role", value)}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select Role">{formData.role}</SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Role</SelectLabel>
-                  <SelectItem value="Full Stack Developer">Full Stack Developer</SelectItem>
-                  <SelectItem value="Android Developer">Android Developer</SelectItem>
-                  <SelectItem value="Python Developer">Python Developer</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
+          
 
           {/* Code Club Role */}
           <div className="grid grid-cols-4 items-center gap-4">
@@ -121,7 +105,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
               <SelectTrigger className="w-[200px]">
                 <SelectValue placeholder="Select Role">{formData.codeClubRole}</SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="text-slate-100 bg-neutral-900 ">
                 <SelectGroup>
                   <SelectLabel>Club Role</SelectLabel>
                   <SelectItem value="Member">Member</SelectItem>
@@ -140,30 +124,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
             <Input id="skills" value={formData.skills.join(", ")} onChange={handleSkillsChange} className="col-span-3" placeholder="Comma-separated skills" />
           </div>
 
-          {/* Year of Pursuing */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label className="text-right">Year of Pursuing</Label>
-            <Select value={formData.yearOfPursuing} onValueChange={(value) => handleSelectChange("yearOfPursuing", value)}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select Year">{formData.yearOfPursuing}</SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Year</SelectLabel>
-                  <SelectItem value="1st">1st</SelectItem>
-                  <SelectItem value="2nd">2nd</SelectItem>
-                  <SelectItem value="3rd">3rd</SelectItem>
-                  <SelectItem value="Final">Final Year</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Year of Passing */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="yearOfPassing" className="text-right">Year of Passing</Label>
-            <Input id="yearOfPassing" value={formData.yearOfPassing} onChange={handleChange} className="col-span-3" required />
-          </div>
+          
 
           {/* Social Links */}
           {["github", "linkedin", "portfolio"].map((platform) => (
@@ -175,9 +136,9 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
         </div>
 
         <DialogFooter className="mt-4">
-          <Button onClick={handleSave} type="button">Save Changes</Button>
+          <Button onClick={handleSave} type="button" className=" text-neutral-950 bg-slate-100 hover:text-neutral-950 hover:bg-neutral-100 hover:cursor-pointer ">Save Changes</Button>
         </DialogFooter>
-      </DialogContent>
+      </DialogContent> 
     </Dialog>
   );
 };
