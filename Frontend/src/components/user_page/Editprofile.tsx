@@ -71,9 +71,9 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen} >
       <DialogTrigger asChild>
-        <Button variant="outline" className="hover:cursor-pointer">Edit Profile</Button>
+        <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg text-slate-100 bg-neutral-900">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg">
         <DialogHeader>
           <DialogTitle>Edit Profile</DialogTitle>
         </DialogHeader>
