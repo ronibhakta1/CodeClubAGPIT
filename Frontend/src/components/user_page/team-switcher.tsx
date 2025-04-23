@@ -1,12 +1,8 @@
+import * as React from "react"
 
-import { User } from "lucide-react";
-
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   SidebarMenu,
+  SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar"
 
@@ -24,26 +20,20 @@ export function TeamSwitcher({
   if (!activeTeam) {
     return null
   }
-
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-            >
-              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+        <SidebarMenuButton
+          size="lg"
+          className="bg-neutral-950 text-slate-100 hover:bg-neutral-950 hover:text-slate-100"
+        >
+          <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                 <activeTeam.logo className="size-4" />
               </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{activeTeam.name}</span>
-              </div>
-            </SidebarMenuButton>
-          </DropdownMenuTrigger>
-          
-        </DropdownMenu>
+          <div className="grid flex-1 text-left text-sm">
+            <span className="truncate font-medium">Profile</span>
+          </div>
+        </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
   )

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GalleryVerticalEnd, LucideIcon } from "lucide-react";
+import {  LucideIcon ,UserSquare  } from "lucide-react";
 
 import { NavMain } from "./nav-main";
 import { NavUser } from "@/components/user_page/nav-user";
@@ -51,29 +51,28 @@ export function AppSidebar({
     teams: [
       {
         name: "Profile",
-        logo: GalleryVerticalEnd,
+        logo: UserSquare ,
       },
     ],
   };
 
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+    
+      <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader className="bg-neutral-950">
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="bg-neutral-950">
         <NavMain
           items={navItems.map((item) => ({
             ...item,
             isActive: activeSection === item.sectionKey,
-            
           }))}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
-          
         />
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="text-slate-100 bg-neutral-950 ">
         <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />

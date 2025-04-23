@@ -29,6 +29,7 @@ export function NavMain({
   setActiveSection: (key: string) => void
 }) {
   return (
+    
     <SidebarGroup>
       <SidebarGroupLabel></SidebarGroupLabel>
       <SidebarMenu >
@@ -37,14 +38,15 @@ export function NavMain({
             key={item.title}
             asChild
             defaultOpen={item.isActive}
-            className="group/collapsible"
+            className=" bg-neutral-950 text-slate-100   "
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton
                   tooltip={item.title}
                   onClick={() => setActiveSection(item.sectionKey)}
-                  className={activeSection === item.sectionKey ? "bg-muted" : ""}
+                  className={ activeSection === item.sectionKey ? "text-slate-100 bg-neutral-800" : "" }
+                  
                 >
                   {item.icon && <item.icon />}
                   <span >{item.title}</span>
