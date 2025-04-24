@@ -71,9 +71,9 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen} >
       <DialogTrigger asChild>
-        <Button variant="outline" className="hover:cursor-pointer">Edit Profile</Button>
+        <Button variant="outline" className="hover:cursor-pointer  bg-zinc-800 text-zinc-100 hover:bg-zinc-800 hover:text-zinc-100">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg text-slate-100 bg-neutral-900">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg text-slate-100 bg-zinc-950">
         <DialogHeader>
           <DialogTitle>Edit Profile</DialogTitle>
         </DialogHeader>
@@ -105,7 +105,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
               <SelectTrigger className="w-[200px]">
                 <SelectValue placeholder="Select Role">{formData.codeClubRole}</SelectValue>
               </SelectTrigger>
-              <SelectContent className="text-slate-100 bg-neutral-900 ">
+              <SelectContent className="text-slate-100 bg-zinc-900 ">
                 <SelectGroup>
                   <SelectLabel>Club Role</SelectLabel>
                   <SelectItem value="Member">Member</SelectItem>
@@ -136,7 +136,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
         </div>
 
         <DialogFooter className="mt-4">
-          <Button onClick={handleSave} type="button" className=" text-neutral-950 bg-slate-100 hover:text-neutral-950 hover:bg-neutral-100 hover:cursor-pointer ">Save Changes</Button>
+          <Button onClick={handleSave} type="button" className="  bg-zinc-800 text-zinc-100 hover:bg-zinc-800 hover:text-zinc-100 hover:cursor-pointer ">Save Changes</Button>
         </DialogFooter>
       </DialogContent> 
     </Dialog>

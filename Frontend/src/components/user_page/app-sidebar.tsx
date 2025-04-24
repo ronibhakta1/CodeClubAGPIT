@@ -59,10 +59,10 @@ export function AppSidebar({
   return (
     
       <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="bg-neutral-950">
+      <SidebarHeader className="bg-zinc-950">
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
-      <SidebarContent className="bg-neutral-950">
+      <SidebarContent className="bg-zinc-950">
         <NavMain
           items={navItems.map((item) => ({
             ...item,
@@ -72,7 +72,7 @@ export function AppSidebar({
           setActiveSection={setActiveSection}
         />
       </SidebarContent>
-      <SidebarFooter className="text-slate-100 bg-neutral-950 ">
+      <SidebarFooter className="text-slate-100 bg-zinc-950 ">
         <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />

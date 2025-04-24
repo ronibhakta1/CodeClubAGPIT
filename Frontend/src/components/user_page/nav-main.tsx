@@ -38,7 +38,7 @@ export function NavMain({
             key={item.title}
             asChild
             defaultOpen={item.isActive}
-            className=" bg-neutral-950 text-slate-100   "
+            className=" bg-zinc-950 text-slate-100   "
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>

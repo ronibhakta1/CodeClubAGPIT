@@ -95,7 +95,7 @@ const UserClubDetails = ({ user }: { user: User }) => (
 const UserSkills = ({ skills }: { skills: string[] }) => (
   <div className="flex gap-2 flex-wrap">
     {skills.map(skill => (
-      <span key={skill} className="px-3 py-1 bg-slate-200 text-blue-600 rounded-full text-sm">{skill}</span>
+      <span key={skill} className="px-3 py-1 bg-zinc-600 text-zinc-300 rounded-full text-sm">{skill}</span>
     ))}
   </div>
 );
@@ -134,7 +134,7 @@ const UserPastEventsdirect = ({ pastEvents }: { pastEvents: string[] }) => (
 );
 
 const UserProfileCard = ({ user }: { user: User }) => (
-  <Card className="flex flex-col items-center text-center h-full p-6 bg-neutral-900 rounded-none">
+  <Card className="flex flex-col items-center text-center h-full p-6 bg-zinc-950 rounded-none">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
       <CardTitle className="text-2xl font-semibold text-white">{user.name}</CardTitle>
@@ -154,7 +154,7 @@ const UserProfileCard = ({ user }: { user: User }) => (
 );
 
 const UserClubProfileCard = ({ user, setUser }: { user: User, setUser: React.Dispatch<React.SetStateAction<User>> }) => (
-  <Card className="flex flex-col items-center text-center h-full p-6 bg-neutral-900 rounded-none">
+  <Card className="flex flex-col items-center text-center h-full p-6 bg-zinc-950 rounded-none">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
       <CardTitle className="text-2xl font-semibold text-white">{user.name}</CardTitle>
@@ -174,7 +174,7 @@ const UserClubProfileCard = ({ user, setUser }: { user: User, setUser: React.Dis
 );
 
 const EventsCard = ({ user }: { user: User }) => (
-  <Card className="flex flex-col items-center text-center h-full p-6 bg-neutral-900 rounded-none">
+  <Card className="flex flex-col items-center text-center h-full p-6 bg-zinc-950 rounded-none">
     <UserAvatar user={user} />
     <CardHeader className="mt-4">
       <CardTitle className="text-2xl font-semibold text-white">{user.name}</CardTitle>
@@ -263,12 +263,13 @@ const UserPage = () => {
           />
 
         <SidebarInset>
-          <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-neutral-950 px-4 shadow-md">
-            <SidebarTrigger className="-ml-1 bg-neutral-700"  />
-            <Separator orientation="vertical" className="mr-2 h-4 bg-slate-100" />
+          <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-zinc-950 px-4 shadow-md">
+            <SidebarTrigger className="-ml-1 bg-zinc-700"  />
+            <Separator orientation="vertical" className="mr-2 h-4 bg-zinc-100" />
             <BreadcrumbNav />
+            <Separator orientation="horizontal" className="fixed top-16  h-2 left-0 bg-zinc-200" />
           </header>
-        
+          
           <div className="flex-1 overflow-y-auto ">
             {activeSection === "main" && <UserProfileCard user={user} />}
             {activeSection === "clubinfo" && <UserClubProfileCard user={user} setUser={setUser} />}
