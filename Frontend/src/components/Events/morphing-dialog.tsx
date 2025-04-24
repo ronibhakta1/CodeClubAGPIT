@@ -24,11 +24,8 @@ import useClickOutside from '@/components/Events/useClickOutside';
 // When using the dialog, recommend this transition for snappier UX:
 // transition={{ type: 'tween', duration: 0.18, ease: 'easeInOut' }}
 // If you export a default transition, set it here:
-<<<<<<< HEAD
 export const FAST_DIALOG_TRANSITION = { type: 'tween', duration: 0.10, ease: 'easeInOut' };
-=======
-export const FAST_DIALOG_TRANSITION = { type: 'tween', duration: 0.18, ease: 'easeInOut' };
->>>>>>> upstream/main
+
 
 export type MorphingDialogContextType = {
   isOpen: boolean;
