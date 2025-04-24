@@ -24,8 +24,7 @@ import useClickOutside from '@/components/Events/useClickOutside';
 // When using the dialog, recommend this transition for snappier UX:
 // transition={{ type: 'tween', duration: 0.18, ease: 'easeInOut' }}
 // If you export a default transition, set it here:
-export const FAST_DIALOG_TRANSITION = { type: 'tween', duration: 0.10, ease: 'easeInOut' };
-
+export const FAST_DIALOG_TRANSITION = { type: 'tween', duration: 0.18, ease: 'easeInOut' };
 
 export type MorphingDialogContextType = {
   isOpen: boolean;
@@ -243,34 +242,22 @@ function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
   if (!mounted) return null;
 
   return createPortal(
-    <AnimatePresence initial={false} mode="sync">
-    {isOpen && (
-      <>
-        {/* Backdrop */}
-        <motion.div
-          key={`backdrop-${uniqueId}`}
-          className="fixed inset-0 z-40 bg-neutral-900/30 backdrop-blur-sm dark:bg-neutral-900/30"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          aria-hidden="true"
-        />
-  
-        {/* Dialog Content Wrapper */}
-        <motion.div
-          key={`dialog-${uniqueId}`}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
-        >
-          {children}
-        </motion.div>
-      </>
-    )}
-  </AnimatePresence>,
-  
+    <AnimatePresence initial={false} mode='sync'>
+      {isOpen && (
+        <>
+          <motion.div
+            key={`backdrop-${uniqueId}`}
+            className='fixed inset-0 h-full w-full bg-white/40 backdrop-blur-xs dark:bg-black/40'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+          <div className='fixed inset-0 z-50 flex items-center justify-center'>
+            {children}
+          </div>
+        </>
+      )}
+    </AnimatePresence>,
     document.body
   );
 }
