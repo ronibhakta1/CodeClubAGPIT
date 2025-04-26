@@ -93,9 +93,9 @@ const UserClubDetails = ({ user }: { user: User }) => (
 );
 
 const UserSkills = ({ skills }: { skills: string[] }) => (
-  <div className="flex gap-2 flex-wrap">
+  <div className="flex gap-2 flex-wrap mt-2 ">  
     {skills.map(skill => (
-      <span key={skill} className="px-3 py-1 bg-zinc-600 text-zinc-300 rounded-full text-sm">{skill}</span>
+      <span key={skill} className="px-3 py-1  bg-zinc-600 text-zinc-300 rounded-full text-sm">{skill}</span>
     ))}
   </div>
 );
