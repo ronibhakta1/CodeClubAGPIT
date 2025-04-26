@@ -19,9 +19,9 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setIsOpen(true)}>Edit Club Details</Button>
+        <Button variant="outline" onClick={() => setIsOpen(true)} className="hover:cursor-pointer bg-zinc-800 text-zinc-100 hover:bg-zinc-800 hover:text-zinc-100">Edit Club Details</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] p-6 rounded-lg">
+      <DialogContent className="sm:max-w-[500px] p-6 rounded-lg  text-slate-100 bg-zinc-950">
         <DialogHeader>
           <DialogTitle>Edit Club Details</DialogTitle>
           <DialogDescription>Update your club role and academic details below.</DialogDescription>
@@ -35,7 +35,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select Role">{role || "Select Role"}</SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="text-slate-100 bg-zinc-900">
                 <SelectGroup>
                   <SelectLabel>Role</SelectLabel>
                   <SelectItem value="Member">Member</SelectItem>
@@ -55,7 +55,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select Year">{yearOfPursuing || "Select Year"}</SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="text-slate-100 bg-neutral-900 ">
                 <SelectGroup>
                   <SelectLabel>Year</SelectLabel>
                   <SelectItem value="1st">1st</SelectItem>
@@ -74,7 +74,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select Year">{yearOfPassing || "Select Year"}</SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="text-slate-100 bg-neutral-900 ">
                 <SelectGroup>
                   <SelectLabel>Year</SelectLabel>
                   <SelectItem value="2024">2024</SelectItem>
@@ -88,7 +88,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
         </div>
 
         <DialogFooter>
-          <Button onClick={handleSave} type="button">
+          <Button onClick={handleSave} type="button" className="  bg-zinc-800 text-zinc-100 hover:bg-zinc-800 hover:text-zinc-100 hover:cursor-pointer ">
             Save Changes
           </Button>
         </DialogFooter>
