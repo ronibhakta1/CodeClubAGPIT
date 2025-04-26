@@ -21,7 +21,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
       <DialogTrigger asChild>
         <Button variant="outline" onClick={() => setIsOpen(true)} className="hover:cursor-pointer bg-zinc-800 text-zinc-100 hover:bg-zinc-800 hover:text-zinc-100">Edit Club Details</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] p-6 rounded-lg  text-slate-100 bg-zinc-950">
+      <DialogContent className="sm:max-w-[500px] p-6 rounded-lg  text-slate-100 bg-zinc-900">
         <DialogHeader>
           <DialogTitle>Edit Club Details</DialogTitle>
           <DialogDescription>Update your club role and academic details below.</DialogDescription>

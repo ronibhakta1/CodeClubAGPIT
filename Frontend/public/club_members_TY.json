@@ -108,7 +108,7 @@
             "name": "Kavita Chimman",
             "email": "kavitachimman4@gmail.com",
             "linkedin": "https://www.linkedin.com/in/kavita-chimman-469737323",
-            "role": "Web Head",
+            "role": "Web Lead",
             "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
             "yearOfStudy": "TY",
             "yearOfPassing": 2026,
@@ -120,36 +120,23 @@
             "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQF661i8XkBeUA/profile-displayphoto-shrink_400_400/B4EZXgljaiGYAk-/0/1743229699849?e=1748476800&v=beta&t=5qeH0Ze_ZEsSryGPSjVAypXHI79ZmFZsPtT1RLeeylo"
         },
         {
-            "name": "Rehan Mulla",
-            "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQF_XyMpLtc6Rg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726324752861?e=1748476800&v=beta&t=kAAWSoF4R3UBUb-_56DqiV2l_ZOCnjVE9bZ_9NaGHcQ",
-            "email": "rehanmulla077@gmail.com",
-            "linkedin": "https://www.linkedin.com/in/rehan-mulla-2b1b6b291",
+            "name": "Shraddha More",
+            "email": "shraddhamore033@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/shraddha-more-94635227b",
             "role": "Member",
-            "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+            "domain": "Artifical Intellegence & Machine Learning(python,  scikit-learn)",
             "yearOfStudy": "TY",
             "yearOfPassing": 2026,
-            "bio": "I am a third-year B.Tech Computer Science Engineering student with a strong passion for Full-Stack Web Development and Data Structures & Algorithms (DSA). Having completed my journey in the MERN stack (MongoDB, Express.js, React, Node.js), I am now focusing on enhancing my problem-solving skills through DSA and exploring the depths of Java programming.",
+            "bio": "B.Tech Computer Science Student | AI & ML Enthusiast | Driven by Technology and Innovation",
             "social": {
-                "github": "https://github.com/Rehuu2003",
+                "github": "https://github.com/MoreShradha",
                 "portfolio": ""
-            }
+            },
+            "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHdiTfYGC0kCw/profile-displayphoto-shrink_400_400/B56ZVwie8UHsAk-/0/1741349845480?e=1748476800&v=beta&t=uSIqz-Gnjkls4Hr1UL4woUn_mhOgBlWrcZOzmvhtA54"
         },
+        
     
-    {
-        "name": "Nilesh Sanap",
-        "email": "nilu111sanap@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/nilesh-sanap-9832b52a5/",
-        "role": "Member",
-        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
-        "yearOfStudy": "TY",
-        "yearOfPassing": 2026,
-        "bio": "CHASING THE DREAMS",
-        "social": {
-            "github": "https://github.com/MrNileshSanap",
-            "portfolio": ""
-        },
-        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
-    },
+    
    
     {
         "name": "Koti Shifa ",
@@ -164,7 +151,7 @@
             "github": "https://github.com/shifakoti",
             "portfolio": ""
         },
-        "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQFASzy0Ut6fHw/profile-displayphoto-shrink_800_800/B4EZZw8jaCHYAc-/0/1745651653648?e=1750896000&v=beta&t=mVOTIM76kw3fYB67O9EXOEPqoxkIZedCawcqV8k6TdQ"
+        "avatar": "https://media.licdn.com/dms/image/v2/D4E03AQGxcjpyNd8lMQ/profile-displayphoto-shrink_400_400/B4EZZSOlSLHcAg-/0/1745136278208?e=1750896000&v=beta&t=N3z9d0OYkrtGZIAI3VHPJP4yjjasWflfx-pSw3qW6JE "
     },
    
     {
@@ -214,6 +201,22 @@
         "avatar": "https://media.licdn.com/dms/image/v2/D5603AQEo6KfJLXQjiQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1674753486300?e=1748476800&v=beta&t=8RHGgQAtDGpfUnzJh38QcQjkiBpmJt-ohGr7riJj82o"
     },
     {
+        "name": "Rehan Mulla",
+        "avatar": "https://media.licdn.com/dms/image/v2/D4D03AQF_XyMpLtc6Rg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726324752861?e=1748476800&v=beta&t=kAAWSoF4R3UBUb-_56DqiV2l_ZOCnjVE9bZ_9NaGHcQ",
+        "email": "rehanmulla077@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/rehan-mulla-2b1b6b291",
+        "role": "Member",
+        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+        "yearOfStudy": "TY",
+        "yearOfPassing": 2026,
+        "bio": "I am a third-year B.Tech Computer Science Engineering student with a strong passion for Full-Stack Web Development and Data Structures & Algorithms (DSA). Having completed my journey in the MERN stack (MongoDB, Express.js, React, Node.js), I am now focusing on enhancing my problem-solving skills through DSA and exploring the depths of Java programming.",
+        "social": {
+            "github": "https://github.com/Rehuu2003",
+            "portfolio": ""
+        }
+    },
+
+    {
         "name": "Samruddhi kamble",
         "email": "ksamruddhi943@gmail.com",
         "linkedin": "https://www.linkedin.com/in/samruddhi-kamble-465049292/",
@@ -224,6 +227,21 @@
         "bio": "..",
         "social": {
             "github": "None",
+            "portfolio": ""
+        },
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
+    },
+    {
+        "name": "Nilesh Sanap",
+        "email": "nilu111sanap@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/nilesh-sanap-9832b52a5/",
+        "role": "Member",
+        "domain": "FULL STACK  WEB DEVELOPER(HTML, CSS or js or python)",
+        "yearOfStudy": "TY",
+        "yearOfPassing": 2026,
+        "bio": "CHASING THE DREAMS",
+        "social": {
+            "github": "https://github.com/MrNileshSanap",
             "portfolio": ""
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
@@ -243,21 +261,7 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
-    {
-        "name": "Shraddha More",
-        "email": "shraddhamore033@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/shraddha-more-94635227b",
-        "role": "Member",
-        "domain": "Artifical Intellegence & Machine Learning(python,  scikit-learn)",
-        "yearOfStudy": "TY",
-        "yearOfPassing": 2026,
-        "bio": "B.Tech Computer Science Student | AI & ML Enthusiast | Driven by Technology and Innovation",
-        "social": {
-            "github": "https://github.com/MoreShradha",
-            "portfolio": ""
-        },
-        "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHdiTfYGC0kCw/profile-displayphoto-shrink_400_400/B56ZVwie8UHsAk-/0/1741349845480?e=1748476800&v=beta&t=uSIqz-Gnjkls4Hr1UL4woUn_mhOgBlWrcZOzmvhtA54"
-    },
+    
     {
         "name": "Tanashk Naikwadi ",
         "email": "tanashknaikwadi@gmail.com",

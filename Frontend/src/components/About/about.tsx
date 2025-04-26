@@ -181,9 +181,9 @@ const About = () => {
       {/* Mission & Vision Section */}
       <div className="max-w-5xl w-full mt-10 px-6">
         <h2 className="text-3xl font-bold text-center mb-6 text-white">Mission & Vision</h2>
-        <Card className="bg-white rounded-2xl shadow-xl border">
+        <Card className="bg-zinc-800 rounded-2xl shadow-xl border ">
           <CardContent>
-            <p className="font-semibold text-gray-800">
+            <p className="font-semibold text-zinc-100 text-center">
               Our goal is to create a collaborative space where students can develop coding skills, enhance problem-solving abilities, and build innovative projects.
             </p>
           </CardContent>
@@ -198,9 +198,9 @@ const About = () => {
       {/* Our Activities Section */}
       <div className="max-w-5xl w-full mt-10 px-6">
         <h2 className="text-3xl font-bold text-center mb-6 text-white">Our Activities</h2>
-        <Card className="bg-white rounded-2xl shadow-xl border">
+        <Card className="bg-zinc-800 rounded-2xl shadow-xl border">
           <CardContent>
-            <ul className="list-disc list-inside space-y-2 font-semibold text-gray-800">
+            <ul className="list-disc list-inside space-y-2 font-semibold text-zinc-200">
               <li>Hackathons & Coding Challenges</li>
               <li>Tech Talks & Webinars</li>
               <li>Open Source Contributions</li>
@@ -214,10 +214,10 @@ const About = () => {
 
       {/* Success Stories Section */}
       <div className="max-w-5xl w-full mt-16 px-6">
-        <h2 className="text-3xl font-bold text-center mb-6 text-white">Success Stories</h2>
-        <Card className="bg-white rounded-2xl shadow-lg p-6 border">
+        <h2 className="text-3xl font-bold text-center mb-6 text-zinc-100">Success Stories</h2>
+        <Card className="bg-zinc-800 rounded-2xl shadow-lg p-6 border">
           <CardContent>
-            <p className="text-lg text-gray-700 font-semibold text-center">
+            <p className="text-lg text-zinc-100 font-semibold text-center">
               Our members have won prestigious hackathons, secured internships at top tech companies, and contributed to open-source projects. 
               Join us and be part of this journey!
             </p>
@@ -252,7 +252,7 @@ const About = () => {
 
       {/* Join Us Button */}
       <div className="flex justify-center mt-10">
-        <Button className="bg-white text-black px-6 py-3 text-lg font-semibold rounded-xl hover:bg-white transform transition-transform duration-300 hover:scale-105">
+        <Button className="bg-zinc-500 hover:cursor-pointer text-black px-6 py-3 text-lg font-semibold rounded-xl hover:bg-zinc-300 transform transition-transform duration-300 hover:scale-105">
           Join Us
         </Button>
       </div>

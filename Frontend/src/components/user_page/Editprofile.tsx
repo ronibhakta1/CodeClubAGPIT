@@ -73,7 +73,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
       <DialogTrigger asChild>
         <Button variant="outline" className="hover:cursor-pointer  bg-zinc-800 text-zinc-100 hover:bg-zinc-800 hover:text-zinc-100">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg text-slate-100 bg-zinc-950">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-6 rounded-lg text-slate-100 bg-zinc-900">
         <DialogHeader>
           <DialogTitle>Edit Profile</DialogTitle>
         </DialogHeader>
