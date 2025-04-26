@@ -49,7 +49,7 @@ export function GalleryCarousel() {
     <div className="py-4 px-3 sm:py-6 sm:px-4 max-w-[1200px] mx-auto">
       {/* Carousel Images Section */}
       <div className="mb-6 sm:mb-10">
-        <h2 className="text-xl sm:text-2xl text-zinc-200 font-bold text-center mb-4 sm:mb-6">AGPIT Board of Directors & Faculty</h2>
+        <h2 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">AGPIT Board of Directors & Faculty</h2><br /><br />
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 justify-items-center">
           {carouselImages.map((item) => (
             <div 

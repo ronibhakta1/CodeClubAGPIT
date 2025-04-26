@@ -1,26 +1,34 @@
 [
   {
     "id": 1,
+    "name":"Mr. S.A Patil",
     "image": "/SecretaryDesk.png",
     "title": "President",
-    "tagline": "Young, ignited minds is the need of the hour."
+    "tagline": "Young, ignited minds is the need of the hour.",
+    "Post":"Secretary"
   },
   {
     "id": 2,
+    "name":"Dr. M A Chougule",
     "image": "/campus_director_chougule_sir.jpg",
     "title": "Campus Dicrector",
-    "tagline": "Fostering an environment where ambition thrives and success follows."
+    "tagline": "Fostering an environment where ambition thrives and success follows.",
+    "Post":"Campus Director"
   },
   {
     "id": 3,
+    "name":"Dr. V V Potdar",
     "image": "/Principal-desk.jpeg.jpg",
     "title": "Principal",
-    "tagline": "Inspiring Leadership, Empowering Futures"
+    "tagline": "Inspiring Leadership, Empowering Futures",
+    "Post":"Principal"
   },
   {
     "id": 5,
+    "name":"Mr. S.V Kulkarni",
     "image": "/Kulkarni.jpg",
     "title": "HOD CSE",
-    "tagline": "Guiding brilliance, nurturing innovation, and unlocking potential."
+    "tagline": "Guiding brilliance, nurturing innovation, and unlocking potential.",
+    "Post":"Head Of Department"
   }
 ]
