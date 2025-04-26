@@ -26,7 +26,6 @@ import useClickOutside from '@/components/Events/useClickOutside';
 // If you export a default transition, set it here:
 export const FAST_DIALOG_TRANSITION = { type: 'tween', duration: 0.10, ease: 'easeInOut' };
 
-
 export type MorphingDialogContextType = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
