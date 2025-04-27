@@ -88,10 +88,11 @@ export function AboutMembers() {
     };
 
     return (
+        
         <div className="py-8 px-4">
             {/* Carousel Images Section */}
             <div className="mb-12">
-                <h2 className="text-2xl text-zinc-200 font-bold text-center mb-6">AGPIT Board of Directors & Faculty</h2>
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {carouselImages.map((item) => (
                         <div
@@ -108,6 +109,7 @@ export function AboutMembers() {
                                     const target = e.target as HTMLImageElement;
                                     target.src = "/default-image.jpg";
                                 }}
+                                
                             />
                             <ProgressiveBlur
                                 className="pointer-events-none absolute bottom-0 left-0 h-[50%] w-full"
@@ -133,8 +135,13 @@ export function AboutMembers() {
                                     <span className="text-sm text-black">{item.tagline}</span>
                                 </div>
                             </motion.div>
+                    
                         </div>
+                        
                     ))}
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
 
