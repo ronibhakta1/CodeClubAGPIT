@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { Trash2, UserPlus } from "lucide-react";
 import {
@@ -14,7 +15,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 interface User {
   id: string;
@@ -24,28 +24,32 @@ interface User {
   joinedAt?: string;
 }
 
-export default function ManageUsers() {
+export default function RecentlyJoinedUsers() {
   const [users, setUsers] = React.useState<User[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  // Fetch data from JSON files
+  // Fetch data from JSON files and sort by joinedAt
   React.useEffect(() => {
     const fetchUsers = async () => {
       try {
         const [fyResponse, syResponse, tyResponse] = await Promise.all([
-          
-          fetch("/club_members_TY.json"),
           fetch("/club_members_FY.json"),
           fetch("/club_members_SY.json"),
+          fetch("/club_members_TY.json"),
         ]);
 
         const fyData: User[] = await fyResponse.json();
         const syData: User[] = await syResponse.json();
         const tyData: User[] = await tyResponse.json();
 
-        // Combine all users
-        const allUsers = [...fyData, ...syData, ...tyData];
-        setUsers(allUsers);
+        // Combine and sort users by joinedAt (descending)
+        const allUsers = [...fyData, ...syData, ...tyData].sort((a, b) => {
+          if (!a.joinedAt || !b.joinedAt) return 0;
+          return new Date(b.joinedAt).getTime() - new Date(a.joinedAt).getTime();
+        });
+
+        // Show only the top 3 recently joined users
+        setUsers(allUsers.slice(0, 3));
         setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch users:", error);
@@ -78,88 +82,65 @@ export default function ManageUsers() {
     // TODO: Call backend API to update role
   };
 
-  // Role color mapping
-  const getRoleStyles = (role: string) => {
-    switch (role) {
-      case "President":
-        return "bg-red-500/20 text-red-400";
-      case "Vice President":
-        return "bg-green-500/20 text-green-400";
-      case "Secretary":
-        return "bg-yellow-500/20 text-yellow-400";
-      case "Member":
-        return "bg-blue-500/20 text-blue-400";
-      case "Moderator":
-        return "bg-orange-500/20 text-orange-400";
-      case "Faculty":
-        return "bg-teal-500/20 text-teal-400";
-      default:
-        return "bg-blue-500/20 text-blue-400";
-    }
+  // Format joinedAt to relative time (e.g., "3 mins ago")
+  const formatJoinedAt = (joinedAt?: string) => {
+    if (!joinedAt) return "Unknown time";
+    const now = new Date();
+    const joined = new Date(joinedAt);
+    const diffMs = now.getTime() - joined.getTime();
+    const diffMins = Math.floor(diffMs / 1000 / 60);
+
+    if (diffMins < 60) return `${diffMins} mins ago`;
+    const diffHours = Math.floor(diffMins / 60);
+    if (diffHours < 24) return `${diffHours} hours ago`;
+    return `${Math.floor(diffHours / 24)} days ago`;
   };
 
   return (
-    <Card className="bg-zinc-900 text-white border mt-3 border-zinc-700 shadow-lg  rounded-2xl">
+    <Card className="bg-zinc-900 text-white border border-zinc-700 shadow-lg ">
       <CardHeader className="pb-2">
         <CardTitle className="text-2xl font-semibold tracking-tight">
-          Manage Users
+          Recently Joined Users
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent>
         {isLoading ? (
-          <div className="space-y-4">
+          <ul className="space-y-4">
             {[...Array(3)].map((_, index) => (
-              <div
+              <li
                 key={index}
-                className="flex items-center justify-between p-3 bg-zinc-800 rounded-xl animate-pulse"
+                className="flex justify-between items-center py-2 animate-pulse"
               >
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-zinc-700" />
-                  <div className="space-y-2">
-                    <div className="h-5 w-40 bg-zinc-700 rounded-md" />
-                    <div className="h-4 w-32 bg-zinc-700 rounded-md" />
-                  </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-full bg-zinc-800" />
+                  <div className="h-5 w-40 bg-zinc-800 rounded-md" />
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="h-6 w-24 bg-zinc-700 rounded-full" />
-                  <div className="h-8 w-28 bg-zinc-700 rounded-md" />
-                  <div className="h-8 w-8 bg-zinc-700 rounded-md" />
-                  <div className="h-8 w-8 bg-zinc-700 rounded-md" />
+                  <div className="h-5 w-20 bg-zinc-800 rounded-md" />
+                  <div className="h-8 w-24 bg-zinc-800 rounded-md" />
+                  <div className="h-8 w-8 bg-zinc-800 rounded-md" />
+                  <div className="h-8 w-8 bg-zinc-800 rounded-md" />
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         ) : (
-          <div className="space-y-4">
+          <ul className="space-y-4">
             {users.map((user) => (
-              <div
+              <li
                 key={user.id}
-                className="flex items-center justify-between p-3 bg-zinc-800 rounded-xl hover:bg-zinc-700/50 transition-colors duration-200"
+                className="flex justify-between items-center py-2 border-b border-zinc-800 last:border-b-0 hover:bg-zinc-800/50 transition-colors duration-200 rounded-md px-2"
               >
-                {/* User Info */}
-                <div className="flex items-center gap-4">
-                  <Avatar>
-                    <AvatarFallback className="bg-indigo-600 text-white">
-                      {user.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")
-                        .toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="text-base font-medium text-zinc-200">{user.name}</p>
-                    <p className="text-xs text-zinc-400">{user.email}</p>
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-full bg-zinc-700 flex items-center justify-center text-zinc-300 font-medium">
+                    {user.name.charAt(0)}
                   </div>
-                </div>
-
-                {/* Role & Actions */}
-                <div className="flex items-center gap-4">
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full font-semibold ${getRoleStyles(user.role)}`}
-                  >
-                    {user.role}
+                  <span className="text-base font-medium text-zinc-200">
+                    {user.name}
                   </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-zinc-400">{formatJoinedAt(user.joinedAt)}</span>
                   <Select
                     value={user.role}
                     onValueChange={(value) => handleChangeRole(user.id, value)}
@@ -168,16 +149,11 @@ export default function ManageUsers() {
                       <SelectValue placeholder="Role" />
                     </SelectTrigger>
                     <SelectContent className="bg-zinc-800 border-zinc-700 text-zinc-200">
-                      <SelectItem value="President">President</SelectItem>
+                      <SelectItem value="Member">Member</SelectItem>
                       <SelectItem value="Vice President">Vice President</SelectItem>
                       <SelectItem value="Secretary">Secretary</SelectItem>
-                      <SelectItem value="Dsa Lead">Dsa Lead</SelectItem>
-                      <SelectItem value="Web Lead">Web Lead</SelectItem>
-                      <SelectItem value="Android Lead">Android Lead</SelectItem>
-
-                      <SelectItem value="Member">Member</SelectItem>
                       <SelectItem value="Moderator">Moderator</SelectItem>
-                      <SelectItem value="Faculty">Faculty</SelectItem>
+                      <SelectItem value="Admin">Admin</SelectItem>
                     </SelectContent>
                   </Select>
                   <Button
@@ -199,9 +175,9 @@ export default function ManageUsers() {
                     <Trash2 className="h-4 w-4" />
                   </Button>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </CardContent>
     </Card>
