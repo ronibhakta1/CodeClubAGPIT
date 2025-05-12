@@ -77,7 +77,7 @@ export default function Admin() {
         navItems={navItems}
         
       />
-
+      
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 px-4 shadow-md bg-zinc-950">
           <SidebarTrigger className="-ml-1 text-zinc-100" />
@@ -96,7 +96,7 @@ export default function Admin() {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-
+        <Separator orientation="horizontal" className="h-2  bg-zinc-200" />
         <div className="flex-1 p-6 pt-0 bg-zinc-950" >
           {activeSection === "dashboard" && <AdminDashboardStats/>}
           {activeSection === "users" && <ManageUsers/>}
