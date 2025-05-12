@@ -43,7 +43,7 @@ function BreadcrumbLink({
   return (
     <Comp
       data-slot="breadcrumb-link"
-      className={cn("hover:text-slate-100 ", className)}
+      className={cn("hover:text-zinc-400 ", className)}
       {...props}
     />
   )
