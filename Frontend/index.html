@@ -9,5 +9,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+fetch('YOUR_VERCEL_DEPLOYED_URL/api/visitors')
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('counter').innerHTML = `
+      Visitors: ${data.visitors} | Total: ${data.total}
+    `;
+  });
+</script>
   </body>
 </html>

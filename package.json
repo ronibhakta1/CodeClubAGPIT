@@ -1,0 +1,12 @@
+{
+  "name": "codeclubagpit",
+  "version": "1.0.0",
+  "description": "Code Club AGPIT is a dynamic platform dedicated to the coding club of our college. It is designed to foster a strong coding community by providing a centralized space for club members to collaborate, manage events, and share knowledge. The platform aims to promote coding culture, improve technical skills, and create a supportive learning environment for students of all levels.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
