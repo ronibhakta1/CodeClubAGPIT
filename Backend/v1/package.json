@@ -1,14 +1,31 @@
 {
   "name": "v1",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc"
   },
   "dependencies": {
-    "hono": "^4.7.7"
+    "@hono/node-server": "^1.14.1",
+    "@prisma/client": "^6.8.2",
+    "dotenv": "^16.5.0",
+    "hono": "^4.7.9",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250214.0",
+    "@types/node": "^22.15.18",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.8.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
     "wrangler": "^4.4.0"
-  }
+  },
+  "version": "1.0.0",
+  "description": "This directory contains the backend server for Code Club AGPIT built with Hono and Prisma.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

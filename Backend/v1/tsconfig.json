@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext", // ← Changed for Node.js compatibility
+    "moduleResolution": "NodeNext", // ← Changed
     "strict": true,
     "skipLibCheck": true,
-    "lib": [
-      "ESNext"
-    ],
+    "outDir": "./dist",
+    "rootDir": "./src",
     "types": [
-      "@cloudflare/workers-types/2023-07-01"
+      "node" // ← Added Node.js types
     ],
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
+    "esModuleInterop": true // ← Added for better import handling
   },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
