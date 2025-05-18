@@ -276,6 +276,21 @@
             "portfolio": ""
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
+    },
+    {
+        "name": "Anurag Gurubhetti ",
+        "email": "gurubhettianurag@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/anuraggurubhetti",
+        "role": "Member",
+        "domain": "FRONT-END DEVELOPMENT",
+        "yearOfStudy": "TY",
+        "yearOfPassing": 2026,
+        "bio": "I explore concepts in small-scale entrepreneurship, AI & Software Engineering. Full-Stack Web Developer + Aspiring SWE",
+        "social": {
+            "github": "https://github.com/AnuragGitUser",
+            "portfolio": ""
+        },
+        "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     }
     
 ]
