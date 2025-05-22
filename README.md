@@ -81,4 +81,7 @@ To set up the project locally, follow these steps:
 ## Contact
 For queries, contributions, or support, feel free to reach out via GitHub or through our college's official channels. We welcome all enthusiasts to join and contribute to the club's growth.
 
+## Liscense 
+ MIT
+
 ---
