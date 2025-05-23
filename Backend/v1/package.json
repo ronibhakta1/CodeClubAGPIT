@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "@prisma/client": "^6.8.2",
-    "hono": "^4.7.7"
+    "hono": "^4.7.7",
+    "prisma": "^6.8.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250214.0",

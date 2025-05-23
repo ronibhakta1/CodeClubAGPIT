@@ -120,9 +120,111 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.AdminScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  name: 'name',
+  bio: 'bio',
+  role: 'role',
+  email: 'email',
+  password: 'password',
+  profilePicture: 'profilePicture'
+};
+
+exports.Prisma.StaffScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  name: 'name',
+  bio: 'bio',
+  role: 'role',
+  email: 'email',
+  password: 'password',
+  profilePicture: 'profilePicture',
+  adminId: 'adminId'
+};
+
+exports.Prisma.VisitorScalarFieldEnum = {
+  id: 'id',
+  ipAddress: 'ipAddress',
+  visitDate: 'visitDate',
+  pageVisited: 'pageVisited',
+  browserInfo: 'browserInfo',
+  deviceType: 'deviceType',
+  userId: 'userId',
+  staffId: 'staffId',
+  adminId: 'adminId',
+  staffRelationId: 'staffRelationId'
+};
+
+exports.Prisma.EventScalarFieldEnum = {
+  id: 'id',
+  unsignedId: 'unsignedId',
+  title: 'title',
+  description: 'description',
+  registrationDate: 'registrationDate',
+  startTime: 'startTime',
+  endTime: 'endTime',
+  location: 'location',
+  role: 'role',
+  capability: 'capability',
+  speaker: 'speaker',
+  moderator: 'moderator',
+  registrationDeadline: 'registrationDeadline',
+  meetingLink: 'meetingLink',
+  type: 'type',
+  status: 'status',
+  approvedBy: 'approvedBy',
+  approvedById: 'approvedById'
+};
+
+exports.Prisma.EventRegistrationScalarFieldEnum = {
+  id: 'id',
+  uniqueId: 'uniqueId',
+  userId: 'userId',
+  staffId: 'staffId',
+  eventId: 'eventId',
+  registeredAt: 'registeredAt',
+  waitingList: 'waitingList',
+  eventType: 'eventType',
+  paymentStatus: 'paymentStatus'
+};
+
+exports.Prisma.PaymentScalarFieldEnum = {
+  id: 'id',
+  staffId: 'staffId',
+  userId: 'userId',
+  registrationId: 'registrationId',
+  paymentDate: 'paymentDate',
+  amount: 'amount',
+  paymentType: 'paymentType',
+  paymentStatus: 'paymentStatus',
+  transactionId: 'transactionId',
+  paymentMethod: 'paymentMethod'
+};
+
+exports.Prisma.SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-
+  Admin: 'Admin',
+  Staff: 'Staff',
+  Visitor: 'Visitor',
+  Event: 'Event',
+  EventRegistration: 'EventRegistration',
+  Payment: 'Payment'
 };
 
 /**

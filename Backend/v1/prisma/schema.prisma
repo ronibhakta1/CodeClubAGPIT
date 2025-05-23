@@ -1,8 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// This is your Prisma schema file
+// Docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -15,92 +12,96 @@ datasource db {
 }
 
 model Admin {
-  id             String     @id @default(uuid())
-  username       String     @unique
+  id             String    @id @default(uuid())
+  username       String    @unique
   name           String
   bio            String?
   role           String
-  email          String     @unique
+  email          String    @unique
   password       String
   profilePicture String?
   staff          Staff[]
   visitors       Visitor[]
-  approvedEvents Event[]    @relation("ApprovedEvents")
+  approvedEvents Event[]   @relation("ApprovedEvents")
 }
 
 model Staff {
-  id             String     @id @default(uuid())
-  username       String     @unique
-  name           String
-  bio            String?
-  role           String
-  email          String     @unique
-  password       String
-  profilePicture String?
-  admin          Admin      @relation(fields: [adminId], references: [id])
-  adminId       String
-  visitors       Visitor[]
+  id                 String              @id @default(uuid())
+  username           String              @unique
+  name               String
+  bio                String?
+  role               String
+  email              String              @unique
+  password           String
+  profilePicture     String?
+  admin              Admin               @relation(fields: [adminId], references: [id])
+  adminId            String
+  visitors           Visitor[]
   eventRegistrations EventRegistration[]
+  payments           Payment[] // ✅ Back-relation to Payment
 }
 
 model Visitor {
-  id           String     @id @default(uuid())
-  ipAddress    String
-  visitDate    DateTime
-  pageVisited  String
-  browserInfo  String
-  deviceType   String
-  userId       Int?
-  staffId      Int?
-  admin        Admin?     @relation(fields: [adminId], references: [id])
-  adminId      String?
-  staff        Staff?     @relation(fields: [staffId], references: [id])
-  staffRelationId String?
+  id                 String              @id @default(uuid())
+  ipAddress          String
+  visitDate          DateTime
+  pageVisited        String
+  browserInfo        String
+  deviceType         String
+  userId             Int?
+  staffId            String? // ✅ Fixed type
+  admin              Admin?              @relation(fields: [adminId], references: [id])
+  adminId            String?
+  staff              Staff?              @relation(fields: [staffId], references: [id])
+  staffRelationId    String?
   eventRegistrations EventRegistration[]
+  payments           Payment[] // ✅ Back-relation to Payment
 }
 
 model Event {
-  id                     String     @id @default(uuid())
-  unsignedId             String     @unique
-  title                  String
-  description            String?
-  registrationDate       DateTime
-  startTime              DateTime
-  endTime                DateTime
-  location               String
-  role                   String?
-  capability             Int?
-  speaker                String?
-  moderator              String?
-  registrationDeadline   DateTime
-  meetingLink            String?
-  type                   String?
-  status                 String
-  approvedBy             String?
-  approvedByAdmin        Admin?     @relation("ApprovedEvents", fields: [approvedById], references: [id])
-  approvedById           String?
-  registrations          EventRegistration[]
+  id                   String              @id @default(uuid())
+  unsignedId           String              @unique
+  title                String
+  description          String?
+  registrationDate     DateTime
+  startTime            DateTime
+  endTime              DateTime
+  location             String
+  role                 String?
+  capability           Int?
+  speaker              String?
+  moderator            String?
+  registrationDeadline DateTime
+  meetingLink          String?
+  type                 String?
+  status               String
+  approvedBy           String?
+  approvedByAdmin      Admin?              @relation("ApprovedEvents", fields: [approvedById], references: [id])
+  approvedById         String?
+  registrations        EventRegistration[]
 }
 
 model EventRegistration {
-  id           String     @id @default(uuid())
-  uniqueId     String     @unique
-  userId       String
-  staffId      String
-  eventId      String
-  event        Event      @relation(fields: [eventId], references: [id])
-  user         Visitor    @relation(fields: [userId], references: [id])
-  staff        Staff?     @relation(fields: [staffId], references: [id])
-  registeredAt DateTime
-  waitingList  Int
-  eventType    String
+  id            String    @id @default(uuid())
+  uniqueId      String    @unique
+  userId        String
+  staffId       String
+  eventId       String
+  event         Event     @relation(fields: [eventId], references: [id])
+  user          Visitor   @relation(fields: [userId], references: [id])
+  staff         Staff?    @relation(fields: [staffId], references: [id])
+  registeredAt  DateTime
+  waitingList   Int
+  eventType     String
   paymentStatus String
+  payments      Payment[] // ✅ Back-relation to Payment
 }
+
 model Payment {
-  id             String     @id @default(uuid())
-  staff          Staff     @relation(fields: [staffId], references: [id])
+  id             String            @id @default(uuid())
+  staff          Staff             @relation(fields: [staffId], references: [id])
   staffId        String
-  user           Visitor    @relation(fields: [userId], references: [id])
+  user           Visitor           @relation(fields: [userId], references: [id])
   userId         String
   registration   EventRegistration @relation(fields: [registrationId], references: [id])
   registrationId String
@@ -108,6 +109,6 @@ model Payment {
   amount         Float
   paymentType    String
   paymentStatus  String
-  transactionId  String     @unique
+  transactionId  String            @unique
   paymentMethod  String
 }
