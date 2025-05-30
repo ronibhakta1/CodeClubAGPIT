@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "Hackathon 2025",
+    "description": "A 24-hour coding marathon",
+    "date": "2025-05-29",
+    "status": "Upcoming",
+    "coordinator": "A. G. Patil Institiute of Technology",
+    "location": "Solapur , India",
+    "competitions": [
+      { "name": "Web3 + AI", "description": "Fast-paced coding challenge" }
+    ]
+  }
+]

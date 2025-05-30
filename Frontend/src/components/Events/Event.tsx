@@ -262,7 +262,7 @@ const Events = () => {
 
       <div className="mt-3 flex w-full ">
         <p className=" text-white mt-0 w-full text-center py-3">
-          <h1 className="text-2xl font-extrabold sm:text-3xl">
+          <h1 className="text-2xl md:text-xl lg:text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center ">
             {activeEvents.activeEvents[2].name}
           </h1>
         </p>
@@ -281,13 +281,13 @@ const Events = () => {
         <Carousel
           opts={{ loop: true }}
           setApi={setApi}
-          className="w-full max-w-[1000px] md:max-w-[1000px] h-[400px] relative overflow-visible mx-auto "
+          className="w-full max-w-[1000px] md:max-w-[1000px] h-[400px] relative overflow-visible mx-auto  "
         >
           <CarouselContent className="w-full flex-nowrap flex ">
             {eventList.map((event, index) => (
               <CarouselItem
                 key={index}
-                className="basis-1/2 sm:basis-1/2 md:basis-1/2 lg:basis-1/3"
+                className="basis-1/2 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 "
               >
                 <div className="p-4">
                   <MorphingDialog transition={FAST_DIALOG_TRANSITION}>
@@ -296,7 +296,7 @@ const Events = () => {
                      {/* Clickable Event Card */}
                      <MorphingDialogTrigger
                       style={{ borderRadius: "12px", height: "380px" }}
-                      className="flex flex-col overflow-hidden border border-zinc-900/10 bg-zinc-600 dark:border-zinc-50/10 dark:bg-zinc-600"
+                      className="text-white bg-zinc-900 h-auto border-zinc-700"
                     >
 
 
@@ -328,7 +328,7 @@ const Events = () => {
                     <MorphingDialogContainer>
                       <MorphingDialogContent
                         style={{ borderRadius: "24px" }}
-                        className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-zinc-600 dark:border-zinc-700 dark:bg-zinc-100 sm:w-[400px] sm:max-h-[570px]"
+                        className="relative flex flex-col overflow-hidden border border-zinc-950/10  sm:w-[400px] sm:max-h-[570px]"
                       >
 
                          {/*  New Carousel for Multiple Images */}
@@ -409,19 +409,19 @@ const Events = () => {
       <div className="flex gap-30 mb-10 px-0 w-full max-w-[1200px] mx-auto">
         {/* Carousel Section */}
         <div className="flex flex-col gap-6 mb-10 px-4 sm:px-6 md:px-10 py-4 w-full max-w-[1200px] mx-auto">
-          <Carousel className="w-full max-w-[1000px] md:max-w-[1000px] h-[400px] relative overflow-visible mx-auto">
-            <CarouselContent className="w-full">
+          <Carousel className="w-full max-w-[1000px] md:max-w-[1000px] h-[400px] relative overflow-visible mx-auto ">
+            <CarouselContent className="w-full ">
               {eventData.events.map((event, index) => (
                 <CarouselItem
                   key={index}
                   className="basis-full sm:basis-1/2 md:basis-1/3"
                 >
-                  <div className="p-4 h-full">
+                  <div className="p-4 h-full ">
                     <MorphingDialog transition={FAST_DIALOG_TRANSITION}>
                       {/* Trigger */}
                       <MorphingDialogTrigger
                         style={{ borderRadius: "12px", height: "100%" }}
-                        className="flex flex-col overflow-hidden border border-zinc-800 bg-zinc-600 dark:border-zinc-50/10 dark:bg-zinc-600"
+                        className="text-white bg-zinc-900 h-auto border-zinc-700"
                       >
                         <img
                           src={event.image1}
@@ -451,7 +451,7 @@ const Events = () => {
                       <MorphingDialogContainer>
                         <MorphingDialogContent
                           style={{ borderRadius: "24px" }}
-                          className="relative flex flex-col overflow-hidden border border-zinc-950/10 bg-zinc-600 dark:border-zinc-50/10 dark:bg-zinc-600 sm:w-[400px] sm:max-h-[570px]"
+                          className="relative flex flex-col overflow-hidden text-white bg-zinc-900 h-auto border-zinc-700 sm:w-[400px] sm:max-h-[570px]"
                         >
                           <Carousel>
                             <CarouselContent>
@@ -511,8 +511,8 @@ const Events = () => {
       </div>
       <div className="flex">
         <p className=" text-white w-full text-center py-4">
-          <h1 className="text-2xl font-extrabold sm:text-3xl py-6">
-            Live Events
+          <h1 className="text-2xl md:text-xl lg:text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">
+            LIVE EVENTS
           </h1>
         </p>
       </div>
@@ -522,7 +522,7 @@ const Events = () => {
 
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 mb-12 px-4 sm:px-6 md:px-12 py-4 w-full max-w-[1200px] mx-auto">
         {/* Active Event Box */}
-        <Card className="p-4 sm:p-6 bg-zinc-600 text-zinc-100 shadow-md w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 text-left mx-auto">
+        <Card className="p-4 sm:p-6 text-white bg-zinc-900 h-auto border-zinc-700 w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 text-left mx-auto">
           <h2 className="text-lg font-bold leading-tight">
             {activeEvents.activeEvents[0].name}
           </h2>
@@ -536,7 +536,7 @@ const Events = () => {
             <strong>🔹 Location: </strong> {activeEvents.activeEvents[0].location}
           </p>
 
-          <div className="flex flex-col bg-zinc-600 text-zinc-100 items-start space-y-3 mt-2">
+          <div className="flex flex-col text-white bg-zinc-900 h-auto border-zinc-700 items-start space-y-3 mt-1">
             {/* Description HoverCard */}
             <HoverCard>
               <HoverCardTrigger asChild>
@@ -549,7 +549,7 @@ const Events = () => {
                   </p>
                 </Button>
               </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-zinc-100 bg-zinc-500 ">
+              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700 ">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold ">
                     <strong>🔹 Description</strong>
@@ -566,14 +566,14 @@ const Events = () => {
               <HoverCardTrigger asChild>
                 <Button
                   variant="link"
-                  className="text-left p-0 m-0 leading-none"
+                  className="text-left p-0 m-0 leading-none "
                 >
                   <p className="text-sm text-zinc-100">
                     <strong>🔹 Type</strong>
                   </p>
                 </Button>
               </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-zinc-100 bg-zinc-500">
+              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold text-zinc-100">
                     <strong>🔹 Type</strong>
@@ -584,7 +584,7 @@ const Events = () => {
             </HoverCard>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-4 ">
             <Button className="w-full sm:w-48 px-4 py-3 text-sm bg-zinc-800 text-white hover:bg-zinc-500">
               Registration [open/close]
             </Button>
@@ -595,7 +595,7 @@ const Events = () => {
 
         {/* New Upcoming Event Box */}
 
-        <Card className="p-6 sm:p-6 shadow-md   bg-zinc-600 text-zinc-100 w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 mx-auto text-left">
+        <Card className="p-6 sm:p-6 shadow-md text-white bg-zinc-900 h-auto border-zinc-700  w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 mx-auto text-left">
           <h2 className="text-lg font-bold space-y-0 leading-tight">
             {activeEvents.activeEvents[1].name}
           </h2>
@@ -612,7 +612,7 @@ const Events = () => {
             <strong>🔹 Location: </strong> {activeEvents.activeEvents[1].location}
           </p>
 
-          <div className="flex flex-col items-start gap-3 mt-10  bg-zinc-600 ">
+          <div className="flex flex-col items-start gap-2 text-white bg-zinc-900 h-auto border-zinc-700">
 
 
             {/* Description HoverCard */}
@@ -620,14 +620,14 @@ const Events = () => {
               <HoverCardTrigger asChild>
                 <Button
                   variant="link"
-                  className="text-left p-0 m-0 leading-none"
+                  className="text-left p-0 m-0 leading-none "
                 >
-                  <p className="text-sm text-zinc-100">
+                  <p className="text-sm text-zinc-100 ">
                     <strong>🔹 Description</strong>
                   </p>
                 </Button>
               </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-zinc-100 bg-zinc-500">
+              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold text-zinc-100">
                     <strong>🔹 Description</strong>
@@ -651,7 +651,7 @@ const Events = () => {
                   </p>
                 </Button>
               </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-zinc-100 bg-zinc-500">
+              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700">
                 <div className="mt-0">
                   <h4 className="text-sm font-semibold text-zinc-100">
                     <strong>🔹 Type</strong>
