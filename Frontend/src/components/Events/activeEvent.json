@@ -28,78 +28,62 @@
       "name": "DSA Workshop! ",
       "detail":
         "What an incredible experience! Our Code Club just wrapped up a power-packed Data Structures and Algorithms (DSA) workshop, designed especially for 2nd-year students eager to sharpen their coding skills. 💻✨Our two expert speakers from within the club Nasir Nadaf and Vikas Budhyal did a phenomenal job breaking down complex concepts into actionable knowledge, delivering a session filled with insightful tips and real- world problem - solving strategies.The students were fully engaged, asking great questions, and diving deep into algorithmic thinking. 🧠💡The energy in the room was contagious, and it’s inspiring to see how much potential these young coders have! This is just the beginning—more workshops, more learning, and more coding success stories to come. 🚀🔥A massive shoutout to our brilliant speakers and everyone who participated! 🙌 Stay tuned for more events as we continue to build a collaborative and innovative tech community. 👩‍💻👨‍💻",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D4D22AQHSN6gx-bKRFA/feedshare-shrink_1280/feedshare-shrink_1280/0/1726663683655?e=1746057600&v=beta&t=1O01rHIneJtSo32wVLp_xPUmtls1yPOPGh5HsAyM2m8",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D4D22AQFPXs8rAnfC6g/feedshare-shrink_1280/feedshare-shrink_1280/0/1726663683265?e=1746057600&v=beta&t=-_ndn5kl3gvo09FPuiSaDByVKGXxlVwam84y5xuge6c",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D4D22AQGoeE1b7F5DdQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1726663692077?e=1746057600&v=beta&t=bHQN6KJWq_JZ2fjrDnDn_811zdrVq5-aktiFZ00xuGE"
+      "image1":"/events/dsa1.png",
+      "image2":"/events/dsa2.png",
+      "image3":"/events/dsa3.png"
     },
     {
       "name": "Launching The Code Club 🚀",
       "detail":
-        "This is 2022 we started the new phase, officially launching the Code Club at A G Patil Institute of Technology ! 🎉 Our mission is to create a thriving community of passionate coders, innovators, and problem-solvers who will shape the future of technology. 💻✨With the support of our incredible team, faculty, and students, we aim to provide a platform for learning, collaboration, and hands-on experience in coding, development, and more. From workshops to real-world projects, our journey starts now! 💡🚀Special thanks to Dr. V V Potdar Sir ( Principal Sir ), Prof. Naresh Patil ( TPO sir ) and Shripad Kulkarni ( HOD Sir cse ) for their guidance and support in making this dream a reality. 🙏 A heartfelt thank you to our Founder + Ex-President Ketan Bhogshetti , and Ex-Vice President Sushmita Babanagare for their dedication and vision that brought this club to life. We are excited to embark on this journey and can’t wait to see what the future holds for the Code Club! Date - 13/5/2023",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D4D22AQEh8GwpWnFRHQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1726827654950?e=1746057600&v=beta&t=fsFBsBgwDb4OCE790VD6LUCmGzEQR1LEDknn7KkRrCY",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D4D22AQEO3BGNYxegZQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1726827655109?e=1746057600&v=beta&t=1IL9PKOXBnE4VFnbByGQRF-YtPrU84VBuZnbeoPLr9c",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D4D22AQEh2hadSHZ3FQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1726827655077?e=1746057600&v=beta&t=pUY-1Sp_7DhscFONe4H0msmsG9DhZ7ctsIGRBewflWQ"
+        "Well Well CODE CLUB AGPIT is officially gone live! We’re beyond excited to unveil our brand new website:- codeclubagpit.vercel.app .This platform is more than just a website — it’s a digital home for our community. From showcasing our team and events to sharing our mission, it reflects the energy and creativity of Code Club AGPIT. 🚀It is just a beginning ,🔧 Coming soon with Version 2:🎫 Tech fest registration 💸 Payment tracking 📲 QR-based ticket confirmation …and more powerful features built for students, by students! This journey wouldn’t be possible without the guidance and support of: 🙏 Principal Sir ,  🙏 HOD Sir ( Shripad Kulkarni ) And a massive shoutout to our Web Development Team — Roni Bhakta , Shifa Koti , Kavita Chimman , Nasir Nadaf , ARYAN MASKE you all are rockstars! 💻💙🔗 Dive into the code here: https://lnkd.in/dmTeCbWj (Yes, it's open-source feel free to clone it. We believe in sharing and growing together!) Have a look and let us know what you think — your feedback means the world to us! — Team Code Club AGPIT",
+      "image1":"/events/launch1.png",
+      "image2":"/events/launch2.png",
+      "image3":"/events/launch3.png"
     },
     {
-      "name": "JavaScript Workshop! ",
+      "name": "DSA session for 2nd-Year students! 🎯",
       "detail":
-        "We are thrilled to share that Code Club AGPIT has successfully conducted a comprehensive JavaScript workshop for 3rd-year CSE students! 🚀From understanding the fundamentals to exploring advanced concepts, our participants gained valuable insights into one of the most essential programming languages in the world today. 💻✨A huge thanks to our dedicated team Ketan Bhogshetti and Vivek Solapure and all the enthusiastic students who made this workshop a success. ",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D4D22AQGtYsE292eZzA/feedshare-shrink_1280/feedshare-shrink_1280/0/1727344682900?e=1746057600&v=beta&t=Uo71H_rmMK7oV0Zv3-VBn9yCf-ce6-SdKT0osQ4uBa8",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D4D22AQENlmcNQVUraw/feedshare-shrink_1280/feedshare-shrink_1280/0/1727344682845?e=1746057600&v=beta&t=qkR60usaJxeAhb3bLrtHaJe30sp91HTIJyUCRnfQDFA",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D4D22AQGXFFaD8Vxp6w/feedshare-shrink_1280/feedshare-shrink_1280/0/1727344683637?e=1746057600&v=beta&t=pAhBdJQcKM8nOYWuLZiPzGwfvqabZHhSgGk4YMfPnlY"
+        "Had a great time taking a DSA session for second-year students! 🎯 with Suhas Alagi The class was super interactive – loved the energy and curiosity from everyone. We went through key problem-solving approaches, discussed real-world use cases, and solved a few interesting questions together. Always feels good to give back and share what I’ve learned so far. Looking forward ...",
+      "image1":"/events/dsafor2Y1.png",
+      "image2":"/events/dsafor2Y2.png",
+      "image3":"/events/dsafor2Y3.png"
     },
+    
     {
       "name": "Front-End Web Development Workshop! ",
       "detail":
         "We’re thrilled to announce the success of our Front-End Web Development workshop for 2nd-year SCE students! 🎉Participants dived into HTML, CSS, and JavaScript, learning to create responsive and dynamic web pages. Special thanks to our amazing speakers Prachi Nadgir and ARYAN MASKE for leading the session and sharing their valuable insights.",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D4D22AQHe5lzz1kymYw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727535910214?e=1746057600&v=beta&t=aUdNXcp9-14ST_laV4Nf5Hh7oF4iKe2zGdlViXZ6RZA",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D4D22AQF5Cwn-CfArfg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727535916522?e=1746057600&v=beta&t=Kw1DE9LeW1wXRM8U4yLLG1fuNKpZeg5SQ3UPgQ-bghE",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D4D22AQHRiNJhUHIzsw/feedshare-shrink_800/feedshare-shrink_800/0/1727535907542?e=1746057600&v=beta&t=gSC2jqHrtbqxsrmY6wRR1nAw1nLArz5siVCgRweD0ig"
+      "image1":"/events/frontend1.png",
+      "image2":"/events/frontend2.png",
+      "image3":"/events/frontend3.png"
+
     },
     {
       "name": " Web Development Workshop for 2nd-Year Students! ",
       "detail":
         "We’re excited to share that Code Club successfully conducted an engaging and interactive Front-End Web Development workshop for 2nd-year students! 💻✨Participants got hands-on experience with key technologies like HTML and CSS learning the fundamentals of web design and development. It was an inspiring session filled with creativity, collaboration, and coding!A big shoutout to our talented speakers Rehan Mulla and Nasir Nadaf for leading the workshop and sharing their expertise with the next generation of developers.",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D4D22AQG6KNuFi-aCHA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727536714800?e=1746057600&v=beta&t=eL718EZm6YmPlBWuCBVCmit0zyJyzBlKKNlW6G01NiE",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D4D22AQEIiR22Ord4RQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1727536703379?e=1746057600&v=beta&t=bF4VrDAo5weof8g-LwcQGR2PmDNpfDsGJ2RkVX2Eoxo",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D4D22AQG6TGJqIhL4MA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727536715943?e=1746057600&v=beta&t=F--Lv5PCI8CQV4TpB5i1XwRI5RFs0dT7QnTE5RtoNRE"
+    
+      "image1":"/events/web1.png",
+      "image2":"/events/web2.png",
+      "image3":"/events/web3.png"
     },
     {
       "name": "DSA Workshop for 3rd-Year Students!",
       "detail":
         "We are thrilled to share that Code Club has just completed an in-depth workshop on Data Structures and Algorithms (DSA) using C++ for 3rd-year students! 🎉The session, led by speakers Suhas Alagi Mrudula Sadafule Samruddhi Kamble Shreya Joshi, provided students with hands-on experience in tackling complex algorithmic challenges and building a strong foundation in DSA. It was a fantastic opportunity for participants to enhance their problem-solving skills and dive deep into advanced C++ concepts.A big thanks to our amazing speakers for their valuable insights and guidance. 🙌",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D4D22AQEWZ8MaQtw2uA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727962942463?e=1746057600&v=beta&t=5SiwiYU9mgr9cGward_7Bv6q5Nh3Jl4Y5a3wX0gmjCM",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D4D22AQFLb_x23swyfA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727962993448?e=1746057600&v=beta&t=LEUJ2i8OSCSQCX3h4VmGa6_zLyCvxXaQI949gsRzyIc",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D4D22AQHC2nfZkA9DtA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1727962997709?e=1746057600&v=beta&t=fh-zQ_btkcIhMglcelyQEuWKzxMvb3659jlTT7mkdXw"
+    
+      "image1":"/events/dsaworkshop1.png",
+      "image2":"/events/dsaworkshop2.png",
+      "image3":"/events/dsaworkshop3.png"
     },
     {
       "name": "Android Development Session! ",
       "detail":
         "I'm excited to share that our Code Club successfully organized an engaging Android Development Workshop for students interested in mobile app development. 🚀During the session, participants explored the fundamentals of Android Studio, worked on designing intuitive user interfaces, and gained hands-on experience in building their very first Android applications. The enthusiasm and curiosity from all attendees made the workshop truly special! 📱💻A big thank you to our dedicated organizing team for making this event possible and to all the participants for their active involvement. We’re looking forward to hosting more workshops that inspire innovation and foster a strong learning community.",
-      "image1":
-        "https://media.licdn.com/dms/image/v2/D5622AQEgvSw0XbpKYw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1729000382552?e=1746057600&v=beta&t=ewmcP29UiAVfNOjLgY3htWA9Ru8dvg6Vjq9Ahi8wF7s",
-      "image2":
-        "https://media.licdn.com/dms/image/v2/D5622AQEcoQoB0dzOTQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1729000381523?e=1746057600&v=beta&t=xcS9gbS4SFavKOqzMJ9RbQXfA1RYFQSH9HkWWILrKsY",
-      "image3":
-        "https://media.licdn.com/dms/image/v2/D5622AQF2Qx_PPEWErQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1729000381999?e=1746057600&v=beta&t=TzDE08mHQr9EdmaMiqmESe0QMq_tdZQt0uIfp32jh88"
+    
+      "image1":"/events/android1.png",
+      "image2":"/events/android2.png",
+      "image3":"/events/android3.png"
     }
   ]
 }
