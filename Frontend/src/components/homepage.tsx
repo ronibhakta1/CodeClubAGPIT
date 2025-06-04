@@ -16,6 +16,7 @@ import {
     Users 
 } from "lucide-react";
 import { useState } from "react";
+import Footer from "./ui/Footer";
 
 const Homepage = () => {
     const navigate = useNavigate();
@@ -29,10 +30,10 @@ const Homepage = () => {
         <>
             <div className="bg-black min-h-screen w-screen flex flex-col">
                 {/* Navbar */}
-                <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+                <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-4 md:px-10 py-3 outline">
                     <div className="flex items-center gap-2">
                         <img src="./logo.png" alt="logo" className="w-10 h-8" />
-                        <div className="logo text-white text-xl font-bold cursor-pointer">CODE CLUB AGPIT</div>
+                        <div className="logo text-white text-lg md:text-xl font-bold cursor-pointer">CODE CLUB AGPIT</div>
                     </div>
                     
                     {/* Mobile menu toggle button */}
@@ -46,20 +47,15 @@ const Homepage = () => {
                     </div>
                     
                     {/* Desktop Navigation */}
-                    <div className="nav-links hidden md:flex justify-between items-center w-1/2 pr-40">
-                        <ul className="flex justify-between items-center w-full md:text-2xl lg:text-3x">
-                            <div>
-                                <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
-                            </div>
-                            <div>
-                                <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/about")}>About</li>
-                            </div>
-                            <div>
-                                <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/events")}>Events</li>
-                            </div>
-                            <div>
+                    <div className="nav-links hidden md:flex justify-between items-center w-2/3 md:w-1/2 pr-4 md:pr-40">
+                        <ul className="flex justify-between items-center w-full text-base md:text-lg lg:text-2xl gap-2 md:gap-6 lg:gap-10">
+                            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
+                            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/about")}>About</li>
+                            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/events")}>Events</li>
+                            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/events/hackathon")}>Hackathon</li>
+                            <li>
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger className="flex items-center gap-1 text-white text-lg font-semibold focus:outline-none">
+                                    <DropdownMenuTrigger className="flex items-center gap-1 text-white font-semibold focus:outline-none">
                                         Members
                                         <ChevronDown className="w-4 h-4" />
                                     </DropdownMenuTrigger>
@@ -84,13 +80,13 @@ const Homepage = () => {
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
-                            </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Stats Banner - below the navbar */}
-                <div className="w-full bg-gradient-to-r from-zinc-900 via-black to-zinc-900 py-2 flex justify-center items-center border-t border-zinc-800 border-b border-zinc-800">
+                <div className="w-full bg-gradient-to-r from-zinc-900 via-black to-zinc-900 py-2 flex justify-center items-center border-t border-zinc-800">
                     <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 px-4">
                         <div className="flex items-center gap-2">
                             <Users className="h-4 w-4 text-blue-400" />
@@ -142,6 +138,9 @@ const Homepage = () => {
                         <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => {navigate("/events"); toggleMobileMenu();}}>
                             Events
                         </li>
+                        <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => {navigate("/events/hackathon"); toggleMobileMenu();}}>
+                            Hackathon
+                        </li>
                         <li className="text-white text-lg font-semibold">
                             <div className="flex flex-col space-y-3">
                                 <span>Members</span>
@@ -184,6 +183,7 @@ const Homepage = () => {
                     </div>
                     <TimelineDemo />
                 </div>
+                <Footer />
             </div>
         </>
     )

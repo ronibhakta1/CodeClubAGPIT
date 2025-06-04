@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"; // Import ShadCN button
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -9,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import { useState } from "react";
 import {
   Carousel,
@@ -31,11 +29,6 @@ import {
   FAST_DIALOG_TRANSITION,
 } from "@/components/Events/morphing-dialog";
 
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/Events/hover-card";
 import { PlusIcon } from "lucide-react";
 
 import { ScrollArea } from "@/components/Events/scroll-area";
@@ -64,6 +57,7 @@ export function BorderTrailHr() {
 
 
 import activeEvents from "@/components/Events/activeEvent.json";
+import Footer from "../ui/Footer";
 
 const Events = () => {
   const navigate = useNavigate();
@@ -101,72 +95,56 @@ const Events = () => {
 
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-zinc-950 w-full overflow-x-hidden">
+    <div className="flex flex-col min-h-screen h-auto w-full text-gray-900 bg-zinc-950">
       {/* Navbar with Dropdown */}
-      <div className="grid-cols-1  border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+      <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-4 md:px-10 py-3 outline">
         <div className="flex items-center gap-2">
           <img src="./logo.png" alt="logo" className="w-10 h-8" />
-          <div
-            className="logo text-white text-xl font-bold cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            CODE CLUB AGPIT
-          </div>
+          <div className="logo text-white text-lg md:text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>CODE CLUB AGPIT</div>
         </div>
         {/* Mobile menu toggle button */}
         <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="text-white p-2">
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <button 
+              onClick={toggleMobileMenu}
+              className="text-white p-2"
+          >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
         {/* Desktop Navigation */}
-        <div className="nav-links hidden md:flex justify-between items-center w-1/2 pr-40">
-          <ul className="flex justify-between items-center w-full  lg:text-3xl text-sm md:text-base">
-            <li
-              className="text-white text-lg font-semibold cursor-pointer"
-              onClick={() => navigate("/")}
-            >
-              Home
-            </li>
-            <li
-              className="text-white text-lg font-semibold cursor-pointer"
-              onClick={() => navigate("/about")}
-            >
-              About
-            </li>
-            <li
-              className="text-white text-lg font-semibold cursor-pointer"
-              onClick={() => navigate("/events")}
-            >
-              Events
-            </li>
-            {/* Members Dropdown */}
-            <li className="text-white text-lg font-semibold">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
-                  Members <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-black border-gray-700 text-white">
-                  <DropdownMenuItem
-                    className="cursor-pointer hover:bg-gray-800"
-                    onClick={() => handleBoardChange("TY")}
-                  >
-                    Main Board
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    className="cursor-pointer hover:bg-gray-800"
-                    onClick={() => handleBoardChange("SY")}
-                  >
-                    Assistant Board
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    className="cursor-pointer hover:bg-gray-800"
-                    onClick={() => handleBoardChange("FY")}
-                  >
-                    Last Year Board
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+        <div className="nav-links hidden md:flex justify-between items-center w-2/3 md:w-1/2 pr-4 md:pr-40">
+          <ul className="flex justify-between items-center w-full text-base md:text-lg lg:text-2xl gap-2 md:gap-6 lg:gap-10">
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/about")}>About</li>
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/events")}>Events</li>
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/events/hackathon")}>Hackathon</li>
+            <li>
+                <DropdownMenu>
+                    <DropdownMenuTrigger className="flex items-center gap-1 text-white font-semibold focus:outline-none">
+                        Members
+                        <ChevronDown className="w-4 h-4" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="bg-black border-gray-700 text-white">
+                        <DropdownMenuItem 
+                            className="cursor-pointer hover:bg-gray-800"
+                            onClick={() => navigate("/members?board=TY")}
+                        >
+                            Main Board
+                        </DropdownMenuItem>
+                        <DropdownMenuItem 
+                            className="cursor-pointer hover:bg-gray-800"
+                            onClick={() => navigate("/members?board=SY")}
+                        >
+                            Assistant Board
+                        </DropdownMenuItem>
+                        <DropdownMenuItem 
+                            className="cursor-pointer hover:bg-gray-800"
+                            onClick={() => navigate("/members?board=FY")}
+                        >
+                            Last Year Board
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </li>
           </ul>
         </div>
@@ -211,6 +189,9 @@ const Events = () => {
             }}
           >
             Events
+          </li>
+          <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => {navigate("/events/hackathon"); toggleMobileMenu();}}>
+            Hackathon
           </li>
           <li className="text-white text-lg font-semibold">
             <div className="flex flex-col space-y-3">
@@ -259,29 +240,22 @@ const Events = () => {
 
 
       {/* Past Event */}
-
       <div className="mt-3 flex w-full ">
-        <p className=" text-white mt-0 w-full text-center py-3">
-          <h1 className="text-2xl md:text-xl lg:text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center ">
-            {activeEvents.activeEvents[2].name}
-          </h1>
-        </p>
+        <h1 className="text-2xl md:text-xl lg:text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center w-full">
+          PAST EVENTS
+        </h1>
       </div>
-
-
-{/* add hr line for main board */}
-<div className="text-center  font-semibold text-white ">
+      {/* add hr line for main board */}
+      <div className="text-center font-semibold text-white ">
         <p className="text-lg font-extralight py-4">{activeEvents.activeEvents[2].name1}</p>
       </div>
-
       <BorderTrailHr />
-      {/* Carousel Section */}
-      <div className="flex gap-30 mb-10 px-0  w-full max-w-[1200px] mx-auto relative">
-        {/* Main carousel */}
+      {/* Carousel Section for Past Events */}
+      <div className="flex gap-30 mb-10 px-0 w-full max-w-[1200px] mx-auto relative">
         <Carousel
           opts={{ loop: true }}
           setApi={setApi}
-          className="w-full max-w-[1000px] md:max-w-[1000px] h-[400px] relative overflow-visible mx-auto  "
+          className="w-full max-w-[1000px] md:max-w-[1000px] h-[400px] relative overflow-visible mx-auto"
         >
           <CarouselContent className="w-full flex-nowrap flex ">
             {eventList.map((event, index) => (
@@ -291,20 +265,15 @@ const Events = () => {
               >
                 <div className="p-4">
                   <MorphingDialog transition={FAST_DIALOG_TRANSITION}>
-
-
-                     {/* Clickable Event Card */}
-                     <MorphingDialogTrigger
+                    {/* Clickable Event Card */}
+                    <MorphingDialogTrigger
                       style={{ borderRadius: "12px", height: "380px" }}
                       className="text-white bg-zinc-900 h-auto border-zinc-700"
                     >
-
-
-                     {/*  New Carousel for Multiple Images */}
-                     <img
+                      <img
                         src={event.image1}
                         alt={event.name}
-                        className=" w-full h-[200px] object-cover rounded-md "
+                        className="w-full h-[200px] object-cover rounded-md"
                       />
                       <div className="p-3 flex-grow">
                         <MorphingDialogTitle className="text-zinc-200 dark:text-zinc-50 font-semibold">
@@ -330,9 +299,8 @@ const Events = () => {
                         style={{ borderRadius: "24px" }}
                         className="relative flex flex-col overflow-hidden border border-zinc-950/10  sm:w-[400px] sm:max-h-[570px]"
                       >
-
-                         {/*  New Carousel for Multiple Images */}
-                         <Carousel>
+                        {/*  New Carousel for Multiple Images */}
+                        <Carousel>
                           <CarouselContent>
                             <CarouselItem>
                               <img
@@ -509,168 +477,18 @@ const Events = () => {
           </Carousel>
         </div>
       </div>
-      <div className="flex">
+      {/* <div className="flex">
         <p className=" text-white w-full text-center py-4">
           <h1 className="text-2xl md:text-xl lg:text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">
             LIVE EVENTS
           </h1>
         </p>
-      </div>
-      <BorderTrailHr />
+      </div> */}
+      {/* <BorderTrailHr /> */}
 
 
 
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 mb-12 px-4 sm:px-6 md:px-12 py-4 w-full max-w-[1200px] mx-auto">
-        {/* Active Event Box */}
-        <Card className="p-4 sm:p-6 text-white bg-zinc-900 h-auto border-zinc-700 w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 text-left mx-auto">
-          <h2 className="text-lg font-bold leading-tight">
-            {activeEvents.activeEvents[0].name}
-          </h2>
-          <p className="text-sm py-4">
-            <strong>🔹 Event Name: </strong> {activeEvents.activeEvents[0].eventname}
-          </p>
-          <p className="text-sm py-4">
-            <strong>🔹 Date: </strong> {activeEvents.activeEvents[0].date}
-          </p>
-          <p className="text-sm py-4">
-            <strong>🔹 Location: </strong> {activeEvents.activeEvents[0].location}
-          </p>
-
-          <div className="flex flex-col text-white bg-zinc-900 h-auto border-zinc-700 items-start space-y-3 mt-1">
-            {/* Description HoverCard */}
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <Button
-                  variant="link"
-                  className="text-left p-0 m-0 leading-none "
-                >
-                  <p className="text-sm text-zinc-100  ">
-                    <strong>🔹 Description</strong>
-                  </p>
-                </Button>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700 ">
-                <div className="mt-0">
-                  <h4 className="text-sm font-semibold ">
-                    <strong>🔹 Description</strong>
-                  </h4>
-                  <p className="text-sm text-zinc-300 ">{activeEvents.activeEvents[0].disc}</p>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
-
-
-
-            {/* Type HoverCard */}
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <Button
-                  variant="link"
-                  className="text-left p-0 m-0 leading-none "
-                >
-                  <p className="text-sm text-zinc-100">
-                    <strong>🔹 Type</strong>
-                  </p>
-                </Button>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700">
-                <div className="mt-0">
-                  <h4 className="text-sm font-semibold text-zinc-100">
-                    <strong>🔹 Type</strong>
-                  </h4>
-                  <p className="text-sm text-zinc-300">{activeEvents.activeEvents[0].type}</p>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
-          </div>
-
-          <div className="mt-4 ">
-            <Button className="w-full sm:w-48 px-4 py-3 text-sm bg-zinc-800 text-white hover:bg-zinc-500">
-              Registration [open/close]
-            </Button>
-          </div>
-        </Card>
-
-
-
-        {/* New Upcoming Event Box */}
-
-        <Card className="p-6 sm:p-6 shadow-md text-white bg-zinc-900 h-auto border-zinc-700  w-full max-w-md transition duration-300 ease-in-out hover:-translate-y-2 mx-auto text-left">
-          <h2 className="text-lg font-bold space-y-0 leading-tight">
-            {activeEvents.activeEvents[1].name}
-          </h2>
-          <p className="text-sm py-4">
-            <strong>🔹 Event Name: </strong> {activeEvents.activeEvents[1].eventname}
-          </p>
-          <p className="text-sm py-4">
-            <strong>🔹 Date: </strong> {activeEvents.activeEvents[1].date}
-          </p>
-          <p className="text-sm py-4">
-            <strong>🔹 Deadline: </strong> {activeEvents.activeEvents[1].deadline}
-          </p>
-          <p className="text-sm py-4">
-            <strong>🔹 Location: </strong> {activeEvents.activeEvents[1].location}
-          </p>
-
-          <div className="flex flex-col items-start gap-2 text-white bg-zinc-900 h-auto border-zinc-700">
-
-
-            {/* Description HoverCard */}
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <Button
-                  variant="link"
-                  className="text-left p-0 m-0 leading-none "
-                >
-                  <p className="text-sm text-zinc-100 ">
-                    <strong>🔹 Description</strong>
-                  </p>
-                </Button>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700">
-                <div className="mt-0">
-                  <h4 className="text-sm font-semibold text-zinc-100">
-                    <strong>🔹 Description</strong>
-                  </h4>
-                  <p className="text-sm text-zinc-300">{activeEvents.activeEvents[1].disc}</p>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
-
-
-
-            {/* Type HoverCard */}
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <Button
-                  variant="link"
-                  className="text-left p-0 m-0 leading-none"
-                >
-                  <p className="text-sm text-zinc-100">
-                    <strong>🔹 Type</strong>
-                  </p>
-                </Button>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-72 sm:w-80 text-white bg-zinc-900 h-auto border-zinc-700">
-                <div className="mt-0">
-                  <h4 className="text-sm font-semibold text-zinc-100">
-                    <strong>🔹 Type</strong>
-                  </h4>
-                  <p className="text-sm text-zinc-300">{activeEvents.activeEvents[1].type}</p>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
-          </div>
-
-          <div className="mt-4">
-            <Button className="w-full sm:w-48 px-4 py-3 text-sm bg-zinc-800 text-white hover:bg-zinc-500">
-              Registration / More Details
-            </Button>
-          </div>
-        </Card>
-
-
-      </div>
+      <Footer />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Members from './components/members/members'
 import Events from './components/Events/Event'
 import Userpage from './components/user_page/Userpage'
 import Admin from './components/Admin/Admin'
+import Hackathon from './components/Events/Hackathon'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/events" element={<Events />} />
       <Route path="/users" element={<Userpage />} />
       <Route path="/admin" element={<Admin/>} />
+      <Route path="/events/hackathon" element={<Hackathon />} />
 
     </Routes>
     </BrowserRouter>

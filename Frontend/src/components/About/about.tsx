@@ -169,14 +169,14 @@ const About = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-black w-full overflow-x-hidden">
       {/* Navbar - completely unchanged */}
-      <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-10 py-3 outline">
+      <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-4 md:px-10 py-3 outline">
         <div className="flex items-center gap-2">
           <img src="./logo.png" alt="logo" className="w-10 h-8" />
-          <div className="logo text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>
+          <div className="logo text-white text-lg md:text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>
             CODE CLUB AGPIT
           </div>
         </div>
-        
+        {/* Mobile menu toggle button */}
         <div className="md:hidden">
           <button 
             onClick={toggleMobileMenu}
@@ -185,40 +185,35 @@ const About = () => {
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        
-        <div className="nav-links hidden md:flex justify-between items-center w-1/2 pr-40">
-          <ul className="flex justify-between items-center w-full md:text-2xl lg:text-3x">
-            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/")}>
-              Home
-            </li>
-            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/about")}>
-              About
-            </li>
-            <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => navigate("/events")}>
-              Events
-            </li>
-            
-            <li className="text-white text-lg font-semibold">
+        {/* Desktop Navigation */}
+        <div className="nav-links hidden md:flex justify-between items-center w-2/3 md:w-1/2 pr-4 md:pr-40">
+          <ul className="flex justify-between items-center w-full text-base md:text-lg lg:text-2xl gap-2 md:gap-6 lg:gap-10">
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/about")}>About</li>
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/events")}>Events</li>
+            <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/events/hackathon")}>Hackathon</li>
+            <li>
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 focus:outline-none hover:text-gray-300">
-                  Members <ChevronDown className="h-4 w-4" />
+                <DropdownMenuTrigger className="flex items-center gap-1 text-white font-semibold focus:outline-none">
+                  Members
+                  <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-black border-gray-700 text-white">
                   <DropdownMenuItem 
                     className="cursor-pointer hover:bg-gray-800"
-                    onClick={() => handleBoardChange("TY")}
+                    onClick={() => navigate("/members?board=TY")}
                   >
                     Main Board
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     className="cursor-pointer hover:bg-gray-800"
-                    onClick={() => handleBoardChange("SY")}
+                    onClick={() => navigate("/members?board=SY")}
                   >
                     Assistant Board
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     className="cursor-pointer hover:bg-gray-800"
-                    onClick={() => handleBoardChange("FY")}
+                    onClick={() => navigate("/members?board=FY")}
                   >
                     Last Year Board
                   </DropdownMenuItem>
@@ -246,6 +241,9 @@ const About = () => {
           <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => {navigate("/events"); toggleMobileMenu();}}>
             Events
           </li>
+          <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => {navigate("/events/hackathon"); toggleMobileMenu();}}>
+              Hackathon
+            </li>
           <li className="text-white text-lg font-semibold">
             <div className="flex flex-col space-y-3">
               <span>Members</span>
