@@ -86,7 +86,7 @@ const Homepage = () => {
                 </div>
 
                 {/* Stats Banner - below the navbar */}
-                <div className="w-full bg-gradient-to-r from-zinc-900 via-black to-zinc-900 py-2 flex justify-center items-center border-t border-zinc-800">
+                {/* <div className="w-full bg-gradient-to-r from-zinc-900 via-black to-zinc-900 py-2 flex justify-center items-center border-t border-zinc-800">
                     <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 px-4">
                         <div className="flex items-center gap-2">
                             <Users className="h-4 w-4 text-blue-400" />
@@ -118,7 +118,7 @@ const Homepage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Mobile Side Navigation */}
                 <div className={`fixed top-0 right-0 h-full bg-black w-64 z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
