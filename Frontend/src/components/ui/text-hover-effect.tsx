@@ -11,9 +11,18 @@ export const TextHoverEffect = ({
   automatic?: boolean;
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const textRef = useRef<SVGTextElement>(null);
+  const [svgWidth, setSvgWidth] = useState(300);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
+
+  useEffect(() => {
+    if (textRef.current) {
+      const bbox = textRef.current.getBBox();
+      setSvgWidth(Math.max(bbox.width + 60, 300)); // Add padding, min 300
+    }
+  }, [text]);
 
   useEffect(() => {
     if (svgRef.current && cursor.x !== null && cursor.y !== null) {
@@ -30,14 +39,15 @@ export const TextHoverEffect = ({
   return (
     <svg
       ref={svgRef}
-      width="100%"
+      width={svgWidth}
       height="100%"
-      viewBox="0 0 300 100"
+      viewBox={`0 0 ${svgWidth} 100`}
       xmlns="http://www.w3.org/2000/svg"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
       className="select-none"
+      style={{ display: "block", margin: "0 auto" }}
     >
       <defs>
         <linearGradient
@@ -65,14 +75,6 @@ export const TextHoverEffect = ({
           initial={{ cx: "50%", cy: "50%" }}
           animate={maskPosition}
           transition={{ duration: duration ?? 0, ease: "easeOut" }}
-
-          // example for a smoother animation below
-
-          //   transition={{
-          //     type: "spring",
-          //     stiffness: 300,
-          //     damping: 50,
-          //   }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
@@ -88,6 +90,7 @@ export const TextHoverEffect = ({
         </mask>
       </defs>
       <text
+        ref={textRef}
         x="50%"
         y="50%"
         textAnchor="middle"

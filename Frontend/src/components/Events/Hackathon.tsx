@@ -17,11 +17,6 @@ const Hackathon = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleBoardChange = (board: string) => {
-    navigate(`/members?board=${board}`);
-    setIsMobileMenuOpen(false);
-  };
-
   return (
     <div className="min-h-screen bg-zinc-950 text-white flex flex-col w-full">
       {/* Navbar with Dropdown */}
@@ -133,17 +128,34 @@ const Hackathon = () => {
 
       {/* Main Hackathon Content */}
       <div className="flex flex-col items-center w-full px-4 py-8 md:px-0 md:py-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-          🌟 Welcome to AGTechathon-1.0! 🌟
-        </h1>
+        <div className="flex justify-center mb-4 w-full">
+          <img
+            src="/HiRes logo.png"
+            alt="AGTechathon 1.0 2k25 Logo"
+            className="h-32 sm:h-44 md:h-56 lg:h-72 xl:h-80 w-auto object-contain mx-auto"
+            style={{ maxWidth: '98vw' }}
+          />
+        </div>
+        <a
+          href="https://unstop.com/p/agtechathon-10-2k25-renewed-ag-patil-institute-of-technology-solapur-maharashtra-1495387?utm_medium=Share&utm_source=shortUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-8 inline-block"
+        >
+          <button
+            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg md:text-xl transition-all duration-200"
+          >
+            Register on Unstop
+          </button>
+        </a>
         <p className="text-lg md:text-xl text-zinc-200 text-center mb-8 max-w-2xl">
-          We’re thrilled to welcome you to <b>AGTechathon-1.0</b> – a two-day celebration of innovation, learning, and creativity at <b>A.G. Patil Institute of Technology, Solapur</b>!
+          We’re thrilled to welcome you to <b>AGTechathon 1.0 2k25 </b> – a two-day celebration of innovation, learning, and creativity at <b>A.G. Patil Institute of Technology, Solapur</b>!
         </p>
 
         {/* Round 1: PPT Submission Guidelines & Problem Statements */}
         <div className="bg-zinc-800 p-6 rounded-lg shadow-md w-full max-w-3xl mb-8">
           <h2 className="text-2xl font-semibold mb-2 text-blue-300">Round 1: PPT Submission Guidelines & Problem Statements</h2>
-          <p className="mb-2">Thank you for registering for <b>AGTechathon - 1.0</b>. You are now eligible to participate in Round 1 – the PPT Submission Round, which serves as the initial screening stage for the on-campus hackathon.</p>
+          <p className="mb-2">Thank you for registering for <b>AGTechathon 1.0 2k25</b>. You are now eligible to participate in Round 1 – the PPT Submission Round, which serves as the initial screening stage for the on-campus hackathon.</p>
           <ul className="list-disc pl-5 mb-2 text-zinc-300">
             <li><b>Round Starts:</b> 4th June 2025</li>
             <li><b>Submission Deadline:</b> 8th June 2025 (11:59 PM IST)</li>
@@ -258,9 +270,9 @@ const Hackathon = () => {
             <li>🎮 <b>Extras:</b> Don’t miss out on fun games, challenges, and networking sessions during the event!</li>
           </ul>
           <div className="mb-2 text-zinc-300">
-            For any questions, just reply here – we’re here to help!<br />Let’s make <b>AGTechathon-1.0</b> an unforgettable experience 💫
+            For any questions, just reply here – we’re here to help!<br />Let’s make <b>AGTechathon 1.0 2k25</b> an unforgettable experience 💫
           </div>
-          <div className="text-zinc-300">– Team <b>AGTechathon-1.0</b></div>
+          <div className="text-zinc-300">– Team <b>AGTechathon 1.0 2k25</b></div>
         </div>
       </div>
       <Footer />
