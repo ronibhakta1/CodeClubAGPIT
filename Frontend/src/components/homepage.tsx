@@ -1,7 +1,7 @@
 import { CoverDemo } from "./homepage/covertitle";
 import { TimelineDemo } from "./homepage/timeline";
 import { useNavigate } from "react-router-dom";
-import CountUp from "@/components/ui/pagecount";
+
 
 import {
     DropdownMenu,
@@ -13,7 +13,6 @@ import {
     ChevronDown, 
     Menu, 
     X, 
-    Users 
 } from "lucide-react";
 import { useState } from "react";
 import Footer from "./ui/Footer";
