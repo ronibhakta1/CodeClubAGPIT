@@ -181,6 +181,10 @@ const Hackathon = () => {
             <a href="https://forms.gle/YTYPZKBwjKSDyM2M8" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline ml-1">Google Form</a>
           </div>
           <div className="mb-2 text-zinc-300">
+            Kindly ensure that you follow the provided PPT template while preparing your presentations. This helps maintain uniformity and professionalism across all submissions.<br />
+            <b>Template:</b> <a href="https://docs.google.com/presentation/d/1qVqpTu_C0Xawp0HawE9xQKhtMf5clVSDz_iMNnLsC5A/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline ml-1">PPT Template</a>
+          </div>
+          <div className="mb-2 text-zinc-300">
             If you're unable to submit your ppt via unstop, uploading via this form is mandatory.
           </div>
           <div className="mb-2">
