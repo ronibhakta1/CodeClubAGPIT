@@ -149,7 +149,7 @@ const Hackathon = () => {
           </button>
         </a>
         <p className="text-lg md:text-xl text-zinc-200 text-center mb-8 max-w-2xl">
-          We’re thrilled to welcome you to <b>AGTechathon 1.0 2k25 </b> – a two-day celebration of innovation, learning, and creativity at <b>A.G. Patil Institute of Technology, Solapur</b>!
+          Welcome you to <b>AGTechathon 1.0 2k25 </b> – a two-day celebration of innovation, learning, and creativity at <b>A.G. Patil Institute of Technology, Solapur</b>!
         </p>
 
         {/* Round 1: PPT Submission Guidelines & Problem Statements */}
