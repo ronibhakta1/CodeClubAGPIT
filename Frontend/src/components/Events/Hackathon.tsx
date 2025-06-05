@@ -137,7 +137,7 @@ const Hackathon = () => {
           />
         </div>
         <a
-          href="https://unstop.com/p/agtechathon-10-2k25-renewed-ag-patil-institute-of-technology-solapur-maharashtra-1495387?utm_medium=Share&utm_source=shortUrl"
+          href="https://unstop.com/hackathons/agtechathon-10-2k25-a-g-patil-institute-of-technology-solapur-1489400"
           target="_blank"
           rel="noopener noreferrer"
           className="mb-8 inline-block"
