@@ -170,7 +170,7 @@ const Hackathon = () => {
             <a href="https://drive.google.com/file/d/1trt177pmOvZWLS55wSwcfNHaUU0TZcTw/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline ml-1">Rules PDF</a>
           </div>
           <ul className="list-disc pl-5 text-zinc-300 mb-2">
-            <li>Team Size: 3 to 4 members</li>
+            <li>Team Size: Minimum 2 members & max 4 members</li>
             <li>Submit only one PPT per team (ppt, pptx, pdf format)</li>
             <li>File name format: <b>TeamName_CollegeName.pdf</b></li>
             <li>Language: English</li>
