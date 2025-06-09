@@ -28,7 +28,7 @@ app.get("/", (c) => {
 
 // Initialize Prisma client
 const prisma = new PrismaClient({
-  datasourceUrl: "prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMDFKWDdNTkVYWU5RNkVGUkQ5QTlHUUtNRTEiLCJ0ZW5hbnRfaWQiOiIzOGQ2YjA1MDIzOWMwMjI5MDhjZDg0NzcyZTEwZjgxNTMzNWE2ZDI4MGEzNTRkY2JkZmI2YTY3M2ExZTBmNGY2IiwiaW50ZXJuYWxfc2VjcmV0IjoiYzc1NWQ5MzUtZWY0MC00NDk0LTliZTUtNDRlMTg1MTZiN2EyIn0.vTtFkuVcubcRY1_CBjdbjb1avH2mbpLic2k3g4VnTZs"
+  datasourceUrl: process.env.DIRECT_URL
 }).$extends(withAccelerate());
 
 // Test database connection
