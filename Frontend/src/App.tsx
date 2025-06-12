@@ -7,6 +7,7 @@ import Events from './components/Events/Event'
 import Userpage from './components/user_page/Userpage'
 import Admin from './components/Admin/Admin'
 import Hackathon from './components/Events/Hackathon'
+import HackathonCountdownPage from './pages/hackathon-countdown'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/users" element={<Userpage />} />
       <Route path="/admin" element={<Admin/>} />
       <Route path="/events/hackathon" element={<Hackathon />} />
+      <Route path="/events/hackathon-countdown" element={<HackathonCountdownPage />} />
 
     </Routes>
     </BrowserRouter>

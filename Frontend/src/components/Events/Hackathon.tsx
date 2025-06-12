@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
@@ -9,13 +9,38 @@ import {
 import { ChevronDown, Menu, X } from "lucide-react";
 import Footer from "../ui/Footer";
 
+// Hackathon timing constants
+const HACKATHON_START = new Date("2025-06-14T11:00:00");
+const HACKATHON_END = new Date("2025-06-15T11:00:00");
+
+function getHackathonPhase() {
+  const now = new Date();
+  if (now < HACKATHON_START) return "before";
+  if (now >= HACKATHON_START && now < HACKATHON_END) return "live";
+  return "ended";
+}
+
 const Hackathon = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [phase, setPhase] = useState(getHackathonPhase());
+
+  useEffect(() => {
+    const timer = setInterval(() => setPhase(getHackathonPhase()), 1000 * 30);
+    return () => clearInterval(timer);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  // Dynamic style for hackathon phase
+  const phaseGlow =
+    phase === "live"
+      ? "ring-4 ring-cyan-400/60 shadow-cyan-400/40 animate-pulse"
+      : phase === "ended"
+      ? "ring-4 ring-pink-500/60 shadow-pink-500/40 animate-shake"
+      : "";
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white flex flex-col w-full">
@@ -128,14 +153,24 @@ const Hackathon = () => {
 
       {/* Main Hackathon Content */}
       <div className="flex flex-col items-center w-full px-4 py-8 md:px-0 md:py-12">
-        <div className="flex justify-center mb-4 w-full">
+        <div className={`flex justify-center mb-4 w-full transition-all duration-500 ${phaseGlow}`}>
           <img
             src="/HiRes logo.png"
             alt="AGTechathon 1.0 2k25 Logo"
-            className="h-32 sm:h-44 md:h-56 lg:h-72 xl:h-80 w-auto object-contain mx-auto"
+            className="h-32 sm:h-44 md:h-56 lg:h-72 xl:h-80 w-auto object-contain mx-auto drop-shadow-xl"
             style={{ maxWidth: '98vw' }}
           />
         </div>
+        {phase === "live" && (
+          <div className="mb-6 text-center">
+            <span className="inline-block bg-gradient-to-r from-cyan-400 to-pink-400 text-white font-bold px-6 py-2 rounded-full shadow-lg text-xl md:text-2xl animate-pulse">Hackathon is LIVE now! 🚀</span>
+          </div>
+        )}
+        {phase === "ended" && (
+          <div className="mb-6 text-center">
+            <span className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold px-6 py-2 rounded-full shadow-lg text-xl md:text-2xl animate-shake">Hackathon Ended 🎉</span>
+          </div>
+        )}
         <a
           href="https://unstop.com/hackathons/agtechathon-10-2k25-a-g-patil-institute-of-technology-solapur-1489400"
           target="_blank"
@@ -146,6 +181,16 @@ const Hackathon = () => {
             className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg md:text-xl transition-all duration-200"
           >
             Register on Unstop
+          </button>
+        </a>
+        <a
+          href="/events/hackathon-countdown"
+          className="mb-4 inline-block"
+        >
+          <button
+            className="bg-gradient-to-r from-yellow-400 to-pink-500 hover:from-yellow-500 hover:to-pink-600 text-white font-bold py-2 px-6 rounded-full shadow text-base md:text-lg transition-all duration-200 mb-4"
+          >
+            View Hackathon Countdown
           </button>
         </a>
         <p className="text-lg md:text-xl text-zinc-200 text-center mb-8 max-w-2xl">
@@ -220,6 +265,7 @@ const Hackathon = () => {
             <ul className="list-disc pl-5 text-zinc-300">
               <li>🎉 Fun & Games / Networking – 2:00 AM to 3:00 AM</li>
               <li>🍽 Breakfast – 9:00 AM</li>
+              <li>🤔 2nd round of offline hackathon – 11:00 AM</li>
               <li>⚡ Final Judging – 10:00 AM</li>
               <li>🏆 Prize Distribution – 12:00 PM</li>
               <li>🍴 Lunch – 12:30 PM</li>
