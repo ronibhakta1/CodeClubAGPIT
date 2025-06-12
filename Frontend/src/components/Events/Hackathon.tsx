@@ -254,7 +254,7 @@ const Hackathon = () => {
               <li>🛬 Arrival & Check-in – 8:45 AM</li>
               <li>🍽 Breakfast – 9:00 AM</li>
               <li>🎤 Inauguration – 10:00 AM</li>
-              <li>💻 Hackathon Begins – 11:00 AM</li>
+              <li>💻 Hackathon Begins – 11:30 AM</li>
               <li>🤔 1st round of offline hackathon – 11:20 AM</li>
               <li>🍴 Lunch – 12:45 PM</li>
               <li>☕ Refreshments – 6:00 PM</li>
@@ -265,10 +265,10 @@ const Hackathon = () => {
             <ul className="list-disc pl-5 text-zinc-300">
               <li>🎉 Fun & Games / Networking – 2:00 AM to 3:00 AM</li>
               <li>🍽 Breakfast – 9:00 AM</li>
-              <li>🤔 2nd round of offline hackathon – 11:00 AM</li>
-              <li>⚡ Final Judging – 10:00 AM</li>
-              <li>🏆 Prize Distribution – 12:00 PM</li>
-              <li>🍴 Lunch – 12:30 PM</li>
+              <li>🤔 hackathon code ending - 11:30 AM</li>
+              <li>⚡ Judging starts – 11:40 AM</li>
+              <li>🏆 Prize Distribution – 12:00 PM or 12:30 PM</li>
+              <li>🍴 Lunch – 12:30 PM or 1:30 PM</li>
             </ul>
           </div>
           {/* Round 1 Update (Online Submission) */}
