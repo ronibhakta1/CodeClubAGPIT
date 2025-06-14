@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // Set to actual hackathon times for real event phase
-const HACKATHON_START = new Date("2025-06-14T11:30:00");
-const HACKATHON_END = new Date("2025-06-15T11:30:00");
+const HACKATHON_START = new Date("2025-06-14T12:00:00");
+const HACKATHON_END = new Date("2025-06-15T12:00:00");
 
 function getTimeLeft() {
   const now = new Date();
