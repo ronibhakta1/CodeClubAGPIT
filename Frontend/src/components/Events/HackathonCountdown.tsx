@@ -158,7 +158,7 @@ export default function HackathonCountdown() {
         transition={{ duration: 1, delay: 0.7 }}
       >
         {timeLeft.phase === "before" && (
-          <>The hackathon runs from <b>14th June 2025, 11:30 AM</b> to <b>15th June 2025, 11:30 AM</b> at A.G. Patil Institute of Technology, Solapur.<br />Get ready to <span className="text-blue-400 font-bold">innovate</span> and <span className="text-pink-400 font-bold">compete</span>!</>
+          <>The hackathon runs from <b>14th June 2025, 12:00 PM</b> to <b>15th June 2025, 12:00 PM</b> at A.G. Patil Institute of Technology, Solapur.<br />Get ready to <span className="text-blue-400 font-bold">innovate</span> and <span className="text-pink-400 font-bold">compete</span>!</>
         )}
         {timeLeft.phase === "live" && (
           <>The hackathon is <span className="text-cyan-400 font-bold">LIVE NOW!</span> Good luck to all teams! 🚀</>
