@@ -1,15 +1,135 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Admin {
+  name           String
+  bio            String
+  role           String
+  email          String    @unique
+  password       String
+  profilePicture String
+  events         Event[]   @relation("AdminManagesEvent")
+}
+
+model Staff {
+  staffId             String   @id
+  username            String
+  name                String
+  bio                 String
+  role                String
+  email               String   @unique
+  department          String
+  profilePicture      String
+  password            String
+  eventsApproved      Event[]             @relation("StaffApprovesEvent")
+  eventRegistrations  EventRegistration[] @relation("StaffAssistsRegistration")
+  payments            Payment[]           @relation("StaffVerifiesPayment")
+  visitors            Visitor[]           @relation("StaffVisits")
+}
+
+model User {
+  uniqueId            String              @id
+  username            String              @unique
+  phoneNo             String
+  name                String
+  bio                 String
+  role                String
+  email               String              @unique
+  department          String
+  yearOfStudy         Int
+  passingYear         Int
+  skills              String
+  joinDate            DateTime
+  password            String
+  profilePicture      String
+  platform            String
+  eventRegistrations  EventRegistration[] @relation("UserRegisters")
+  events              UserEvent[]         // Use a join table for many-to-many relation
+  payments            Payment[]           @relation("UserMakesPayment")
+  visitors            Visitor[]           @relation("UserVisits")
+}
+
+model Event {
+  uniqueId             String              @id
+  title                String
+  description          String
+  registrationDate     DateTime
+  startTime            DateTime
+  endTime              DateTime
+  location             String
+  role                 String
+  capacity             Int
+  speaker              String
+  moderator            String
+  registrationDeadline DateTime
+  type                 String
+  status               String
+  approvedById         String              // Foreign key to Staff
+  approvedBy           Staff               @relation("StaffApprovesEvent", fields: [approvedById], references: [staffId])
+  admin                Admin?              @relation("AdminManagesEvent", fields: [adminId], references: [email])
+  adminId              String
+  eventRegistrations   EventRegistration[] @relation("EventIncludesRegistration")
+  attendees            UserEvent[]         // Use a join table for many-to-many relation
+}
+
+model UserEvent {
+  userId  String
+  eventId String
+  user    User   @relation(fields: [userId], references: [uniqueId])
+  event   Event  @relation(fields: [eventId], references: [uniqueId])
+
+  @@id([userId, eventId]) // Composite primary key
+}
+
+model EventRegistration {
+  uniqueId        String    @id
+  userId          String
+  memberId        String
+  staffId         String
+  eventId         String
+  registeredAt    DateTime
+  meetingLink     String?
+  waitingList     Int?
+  eventType       String?
+  paymentStatus   String?
+  user            User      @relation("UserRegisters", fields: [userId], references: [uniqueId])
+  event           Event     @relation("EventIncludesRegistration", fields: [eventId], references: [uniqueId])
+  staff           Staff?    @relation("StaffAssistsRegistration", fields: [staffId], references: [staffId])
+  payments        Payment[] @relation("EventRegistration")
+}
+
+model Payment {
+  uniqueId             String            @id
+  eventRegistrationId  String
+  staffId              String
+  userId               String
+  paymentDate          DateTime
+  amount               Float
+  paymentType          String
+  paymentStatus        String
+  transactionId        String            @unique
+  paymentMethod        String
+  user                 User              @relation("UserMakesPayment", fields: [userId], references: [uniqueId])
+  staff                Staff             @relation("StaffVerifiesPayment", fields: [staffId], references: [staffId])
+  eventRegistration    EventRegistration @relation("EventRegistration", fields: [eventRegistrationId], references: [uniqueId])
+}
+
+model Visitor {
+  id           String    @id
+  ipAddress    String
+  visitDate    DateTime
+  pageVisited  String
+  browserInfo  String
+  deviceType   String
+  userId       String?
+  staffId      String?
+  user         User?     @relation("UserVisits", fields: [userId], references: [uniqueId])
+  staff        Staff?    @relation("StaffVisits", fields: [staffId], references: [staffId])
 }

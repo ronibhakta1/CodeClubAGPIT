@@ -72,6 +72,19 @@ To set up the project locally, follow these steps:
    ```
    This should display both the `origin` and `upstream` URLs.
 
+## Environment Setup
+
+1. Copy `.env.example` to `.env`:
+```sh
+cp Backend/v1/.env.example Backend/v1/.env
+```
+
+2. Fill in your environment variables in `.env`:
+- `DATABASE_URL`: Your Prisma database URL
+- `DIRECT_URL`: Your Prisma direct connection URL
+
+3. Never commit `.env` files or files containing secrets!
+
 ## Contribution Guidelines
 - Fork the repository before contributing.
 - Follow proper coding standards and conventions.

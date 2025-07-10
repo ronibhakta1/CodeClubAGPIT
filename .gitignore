@@ -1,0 +1,7 @@
+# Environment files
+.env
+.env.*
+*.env
+Backend/v1/.env
+Backend/v1/wrangler.toml
+Frontend/.env
