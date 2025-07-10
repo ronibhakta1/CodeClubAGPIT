@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import CountUp from '../ui/pagecount';
 import { Separator } from '../ui/separator';
-import { FaGithub, FaLinkedin, FaUsers } from 'react-icons/fa';
+import { FaGithub, FaLinkedin} from 'react-icons/fa';
 
 const API_URL = 'https://v1.codeclub.workers.dev';
 

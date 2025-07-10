@@ -1,13 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import CountUp from './ui/pagecount';
 
 const API_URL = 'https://v1.codeclub.workers.dev';
 
 export function PageViews() {
     const [pageViews, setPageViews] = useState(0);
+    const hasIncremented = useRef(false);
 
     useEffect(() => {
         const incrementPageViews = async () => {
+            // Prevent double increment in development mode
+            if (hasIncremented.current) return;
+            hasIncremented.current = true;
+
             try {
                 await fetch(`${API_URL}/page-views/increment`, { 
                     method: 'POST',
@@ -41,4 +46,4 @@ export function PageViews() {
             />
         </div>
     );
-} 
+}

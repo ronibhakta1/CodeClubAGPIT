@@ -51,7 +51,7 @@ app.get('/test-db', async (c) => {
 // Page views endpoints
 app.post('/page-views/increment', async (c) => {
     try {
-        console.log('Increment page views request received');
+        // console.log('Increment page views request received');
         
         // Get client IP from Cloudflare headers
         const ip = c.req.header('cf-connecting-ip') || 
@@ -59,10 +59,10 @@ app.post('/page-views/increment', async (c) => {
                   c.req.header('x-real-ip') || 
                   'Unknown';
         
-        console.log('Client IP:', ip);
+        // console.log('Client IP:', ip);
 
         // Always create a new visitor record
-        console.log('Creating new visitor record...');
+        // console.log('Creating new visitor record...');
         const visitor = await prisma.visitor.create({
             data: {
                 id: crypto.randomUUID(),
@@ -73,11 +73,11 @@ app.post('/page-views/increment', async (c) => {
                 deviceType: c.req.header('user-agent')?.includes('Mobile') ? 'Mobile' : 'Desktop'
             },
         });
-        console.log('New visitor record created:', visitor);
+        // console.log('New visitor record created:', visitor);
 
         // Get the updated count
         const count = await prisma.visitor.count();
-        console.log('Updated visitor count:', count);
+        // console.log('Updated visitor count:', count);
 
         return c.json({ 
             success: true, 
