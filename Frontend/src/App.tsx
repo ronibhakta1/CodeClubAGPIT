@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from 'react-router-dom'
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import Homepage from './components/homepage'
 import About from './components/About/about'
@@ -8,6 +8,11 @@ import Userpage from './components/user_page/Userpage'
 import Admin from './components/Admin/Admin'
 import Hackathon from './components/Events/Hackathon'
 import HackathonCountdownPage from './pages/hackathon-countdown'
+import StaffLogin from './components/staff/StaffLogin';
+import StaffDashboard from './components/staff/StaffDashboard';
+import UserProfileSection from './components/user_page/UserProfileSection';
+import UserClubInfoSection from './components/user_page/UserClubInfoSection';
+import UserPastEventsSection from './components/user_page/UserPastEventsSection';
 
 
 function App() {
@@ -21,10 +26,24 @@ function App() {
       <Route path="/members" element={<Members />} />
       <Route path="/about" element={<About />} />
       <Route path="/events" element={<Events />} />
-      <Route path="/users" element={<Userpage />} />
-      <Route path="/admin" element={<Admin/>} />
+      {/* User page with nested routes */}
+      <Route path="/users" element={<Userpage />}>
+        <Route index element={<Navigate to="profile" replace />} />
+        <Route path="profile" element={<UserProfileSection />} />
+        <Route path="clubinfo" element={<UserClubInfoSection />} />
+        <Route path="pastevents" element={<UserPastEventsSection />} />
+      </Route>
+      <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+      <Route path="/admin/dashboard" element={<Admin/>} />
+      <Route path="/admin/users" element={<Admin/>} />
+      <Route path="/admin/events" element={<Admin/>} />
+      <Route path="/admin/create-staff" element={<Admin/>} />
       <Route path="/events/hackathon" element={<Hackathon />} />
       <Route path="/events/hackathon-countdown" element={<HackathonCountdownPage />} />
+      <Route path="/staff/login" element={<StaffLogin />} />
+      <Route path="/staff" element={<Navigate to="/staff/users" replace />} />
+      <Route path="/staff/users" element={<StaffDashboard />} />
+      <Route path="/staff/events" element={<StaffDashboard />} />
 
     </Routes>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 [
     {
+        "id": "ty-computer-1",
         "name": "Prachi Nadgir",
         "email": "nadgirprachi@gmail.com",
         "linkedin": "https://www.linkedin.com/in/prachi-nadgir-07991527b",
@@ -15,6 +16,7 @@
         "avatar": "/avatars/prachi.jpg"
     },
     {
+        "id": "ty-computer-2",
         "name": "Vikas Budhyal ",
         "email": "Vikkybudhyal@gmail.com",
         "linkedin": "https://www.linkedin.com/in/vikasbudhyal",
@@ -28,9 +30,9 @@
             "portfolio": ""
         },
         "avatar": "/avatars/vikas.jpg"
-
     },
     {
+        "id": "ty-computer-3",
         "name": "Samarth Hatte",
         "email": "ifsamarthhatte@gmail.com",
         "linkedin": "https://www.linkedin.com/in/samarth-hatte-431b22262",
@@ -45,8 +47,8 @@
         },
        "avatar": "/avatars/samarth.jpg"   
      },
-  
     {
+        "id": "ty-computer-4",
         "name": "Nasir Nadaf ",
        "avatar": "/avatars/nasir.jpg",   
         "email": "nasir7777786@gmail.com",
@@ -62,6 +64,7 @@
         }
     },
     {
+        "id": "ty-computer-5",
         "name": "Roni Bhakta ",
         "email": "ronibhakta1@gmail.com",
         "linkedin": "https://linkedIn.com/in/ronibhakta",
@@ -75,9 +78,9 @@
             "portfolio": ""
         },
                "avatar": "/avatars/roni.jpg"   
-
     },
     {
+        "id": "ty-computer-6",
         "name": "Aryan Maske",
         "email": "maskearyan420@gmail.com",
         "linkedin": "https://www.linkedin.com/in/aryan-maske-5b5423253/",
@@ -88,11 +91,11 @@
         "bio": "I'm a Computer Science and Engineering student passionate about software development, AI, and web technologies. I enjoy coding, problem-solving, and working on projects that bridge tech with real-world challenges. Always learning and exploring new opportunities!",
         "social": {
             "github": "https://github.com/aryanmaske052005"
-           
         },
                "avatar": "/avatars/aryan.jpg"   
   },
         {
+        "id": "ty-computer-7",
             "name": "Tanishq Dasari",
             "email": "tanishqdasari2004@gmail.com",
             "linkedin": "https://www.linkedin.com/in/tanishq-dasari-15697231a/",
@@ -108,6 +111,7 @@
        "avatar": "/avatars/tanishq.jpg"   
         },
         {
+        "id": "ty-computer-8",
             "name": "Kavita Chimman",
             "email": "kavitachimman4@gmail.com",
             "linkedin": "https://www.linkedin.com/in/kavita-chimman-469737323",
@@ -123,6 +127,7 @@
        "avatar": "/avatars/kavita.jpg"   
         },
         {
+        "id": "ty-computer-9",
             "name": "Shraddha More",
             "email": "shraddhamore033@gmail.com",
             "linkedin": "https://www.linkedin.com/in/shraddha-more-94635227b",
@@ -137,11 +142,8 @@
             },
        "avatar": "/avatars/shraddha.jpg"   
         },
-        
-    
-    
-   
     {
+        "id": "ty-computer-10",
         "name": "Koti Shifa ",
         "email": "shifakoti20@gmail.com",
         "linkedin": "https://www.linkedin.com/in/shifa-koti-806585317",
@@ -156,8 +158,8 @@
         },
        "avatar": "/avatars/shifa.jpg"   
     },
-   
     {
+        "id": "ty-computer-11",
         "name": "Aditya Kevale",
         "email": "kevaleaditya1@gmail.com",
         "linkedin": "https://www.linkedin.com/in/kevaleaditya1/",
@@ -172,8 +174,8 @@
         },
        "avatar": "/avatars/aditya.jpg"   
     },
-  
     {
+        "id": "ty-computer-12",
         "name": "Mrudula Sadafule",
         "email": "mrudulasadafule03@gmail.com",
         "linkedin": "https://www.linkedin.com/in/mrudula-sadafule-30b942299",
@@ -189,6 +191,7 @@
        "avatar": "/avatars/mrudula.jpg"   
     },
     {
+        "id": "ty-computer-13",
         "name": "Suhas Alagi",
         "email": "suhasalagi20@gmail.com",
         "linkedin": "https://www.linkedin.com/in/suhas-alagi",
@@ -204,6 +207,7 @@
        "avatar": "/avatars/suhas.jpg"   
     },
     {
+        "id": "ty-computer-14",
         "name": "Rehan Mulla",
        "avatar": "/avatars/rehan.jpg"   ,
         "email": "rehanmulla077@gmail.com",
@@ -218,8 +222,8 @@
             "portfolio": ""
         }
     },
-
     {
+        "id": "ty-computer-15",
         "name": "Samruddhi kamble",
         "email": "ksamruddhi943@gmail.com",
         "linkedin": "https://www.linkedin.com/in/samruddhi-kamble-465049292/",
@@ -235,6 +239,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "ty-computer-16",
         "name": "Nilesh Sanap",
         "email": "nilu111sanap@gmail.com",
         "linkedin": "https://www.linkedin.com/in/nilesh-sanap-9832b52a5/",
@@ -250,6 +255,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "ty-computer-17",
         "name": "Shreya Joshi",
         "email": "ksamruddhi943@gmail.com",
         "linkedin": "https://www.linkedin.com/in/shreya-joshi-2767a0324?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYcBql4d7SLO1QF2V0%2FFTCg%3D%3D",
@@ -264,8 +270,8 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
-    
     {
+        "id": "ty-computer-18",
         "name": "Tanashk Naikwadi ",
         "email": "tanashknaikwadi@gmail.com",
         "linkedin": "https://www.linkedin.com/in/tanashk-naikwadi-60b36b29a",
@@ -280,5 +286,4 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     }
-    
 ]

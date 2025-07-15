@@ -22,6 +22,8 @@ interface User {
   email: string;
   role: string;
   joinedAt?: string;
+  department: string;
+  year: string;
 }
 
 export default function RecentlyJoinedUsers() {
@@ -73,6 +75,48 @@ export default function RecentlyJoinedUsers() {
   };
 
   const handleChangeRole = (id: string, newRole: string) => {
+    // Find the user being updated
+    const userToUpdate = users.find((user) => user.id === id);
+    if (!userToUpdate) return;
+
+    // Only allow multiple 'Member' roles
+    if (newRole === "Member") {
+      alert(`Changing role for user with ID: ${id} to ${newRole}`);
+      setUsers(
+        users.map((user) =>
+          user.id === id ? { ...user, role: newRole } : user
+        )
+      );
+      // TODO: Call backend API to update role
+      return;
+    }
+
+    // For all other roles, ensure only one per department and year
+    const existingUser = users.find(
+      (user) =>
+        user.id !== id &&
+        user.department === userToUpdate.department &&
+        user.year === userToUpdate.year &&
+        user.role === newRole
+    );
+    if (existingUser) {
+      // Swap roles: the new user gets the role, the previous holder gets the new user's previous role
+      alert(`${userToUpdate.name} is now ${newRole}, and ${existingUser.name} is now ${userToUpdate.role}.`);
+      setUsers(
+        users.map((user) => {
+          if (user.id === id) {
+            return { ...user, role: newRole };
+          } else if (user.id === existingUser.id) {
+            return { ...user, role: userToUpdate.role };
+          } else {
+            return user;
+          }
+        })
+      );
+      // TODO: Call backend API to update roles
+      return;
+    }
+
     alert(`Changing role for user with ID: ${id} to ${newRole}`);
     setUsers(
       users.map((user) =>
@@ -149,11 +193,15 @@ export default function RecentlyJoinedUsers() {
                       <SelectValue placeholder="Role" />
                     </SelectTrigger>
                     <SelectContent className="bg-zinc-800 border-zinc-700 text-zinc-200">
-                      <SelectItem value="Member">Member</SelectItem>
+                      <SelectItem value="President">President</SelectItem>
                       <SelectItem value="Vice President">Vice President</SelectItem>
                       <SelectItem value="Secretary">Secretary</SelectItem>
+                      <SelectItem value="Dsa Lead">Dsa Lead</SelectItem>
+                      <SelectItem value="Web Lead">Web Lead</SelectItem>
+                      <SelectItem value="Android Lead">Android Lead</SelectItem>
+                      <SelectItem value="Member">Member</SelectItem>
                       <SelectItem value="Moderator">Moderator</SelectItem>
-                      <SelectItem value="Admin">Admin</SelectItem>
+                      <SelectItem value="Faculty">Faculty</SelectItem>
                     </SelectContent>
                   </Select>
                   <Button

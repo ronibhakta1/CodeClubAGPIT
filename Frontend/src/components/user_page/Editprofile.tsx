@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,19 +15,22 @@ import {
 } from "@/components/ui/select";
 
 interface User {
-  avatar: string;
+  id: number;
   name: string;
-  bio: string;
+  avatar: string;
   role: string;
   codeClubRole: string;
   skills: string[];
-  yearOfPursuing: string;
-  yearOfPassing: string;
+  bio: string;
   social: {
     github: string;
     linkedin: string;
     portfolio: string;
   };
+  pastEvents: string[];
+  yearOfPursuing: string;
+  yearOfPassing: string;
+  email: string;
 }
 
 interface EditProfileProps {
@@ -38,6 +41,7 @@ interface EditProfileProps {
 const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
   const [formData, setFormData] = useState<User>(user);
   const [isOpen, setIsOpen] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setFormData(user);
@@ -58,6 +62,18 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
 
   const handleSocialChange = (platform: keyof User["social"], value: string) => {
     setFormData((prev) => ({ ...prev, social: { ...prev.social, [platform]: value } }));
+  };
+
+  // Handle avatar upload
+  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        setFormData((prev) => ({ ...prev, avatar: ev.target?.result as string }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSave = () => {
@@ -81,7 +97,20 @@ const EditProfile: React.FC<EditProfileProps> = ({ user, setUser }) => {
         <div className="grid gap-5 py-2">
           {/* Profile Picture */}
           <div className="flex flex-col items-center gap-3">
-            <img src={formData.avatar} alt="Profile" className="w-24 h-24 rounded-full shadow-lg border border-gray-300" />
+            <label htmlFor="avatar-upload" className="relative group cursor-pointer">
+              <img src={formData.avatar} alt="Profile" className="w-24 h-24 rounded-full shadow-lg border border-gray-300 object-cover" />
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 rounded-full transition-opacity">
+                <span className="text-xs text-white">Change</span>
+              </div>
+              <input
+                id="avatar-upload"
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleAvatarChange}
+              />
+            </label>
           </div>
 
           {/* Name */}

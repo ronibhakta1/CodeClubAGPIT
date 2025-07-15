@@ -1,5 +1,6 @@
 [
     {
+        "id": "sy-computer-1",
         "name": "Bhumika Dolnare",
         "email": "dolnarebhumika4@gmail.com",
         "linkedin": "https://www.linkedin.com/in/bhumika-dolnare-5b5649329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -13,9 +14,9 @@
             "portfolio": ""
         },
                 "avatar": "/avatars/bhumika.jpg"
-
          },
     {
+        "id": "sy-computer-2",
         "name": "Md Shafi Arif Hudewale",
         "email": "shafihudewale@gmail.com",
         "linkedin": "https://www.linkedin.com/in/shafihudewale?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -31,6 +32,7 @@
         "avatar": "/avatars/shafi.jpg"
     },
     {
+        "id": "sy-computer-3",
         "name": "Priyanka Kumbhar ",
         "email": "priyankakumbhar.2405@gmail.com",
         "linkedin": "https://www.linkedin.com/in/priyanka-kumbhar-637a80286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -46,6 +48,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "sy-computer-4",
         "name": "Shoaib Inamdar",
         "email": "shoaibinamdar14@gmail.com",
         "linkedin": "https://www.linkedin.com/in/shoaib-inamdar-0416a5263",
@@ -61,6 +64,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "sy-computer-5",
         "name": "Pranoti Balaji Ambat",
         "email": "pranotiambat2005@gmail.com",
         "linkedin": "https://www.linkedin.com/in/pranoti-ambat-82b782311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -76,6 +80,7 @@
         "avatar": "/avatars/pranoti.jpg"
     },
     {
+        "id": "sy-computer-6",
         "name": "Naseem  Irkal ",
         "email": "naseemirkal@gmail.com",
         "linkedin": "https://www.linkedin.com/in/naseem-irkal-516881330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -91,6 +96,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "sy-computer-7",
         "name": "Aditi Kulkarni",
         "email": "kulkarniaditi1709@gmail.com",
         "linkedin": "https://www.linkedin.com/in/aditi-kulkarni-9b9b72330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -105,9 +111,8 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
-  
-   
     {
+        "id": "sy-computer-8",
         "name": "Md.Saif ",
         "email": "saifnaikwadi2005@gmail.com",
         "linkedin": "https://www.linkedin.com/in/saifnaikwadi",
@@ -121,10 +126,9 @@
             "portfolio": ""
         },
                 "avatar": "/avatars/saif.jpg"
-
     },
-   
     {
+        "id": "sy-computer-9",
         "name": " Meghana Sidgiddi",
         "email": "meghanasidgiddi@gmail.com",
         "linkedin": "https://www.linkedin.com/in/meghana-sidgiddi-655774330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -140,6 +144,7 @@
         "avatar": "/avatars/meghana.jpg"
     },
     {
+        "id": "sy-computer-10",
         "name": "Nagesh Kondabattin ",
         "email": "nageshkondabattin@gmail.com",
         "linkedin": "https://www.linkedin.com/in/nagesh-kondabattin-a43ba7285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -155,6 +160,7 @@
         "avatar": "/avatars/nagesh.jpg"
     },
     {
+        "id": "sy-computer-11",
         "name": "Abhijeet panchal ",
         "email": "panchalabhijeet4315@gmail.com",
         "linkedin": "https://www.linkedin.com/in/abhijeet-panchal-39799a330",
@@ -169,8 +175,8 @@
         },
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
-
     {
+        "id": "sy-computer-12",
         "name": "Adil Doka ",
         "email": "adildoka35@gmail.com",
         "linkedin": "https://www.linkedin.com/in/adil-doka?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -186,6 +192,7 @@
         "avatar": "/avatars/adil.jpg"
     },
     {
+        "id": "sy-computer-13",
         "name": "Aadam Muzammil ",
         "email": "aadammuzammil0@gmail.com",
         "linkedin": "",
@@ -201,6 +208,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "sy-computer-14",
         "name": "Tanushree Waghmare ",
         "email": "tanushreewaghmare11@gmail.com",
         "linkedin": "https://www.linkedin.com/in/tanushree-waghmare-a35988330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -216,6 +224,7 @@
         "avatar": "https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg"
     },
     {
+        "id": "sy-computer-15",
         "name": "Anjali Ajit Mane",
         "email": "anjaliajitmane22@gmail.com",
         "linkedin": "https://www.linkedin.com/in/anjali-mane-7161ab2bb",
@@ -231,6 +240,7 @@
         "avatar": "/avatars/anjali.jpg"
     },
     {
+        "id": "sy-computer-16",
         "name": "Avez Chadchan",
         "email": "avezchadchan@gmail.com",
         "linkedin": "https://www.linkedin.com/in/avez-chadchan-924040276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -246,6 +256,7 @@
         "avatar": "/avatars/avez.jpg"
     },
     {
+        "id": "sy-computer-17",
         "name": "Ayaan khairdi ",
         "email": "ayaankhairdi238@gmail.com",
         "linkedin": "https://www.linkedin.com/in/ayaan-khairdi-936aba289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
