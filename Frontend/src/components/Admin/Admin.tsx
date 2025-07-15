@@ -70,7 +70,7 @@ export default function Admin() {
     { title: "Dashboard", icon: SquareTerminal, sectionKey: "dashboard", path: "/admin/dashboard" },
     { title: "Manage Users", icon: Users, sectionKey: "users", path: "/admin/users" },
     { title: "Manage Events", icon: CalendarDays, sectionKey: "events", path: "/admin/events" },
-    { title: "Create Staff", icon: UserPlus, sectionKey: "create-staff", path: "/admin/create-staff" },
+    { title: "Create & Manage Staff", icon: UserPlus, sectionKey: "create-staff", path: "/admin/create-staff" },
   ];
 
   const setActiveSection = (section: string) => {
@@ -92,7 +92,7 @@ export default function Admin() {
       dashboard: "Dashboard",
       users: "Manage Users",
       events: "Manage Events",
-      "create-staff": "Create Staff",
+      "create-staff": "Create & Manage Staff",
     };
 
     const isUsers = activeSection === "users";
