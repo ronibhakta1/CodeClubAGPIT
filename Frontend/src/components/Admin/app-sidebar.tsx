@@ -41,7 +41,10 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
     title: string;
     icon?: LucideIcon;
     sectionKey: string;
+    path?: string;
   }[];
+  teamName?: string;
+  teamIcon?: LucideIcon;
 }
 
 // Admin Sidebar Component
@@ -50,13 +53,15 @@ export function AppSidebar({
   activeSection,
   setActiveSection,
   navItems,
+  teamName = "Admin",
+  teamIcon = UserSquare,
   ...props
 }: AppSidebarProps) {
   const data = {
     teams: [
       {
-        name: "Admin",
-        logo: UserSquare,
+        name: teamName,
+        logo: teamIcon,
       },
     ],
   };

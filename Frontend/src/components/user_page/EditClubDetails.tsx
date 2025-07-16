@@ -2,17 +2,23 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 
 const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
   const [role, setRole] = useState(user.role || "");
   const [yearOfPursuing, setYearOfPursuing] = useState(user.yearOfPursuing || "");
   const [yearOfPassing, setYearOfPassing] = useState(user.yearOfPassing || "");
+  const [skills, setSkills] = useState(user.skills ? user.skills.join(", ") : "");
   const [isOpen, setIsOpen] = useState(false); // State to control dialog visibility
 
   const handleSave = () => {
-    const updatedData = { role, yearOfPursuing, yearOfPassing };
-    setUser(updatedData); // Update parent component state
-    console.log("Final Data on Save:", updatedData);
+    const updatedData = {
+      role,
+      yearOfPursuing,
+      yearOfPassing,
+      skills: skills.split(",").map((s: string) => s.trim()).filter(Boolean),
+    };
+    setUser((prev: any) => ({ ...prev, ...updatedData })); // Merge updates
     setIsOpen(false); // Close the dialog
   };
 
@@ -24,7 +30,7 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
       <DialogContent className="sm:max-w-[500px] p-6 rounded-lg  text-slate-100 bg-zinc-900">
         <DialogHeader>
           <DialogTitle>Edit Club Details</DialogTitle>
-          <DialogDescription>Update your club role and academic details below.</DialogDescription>
+          <DialogDescription>Update your club role, skills, and academic details below.</DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-5 py-2">
@@ -46,6 +52,12 @@ const EditClubDetails = ({ user, setUser }: { user: any; setUser: any }) => {
                 </SelectGroup>
               </SelectContent>
             </Select>
+          </div>
+
+          {/* Skills */}
+          <div className="grid grid-cols-4 items-center gap-4">
+            <span className="text-right font-medium">Skills</span>
+            <Input value={skills} onChange={e => setSkills(e.target.value)} placeholder="Comma-separated skills" className="col-span-3" />
           </div>
 
           {/* Year of Pursuing */}

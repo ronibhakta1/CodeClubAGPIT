@@ -1,32 +1,14 @@
-import { AppSidebar } from "@/components/Admin/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import {
-  SquareTerminal,
-  Users,
-  CalendarDays,
-  UserPlus,
-} from "lucide-react";
 import React from "react";
+import { AppSidebar } from "@/components/Admin/app-sidebar";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Users, CalendarDays } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import AdminDashboardStats from "./AdminDashStats";
-import ManageUsers from "./ManageUsers";
-import ManageEvents from "./ManageEvents";
-import AdminStaffSignup from "./AdminStaffSignup";
+import ManageUsers from "@/components/Admin/ManageUsers";
+import ManageEvents from "@/components/Admin/ManageEvents";
 
-export default function Admin() {
+export default function StaffDashboard() {
   const location = useLocation();
   const navigate = useNavigate();
   const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
@@ -35,42 +17,46 @@ export default function Admin() {
   // Determine active section from current path
   const getActiveSection = () => {
     const path = location.pathname;
-    if (path.includes("/admin/users")) return "users";
-    if (path.includes("/admin/events")) return "events";
-    if (path.includes("/admin/create-staff")) return "create-staff";
-    return "dashboard";
+    if (path.includes("/staff/users")) return "users";
+    if (path.includes("/staff/events")) return "events";
+    return "users"; // Default to users section
   };
 
   const activeSection = getActiveSection();
 
+  // Dummy staff user
   const user = {
-    id: 1,
-    name: "Roni Bhakta",
-    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEvEHK2KOMLwQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705087348506?e=1758153600&v=beta&t=LeSe13JD8yBC4x40Y0gdrSZjOWaDvgIcHjNwDFjxyA4",
-    role: "Full Stack Developer",
-    codeClubRole: "president",
-    skills: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    bio: "Experienced full-stack developer passionate about building scalable web applications.",
+    id: 2,
+    name: "Asma Hannure",
+    avatar: "https://ui-avatars.com/api/?name=Staff+Member",
+    role: "Staff",
+    codeClubRole: "staff",
+    skills: [],
+    bio: "",
     social: {
-      github: "https://github.com/ronibhakta1",
-      linkedin: "https://linkedin.com/in/ronibhakta1",
-      portfolio: "https://ronibhakta1.dev",
+      github: "",
+      linkedin: "",
+      portfolio: ""
     },
-    pastEvents: [
-      "Hackathon 2024 - Coordinator",
-      "React Conference - Speaker",
-      "CodeFest 2023 - Judge",
-    ],
-    yearOfPursuing: "3rd",
-    yearOfPassing: "2026",
-    email: "roni123@gmail.com",
+    pastEvents: [],
+    yearOfPursuing: "",
+    yearOfPassing: "",
+    email: "hannure@example.com",
   };
 
   const navItems = [
-    { title: "Dashboard", icon: SquareTerminal, sectionKey: "dashboard", path: "/admin/dashboard" },
-    { title: "Manage Users", icon: Users, sectionKey: "users", path: "/admin/users" },
-    { title: "Manage Events", icon: CalendarDays, sectionKey: "events", path: "/admin/events" },
-    { title: "Create & Manage Staff", icon: UserPlus, sectionKey: "create-staff", path: "/admin/create-staff" },
+    {
+      title: "Manage Users",
+      icon: Users,
+      sectionKey: "users",
+      path: "/staff/users",
+    },
+    {
+      title: "Manage Events",
+      icon: CalendarDays,
+      sectionKey: "events",
+      path: "/staff/events",
+    },
   ];
 
   const setActiveSection = (section: string) => {
@@ -80,6 +66,7 @@ export default function Admin() {
     }
   };
 
+  // Breadcrumb logic
   const renderBreadcrumb = () => {
     const base = (
       <BreadcrumbItem>
@@ -89,10 +76,8 @@ export default function Admin() {
     const separator = <BreadcrumbSeparator />;
 
     const sectionMap: Record<string, string> = {
-      dashboard: "Dashboard",
       users: "Manage Users",
       events: "Manage Events",
-      "create-staff": "Create & Manage Staff",
     };
 
     const isUsers = activeSection === "users";
@@ -107,7 +92,7 @@ export default function Admin() {
               <BreadcrumbLink
                 asChild
                 onClick={() => {
-                  navigate("/admin/users");
+                  navigate("/staff/users");
                   setSelectedYear(null);
                   setSelectedDepartment(null);
                 }}
@@ -175,6 +160,8 @@ export default function Admin() {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
         navItems={navItems}
+        teamName="Staff"
+        teamIcon={Users}
       />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 px-4 shadow-md bg-zinc-950">
@@ -184,7 +171,6 @@ export default function Admin() {
         </header>
         <Separator orientation="horizontal" className="h-2 bg-zinc-200" />
         <div className="flex-1 p-6 pt-0 bg-zinc-950">
-          {activeSection === "dashboard" && <AdminDashboardStats />}
           {activeSection === "users" && (
             <ManageUsers
               selectedYear={selectedYear}
@@ -194,10 +180,8 @@ export default function Admin() {
             />
           )}
           {activeSection === "events" && <ManageEvents />}
-          {activeSection === "create-staff" && <AdminStaffSignup />}
         </div>
       </SidebarInset>
     </SidebarProvider>
   );
-}
-  
+} 

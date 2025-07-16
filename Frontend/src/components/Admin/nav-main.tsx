@@ -1,6 +1,7 @@
 "use client"
 
 import { ChevronRight, type LucideIcon } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 import {
   Collapsible,
   CollapsibleContent,
@@ -26,14 +27,26 @@ export function NavMain({
     icon?: LucideIcon
     isActive?: boolean
     sectionKey: string
+    path?: string
     items?: {
       title: string
       sectionKey: string
+      path?: string
     }[]
   }[]
   activeSection: string
   setActiveSection: (section: string) => void
 }) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (item: any) => {
+    if (item.path) {
+      navigate(item.path);
+    } else {
+      setActiveSection(item.sectionKey);
+    }
+  };
+
   return (
     <SidebarGroup>
       <SidebarMenu>
@@ -48,7 +61,7 @@ export function NavMain({
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton
                   tooltip={item.title}
-                  onClick={() => setActiveSection(item.sectionKey)}
+                  onClick={() => handleNavigation(item)}
                   className={
                     activeSection === item.sectionKey ? "bg-zinc-900" : ""
                   }
@@ -67,7 +80,7 @@ export function NavMain({
                     {item.items.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.sectionKey}>
                         <SidebarMenuSubButton
-                          onClick={() => setActiveSection(subItem.sectionKey)}
+                          onClick={() => handleNavigation(subItem)}
                           className={
                             activeSection === subItem.sectionKey
                               ? "bg-zinc-900 text-white"
