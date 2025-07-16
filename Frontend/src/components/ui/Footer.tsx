@@ -1,79 +1,10 @@
-import { useEffect, useState } from 'react';
-import CountUp from '../ui/pagecount';
 import { Separator } from '../ui/separator';
 import { FaGithub, FaLinkedin} from 'react-icons/fa';
-
-const API_URL = 'https://v1.codeclub.workers.dev';
+import { usePageViews } from '../../contexts/PageViewsContext';
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
-    const [pageViews, setPageViews] = useState(() => {
-        const savedCount = localStorage.getItem('pageViews');
-        console.log('Initial pageViews from localStorage:', savedCount);
-        return savedCount ? parseInt(savedCount, 10) : 0;
-    });
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        let isMounted = true;
-
-        const fetchPageViews = async () => {
-            try {
-                console.log('Fetching page views...');
-                const response = await fetch(`${API_URL}/page-views/count`);
-                const data = await response.json();
-                console.log('Page views response:', data);
-                if (data.count !== undefined && isMounted) {
-                    console.log('Setting page views to:', data.count);
-                    setPageViews(data.count);
-                    localStorage.setItem('pageViews', data.count.toString());
-                }
-            } catch (error) {
-                console.error('Error fetching page views:', error);
-            } finally {
-                if (isMounted) {
-                    setIsLoading(false);
-                }
-            }
-        };
-
-        const incrementPageViews = async () => {
-            try {
-                console.log('Attempting to increment page views...');
-                const response = await fetch(`${API_URL}/page-views/increment`, { 
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const data = await response.json();
-                console.log('Increment response:', data);
-                
-                if (data.success) {
-                    // After successful increment, fetch the updated count
-                    const countResponse = await fetch(`${API_URL}/page-views/count`);
-                    const countData = await countResponse.json();
-                    if (countData.count !== undefined && isMounted) {
-                        console.log('Setting page views to:', countData.count);
-                        setPageViews(countData.count);
-                        localStorage.setItem('pageViews', countData.count.toString());
-                    }
-                }
-            } catch (error) {
-                console.error('Error incrementing page views:', error);
-            }
-        };
-
-        // First fetch the current count
-        fetchPageViews();
-        // Then increment if needed
-        incrementPageViews();
-
-        // Cleanup function
-        return () => {
-            isMounted = false;
-        };
-    }, []);
+    const { pageViews, members } = usePageViews();
 
     return (
         <footer className="w-full bg-zinc-950 py-6 mt-10">
@@ -91,23 +22,14 @@ export function Footer() {
                         <div className="flex items-center gap-8 mb-2">
                             <div className="text-center">
                                 <span className="text-white text-sm block mb-1">Page Views</span>
-                                {isLoading ? (
-                                    <span className="text-xl md:text-2xl font-bold text-gray-400">Loading...</span>
-                                ) : (
-                                    <CountUp
-                                        from={pageViews}
-                                        to={pageViews}
-                                        separator=","
-                                        direction="up"
-                                        duration={1}
-                                        className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700"
-                                    />
-                                )}
+                                <span className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700">
+                                    {pageViews.toLocaleString()}
+                                </span>
                             </div>
                             <div className="text-center">
                                 <span className="text-white text-sm block mb-1">Members</span>
                                 <span className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700">
-                                    100+
+                                    {members}
                                 </span>
                             </div>
                         </div>
