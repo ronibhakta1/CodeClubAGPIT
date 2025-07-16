@@ -60,7 +60,7 @@ function useUserContext() {
 }
 
 const UserPastEventsSection = () => {
-  const { user,} = useUserContext();
+  const { user } = useUserContext();
   return (
     <Card className="flex flex-col items-center text-center h-full p-6 bg-zinc-950 rounded-none">
       <UserAvatar user={user} />
