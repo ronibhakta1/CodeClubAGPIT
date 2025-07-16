@@ -13,25 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-interface User {
-  id: number;
-  name: string;
-  avatar: string;
-  role: string;
-  codeClubRole: string;
-  skills: string[];
-  bio: string;
-  social: {
-    github: string;
-    linkedin: string;
-    portfolio: string;
-  };
-  pastEvents: string[];
-  yearOfPursuing: string;
-  yearOfPassing: string;
-  email: string;
-}
+import { User } from "@/types/user";
 
 interface EditProfileProps {
   user: User;

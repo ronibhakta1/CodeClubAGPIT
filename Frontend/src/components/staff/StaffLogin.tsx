@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export default function StaffLogin({ onLogin }: { onLogin?: () => void }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,8 +15,8 @@ export default function StaffLogin({ onLogin }: { onLogin?: () => void }) {
     if (email && password) {
       setError('');
       if (onLogin) onLogin();
-      // Redirect to dashboard in router
-      window.location.href = '/staff/dashboard';
+      // Navigate to dashboard using React Router
+      navigate('/staff/dashboard');
     } else {
       setError('Please enter both email and password.');
     }

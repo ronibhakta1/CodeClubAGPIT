@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { MagicCard } from "@/components/magicui/magic-card";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const YEARS = ["SY", "TY", "FY"];
 const DEPARTMENTS = ["Computer", "IT", "EXTC", "Mechanical", "Civil"];

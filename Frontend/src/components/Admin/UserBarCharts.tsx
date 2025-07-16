@@ -66,7 +66,6 @@ const UserBarChart = () => {
   const totalCount = departmentData.reduce((total, dept) => total + dept[dataKey], 0);
   const degreeBarColor = "url(#degreeGradient)";
   const diplomaBarColor = "url(#diplomaGradient)";
-
   return (
     <Card className="bg-zinc-900 text-white rounded-2xl shadow-xl overflow-hidden">
       <CardHeader className="flex flex-row justify-between items-center pb-2">
@@ -77,7 +76,7 @@ const UserBarChart = () => {
           onClick={handleToggle}
           className={cn("cursor-pointer text-xl transition-transform duration-300")}
         >
-          <Button className="text-white text-2xl py-1 px-3 cursor-pointer">
+          <Button className="text-white text-2xl py-1 px-3 cursor-pointer bg-transparent hover:bg-transparent border-none shadow-none">
             {showDegree ? "<>" : "<>"}
           </Button>
         </div>

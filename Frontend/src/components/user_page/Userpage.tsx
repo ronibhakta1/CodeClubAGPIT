@@ -16,25 +16,7 @@ import {
   SquareTerminal,
 } from "lucide-react"
 import { useLocation, useNavigate, Outlet } from "react-router-dom";
-
-interface User {
-  id: number;
-  name: string;
-  avatar: string;
-  role: string;
-  codeClubRole: string;
-  skills: string[];
-  bio: string;
-  social: {
-    github: string;
-    linkedin: string;
-    portfolio: string;
-  };
-  pastEvents: string[];
-  yearOfPursuing: string;
-  yearOfPassing: string;
-  email: string;
-}
+import { User } from "@/types/user";
 
 
 

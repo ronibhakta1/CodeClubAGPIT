@@ -6,27 +6,7 @@ import EditClubDetails from "./EditClubDetails";
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import { useOutletContext } from "react-router-dom";
 import UserCardHeader from "./UserCardHeader";
-
-interface SocialLinks {
-  github: string;
-  linkedin: string;
-  portfolio: string;
-}
-
-interface User {
-  id: number;
-  name: string;
-  avatar: string;
-  role: string;
-  codeClubRole: string;
-  skills: string[];
-  bio: string;
-  social: SocialLinks;
-  pastEvents: string[];
-  yearOfPursuing: string;
-  yearOfPassing: string;
-  email: string;
-}
+import { User, SocialLinks } from "@/types/user";
 
 const UserAvatar = ({ user }: { user: User }) => (
   <Avatar className="w-32 h-32 rounded-full">
