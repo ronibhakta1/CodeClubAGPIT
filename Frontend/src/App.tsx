@@ -14,6 +14,8 @@ import UserProfileSection from './components/user_page/UserProfileSection';
 import UserClubInfoSection from './components/user_page/UserClubInfoSection';
 import UserPastEventsSection from './components/user_page/UserPastEventsSection';
 import { ThemeProvider } from './contexts/ThemeContext';
+import Login from './components/Auth/Login'
+import Signup from './components/Auth/Signup'
 
 
 function App() {
@@ -43,6 +45,11 @@ function App() {
           <Route path="/staff" element={<Navigate to="/staff/users" replace />} />
           <Route path="/staff/users" element={<StaffDashboard />} />
           <Route path="/staff/events" element={<StaffDashboard />} />
+
+          <Route path="/user/login" element={<Login />} />
+          <Route path="/user/signup" element={<Signup />} />
+          
+
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
