@@ -14,11 +14,11 @@ import {
   BookOpen,
   Bot,
   SquareTerminal,
-} from "lucide-react"
+} from "lucide-react";
 import { useLocation, useNavigate, Outlet } from "react-router-dom";
 import { User } from "@/types/user";
-
-
+import axios from "axios";
+import { BACKEND_URL } from "../../../config";
 
 const sectionTitles: Record<string, string> = {
   main: "Profile",
@@ -45,7 +45,12 @@ const BreadcrumbNav = ({ activeSection }: { activeSection: string }) => (
 );
 
 const UserPage = ({ section }: { section?: string }) => {
-  const [user, setUser] = React.useState<User>({
+  const [user, setUser] = React.useState<User | null>(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
+
+  // Dummy data as fallback
+  const dummyUser: User = {
     id: 1,
     name: "Roni Bhakta",
     avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEvEHK2KOMLwQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1705087348506?e=1748476800&v=beta&t=IVnehed4T53hvzHeeNxaKQdN9EJknAu4iM4tpBddSvE",
@@ -66,7 +71,7 @@ const UserPage = ({ section }: { section?: string }) => {
     yearOfPursuing: "3rd",
     yearOfPassing: "2026",
     email: "roni123@gmail.com",
-  });
+  };
 
   const navMain = [
     {
@@ -79,7 +84,7 @@ const UserPage = ({ section }: { section?: string }) => {
       sectionKey: "clubinfo",
       icon: Bot,
     },
-    ...(user.codeClubRole === "president"
+    ...(user?.codeClubRole === "president"
       ? [
           {
             title: "Past Events",
@@ -107,6 +112,33 @@ const UserPage = ({ section }: { section?: string }) => {
     setActiveSection(getSectionFromPath());
   }, [location.pathname, section]);
 
+  // Fetch user data
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          throw new Error("No token found");
+        }
+        const response = await axios.get(`${BACKEND_URL}/user/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(response.data.user);
+      } catch (err: any) {
+        console.error("Failed to fetch user:", err);
+        setUser(dummyUser); // Fallback to dummy data
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   // Handle sidebar navigation
   const handleSectionChange = (sectionKey: string) => {
     setActiveSection(sectionKey);
@@ -115,24 +147,40 @@ const UserPage = ({ section }: { section?: string }) => {
     else if (sectionKey === "pastevents") navigate("/users/pastevents");
   };
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-zinc-950">
+        <div className="text-slate-100">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-zinc-950">
+        <div className="text-red-400">Error: Unable to load user data</div>
+      </div>
+    );
+  }
+
   return (
-    <div className=" min-h-screen">
+    <div className="min-h-screen">
+      {error && <div className="text-red-400 text-center p-4">{error}</div>}
       <SidebarProvider>
-          <AppSidebar
-            user={user}
-            activeSection={activeSection}
-            setActiveSection={handleSectionChange}
-            navItems={navMain}
-          />
+        <AppSidebar
+          user={user}
+          activeSection={activeSection}
+          setActiveSection={handleSectionChange}
+          navItems={navMain}
+        />
         <SidebarInset>
           <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-zinc-950 px-4 shadow-md">
-            <SidebarTrigger className="-ml-1 bg-zinc-700"  />
+            <SidebarTrigger className="-ml-1 bg-zinc-700" />
             <Separator orientation="vertical" className="mr-2 h-4 bg-zinc-100" />
             <BreadcrumbNav activeSection={activeSection} />
-            <Separator orientation="horizontal" className="fixed top-16  h-2 left-0 bg-zinc-200" />
+            <Separator orientation="horizontal" className="fixed top-16 h-2 left-0 bg-zinc-200" />
           </header>
-          <div className="flex-1 overflow-y-auto ">
-            {/* Only render nested route content here */}
+          <div className="flex-1 overflow-y-auto">
             <Outlet context={{ user, setUser }} />
           </div>
         </SidebarInset>

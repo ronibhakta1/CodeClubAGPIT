@@ -13,6 +13,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.2",
     "@hookform/resolvers": "^5.1.1",
+    "@nasirnadaf/codeclubagpit-common": "^1.0.0",
     "@radix-ui/react-accordion": "^1.2.4",
     "@radix-ui/react-avatar": "^1.1.4",
     "@radix-ui/react-checkbox": "^1.1.5",

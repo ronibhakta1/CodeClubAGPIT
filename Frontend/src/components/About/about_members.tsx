@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
+import axios from 'axios';
+import { BACKEND_URL } from '../../../config';
 
 // Define interfaces for data
 interface Member {
@@ -35,48 +37,98 @@ export function AboutMembers() {
     const [hoveredMemberId, setHoveredMemberId] = useState<number | null>(null);
     const [hoveredImageId, setHoveredImageId] = useState<number | null>(null);
     const [selectedBoard, setSelectedBoard] = useState<string>("TY");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const dummyMembers: Member[] = [
+        {
+            id: 1,
+            name: "Roni Bhakta",
+            avatar: "https://media.licdn.com/dms/image/v2/D4D03AQEvEHK2KOMLwQ/profile-displayphoto-shrink_100_100/0/1705087348506",
+            email: "roni123@gmail.com",
+            linkedin: "https://linkedin.com/in/ronibhakta1",
+            role: "President",
+            domain: "Full Stack Development",
+            yearOfStudy: "3rd",
+            yearOfPassing: 2026,
+            bio: "Experienced full-stack developer passionate about building scalable web applications.",
+            social: {
+                github: "https://github.com/ronibhakta1",
+                portfolio: "https://ronibhakta1.dev",
+            },
+        },
+    ];
+
+    const dummyCarouselImages: CarouselImage[] = [
+        {
+            id: 1,
+            image: "/default-image.jpg",
+            title: "Hackathon 2024",
+            tagline: "Innovate and Create",
+        },
+    ];
 
     useEffect(() => {
         const fetchMembers = async () => {
+            setLoading(true);
+            setError(null);
             try {
-                const fileName = `/club_members_${selectedBoard}.json`;
-                const response = await fetch(fileName);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                const response = await axios.get(`${BACKEND_URL}/user/club-members/${selectedBoard}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                });
+                setMembers(response.data.members);
+            } catch (err: any) {
+                console.error("Error loading members from backend:", err);
+                setError("Failed to load members. Using default data.");
+                try {
+                    const fileName = `/club_members_${selectedBoard}.json`;
+                    const response = await fetch(fileName);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    const membersWithIds = data.map((member: Member, index: number) => ({
+                        ...member,
+                        id: member.id || index,
+                    }));
+                    setMembers(membersWithIds);
+                } catch (jsonErr) {
+                    console.error("Error loading members from JSON:", jsonErr);
+                    setMembers(dummyMembers);
                 }
-
-                const data = await response.json();
-
-                // Add id to members if not present
-                const membersWithIds = data.map((member: Member, index: number) => ({
-                    ...member,
-                    id: member.id || index
-                }));
-
-                setMembers(membersWithIds);
-            } catch (err) {
-                console.error("Error loading members:", err);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchMembers();
     }, [selectedBoard]);
 
-    // Load carousel images from the JSON file
     useEffect(() => {
         const fetchCarouselImages = async () => {
+            setLoading(true);
+            setError(null);
             try {
-                const response = await fetch('/carousel_images.json');
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                const response = await axios.get(`${BACKEND_URL}/user/carousel-images`);
+                setCarouselImages(response.data.images);
+            } catch (err: any) {
+                console.error("Error loading carousel images from backend:", err);
+                setError("Failed to load carousel images. Using default data.");
+                try {
+                    const response = await fetch('/carousel_images.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    setCarouselImages(data);
+                } catch (jsonErr) {
+                    console.error("Error loading carousel images from JSON:", jsonErr);
+                    setCarouselImages(dummyCarouselImages);
                 }
-
-                const data = await response.json();
-                setCarouselImages(data);
-            } catch (err) {
-                console.error("Error loading carousel images:", err);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -87,12 +139,18 @@ export function AboutMembers() {
         setSelectedBoard(board);
     };
 
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="text-gray-800">Loading...</div>
+            </div>
+        );
+    }
+
     return (
-        
         <div className="py-8 px-4">
-            {/* Carousel Images Section */}
+            {error && <div className="text-red-400 text-center mb-4">{error}</div>}
             <div className="mb-12">
-                
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {carouselImages.map((item) => (
                         <div
@@ -109,7 +167,6 @@ export function AboutMembers() {
                                     const target = e.target as HTMLImageElement;
                                     target.src = "/default-image.jpg";
                                 }}
-                                
                             />
                             <ProgressiveBlur
                                 className="pointer-events-none absolute bottom-0 left-0 h-[50%] w-full"
@@ -135,17 +192,10 @@ export function AboutMembers() {
                                     <span className="text-sm text-black">{item.tagline}</span>
                                 </div>
                             </motion.div>
-                    
                         </div>
-                        
                     ))}
-                    <div>
-                        
-                    </div>
                 </div>
             </div>
-
-            {/* Team Members Section */}
             <h2 className="text-2xl font-bold text-center mb-6">Our Team</h2>
             <div className="flex justify-center gap-4 mb-8">
                 <button
@@ -167,7 +217,6 @@ export function AboutMembers() {
                     Last Year Board
                 </button>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {members.map((member, index) => (
                     <div

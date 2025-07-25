@@ -16,6 +16,8 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import axios from "axios";
+import { BACKEND_URL } from "../../../config";
 
 interface BoardMember {
   id: number;
@@ -23,7 +25,7 @@ interface BoardMember {
   image: string;
   title: string;
   tagline: string;
-  Post: string;
+  post: string;
 }
 
 const user = {
@@ -49,57 +51,82 @@ const user = {
 const GalleryCarousel = () => {
   const [hoveredImageId, setHoveredImageId] = useState<number | null>(null);
   const [boardMembers, setBoardMembers] = useState<BoardMember[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const dummyBoardMembers: BoardMember[] = [
+    {
+      id: 1,
+      name: "S.A Patil",
+      image: "/SecretaryDesk.png",
+      title: "President",
+      tagline: "Young, ignited minds is the need of the hour.",
+      post: "Secretary"
+    },
+    {
+      id: 2,
+      name: "Dr. M A Chougule",
+      image: "/campus_director_chougule_sir.jpg",
+      title: "Campus Director",
+      tagline: "Fostering an environment where ambition thrives and success follows.",
+      post: "Campus Director"
+    },
+    {
+      id: 3,
+      name: "Dr. V V Potdar",
+      image: "/Principal-desk.jpeg.jpg",
+      title: "Principal",
+      tagline: "Inspiring Leadership, Empowering Futures",
+      post: "Principal"
+    },
+    {
+      id: 5,
+      name: "Mr. S.V Kulkarni",
+      image: "/Kulkarni.jpg",
+      title: "HOD CSE",
+      tagline: "Guiding brilliance, nurturing innovation, and unlocking potential.",
+      post: "Head Of Department"
+    }
+  ];
 
   useEffect(() => {
     const fetchBoardMembers = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const response = await fetch('/board_members.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
-        setBoardMembers(data);
-      } catch (err) {
-        console.error("Error loading board members:", err);
-        setBoardMembers([
-          {
-            "id": 1,
-            "name":"S.A Patil",
-            "image": "/SecretaryDesk.png",
-            "title": "President",
-            "tagline": "Young, ignited minds is the need of the hour.",
-            "Post":"Secretary"
-          },
-          {
-            "id": 2,
-            "name":"Dr. M A Chougule",
-            "image": "/campus_director_chougule_sir.jpg",
-            "title": "Campus Director",
-            "tagline": "Fostering an environment where ambition thrives and success follows.",
-            "Post":"Campus Director"
-          },
-          {
-            "id": 3,
-            "name":"Dr. V V Potdar",
-            "image": "/Principal-desk.jpeg.jpg",
-            "title": "Principal",
-            "tagline": "Inspiring Leadership, Empowering Futures",
-            "Post":"Principal"
-          },
-          {
-            "id": 5,
-            "name":"Mr. S.V Kulkarni",
-            "image": "/Kulkarni.jpg",
-            "title": "HOD CSE",
-            "tagline": "Guiding brilliance, nurturing innovation, and unlocking potential.",
-            "Post":"Head Of Department"
-          }
-        ]);
+        const response = await axios.get(`${BACKEND_URL}/about/board-members`);
+        setBoardMembers(response.data.boardMembers);
+      } catch (err: any) {
+        console.error("Error loading board members from backend:", err);
+        setError("Failed to load board members. Using default data.");
+        // Fallback to JSON file
+        try {
+          const response = await fetch('/board_members.json');
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          const data = await response.json();
+          setBoardMembers(data);
+        } catch (jsonErr) {
+          console.error("Error loading board members from JSON:", jsonErr);
+          setBoardMembers(dummyBoardMembers);
+        }
+      } finally {
+        setLoading(false);
       }
     };
     fetchBoardMembers();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-8">
+        <div className="text-white">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="py-8 px-4">
+      {error && <div className="text-red-400 text-center mb-4">{error}</div>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {boardMembers.map((item) => (
           <div key={item.id} className="flex flex-col">
@@ -142,10 +169,9 @@ const GalleryCarousel = () => {
                 </div>
               </motion.div>
             </div>
-            {/* ONLY ADDED THIS SECTION - NAME AND POSITION BELOW IMAGE */}
             <div className="mt-2 text-center">
               <p className="text-base font-medium text-white">{item.name}</p>
-              <p className="text-sm text-gray-400">{item.Post}</p>
+              <p className="text-sm text-gray-400">{item.post}</p>
             </div>
           </div>
         ))}
@@ -168,7 +194,6 @@ const About = () => {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen text-gray-900 bg-black w-full overflow-x-hidden">
-      {/* Navbar - completely unchanged */}
       <div className="grid-cols-1 bg-zinc-950 border-b-0 border-gray-50 sticky top-0 z-50 gradient-to-r flex justify-between flex-nowrap items-start w-full px-4 md:px-10 py-3 outline">
         <div className="flex items-center gap-2">
           <img src="./logo.png" alt="logo" className="w-10 h-8" />
@@ -176,7 +201,6 @@ const About = () => {
             CODE CLUB AGPIT
           </div>
         </div>
-        {/* Mobile menu toggle button */}
         <div className="md:hidden">
           <button 
             onClick={toggleMobileMenu}
@@ -185,7 +209,6 @@ const About = () => {
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        {/* Desktop Navigation */}
         <div className="nav-links hidden md:flex justify-between items-center w-2/3 md:w-1/2 pr-4 md:pr-40">
           <ul className="flex justify-between items-center w-full text-base md:text-lg lg:text-2xl gap-2 md:gap-6 lg:gap-10">
             <li className="text-white font-semibold cursor-pointer" onClick={() => navigate("/")}>Home</li>
@@ -223,8 +246,6 @@ const About = () => {
           </ul>
         </div>
       </div>
-
-      {/* Mobile Side Navigation - completely unchanged */}
       <div className={`fixed top-0 right-0 h-full bg-zinc-950 w-64 z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
         <div className="flex justify-end p-4">
           <button onClick={toggleMobileMenu} className="text-white">
@@ -242,8 +263,8 @@ const About = () => {
             Events
           </li>
           <li className="text-white text-lg font-semibold cursor-pointer" onClick={() => {navigate("/events/hackathon"); toggleMobileMenu();}}>
-              Hackathon
-            </li>
+            Hackathon
+          </li>
           <li className="text-white text-lg font-semibold">
             <div className="flex flex-col space-y-3">
               <span>Members</span>
@@ -271,19 +292,16 @@ const About = () => {
           </li>
         </ul>
       </div>
-
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
           onClick={toggleMobileMenu}
         ></div>
       )}
-
-      {/* Hero Section - completely unchanged */}
       <div className="relative w-full py-20 text-center bg-[url('https://source.unsplash.com/1600x900/?coding,technology')] bg-cover bg-center">
         <div className="absolute inset-0 bg-black"></div>
         <div className="relative z-10 max-w-3xl mx-auto px-4">
-          <h1 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center ">About Us</h1>
+          <h1 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">About Us</h1>
           <br/>
           <p className="mt-4 text-lg text-white">
             Welcome to <strong>A.G. Patil Code Club</strong>! We are a community of passionate tech enthusiasts,
@@ -292,12 +310,9 @@ const About = () => {
         </div>
       </div>
       <h2 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">AGPIT Board of Directors & Faculty</h2><br />
-      {/* GalleryCarousel Component - only changed to add name/position below images */}
       <div className="max-w-7xl w-full mt-10">
         <GalleryCarousel />
       </div>
-
-      {/* Mission & Vision Section - completely unchanged */}
       <div className="max-w-5xl w-full mt-10 px-6">
         <h2 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">Mission & Vision</h2><br></br><br></br>
         <Card className="w-full max-w-4xl p-4 text-white bg-zinc-900 h-auto border-zinc-700 mx-8 sm:mx-10 md:mx-14 ">
@@ -308,8 +323,6 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-
-      {/* Our Activities Section - completely unchanged */}
       <div className="max-w-5xl w-full mt-10 px-6">
         <h2 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">Our Activities</h2><br></br>
         <Card className="w-full max-w-4xl p-4 text-white bg-zinc-900 h-auto border-zinc-700 mx-8 sm:mx-10 md:mx-14">
@@ -325,8 +338,7 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-<br />
-      {/* Success Stories Section - completely unchanged */}
+      <br />
       <div className="max-w-5xl w-full mt-16 px-6">
         <h2 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">Success Stories</h2><br></br>
         <Card className="w-full max-w-4xl p-4 text-white bg-zinc-900 h-auto border-zinc-700 mx-8 sm:mx-10 md:mx-14">
@@ -338,9 +350,8 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-<br />
-<br />
-      {/* FAQ Section - completely unchanged */}
+      <br />
+      <br />
       <div className="w-full max-w-3xl mx-auto mt-10 px-6">
         <h2 className="text-2xl md:text-xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700 text-center">Frequently Asked Questions</h2><br />
         <Accordion type="single" collapsible className="space-y-4 text-white">
@@ -364,15 +375,11 @@ const About = () => {
           </AccordionItem>
         </Accordion>
       </div>
-
-      {/* Join Us Button - completely unchanged */}
       <div className="flex justify-center mt-10">
         <Button className="bg-zinc-500 hover:cursor-pointer text-black px-6 py-3 text-lg font-semibold rounded-xl hover:bg-zinc-300 transform transition-transform duration-300 hover:scale-105">
           Join Us
         </Button>
       </div>
-
-      {/* Footer - completely unchanged */}
       <div className="flex flex-col items-center mt-10 pb-10 text-center text-white">
         <p className="text-gray-400">
           A.G. Patil Institute of Technology, Solapur, Maharashtra, India
