@@ -133,3 +133,19 @@ model Visitor {
   user         User?     @relation("UserVisits", fields: [userId], references: [uniqueId])
   staff        Staff?    @relation("StaffVisits", fields: [staffId], references: [staffId])
 }
+
+model BoardMember {
+  id            Int      @id @default(autoincrement())
+  name          String
+  image         String
+  title         String
+  tagline       String
+  post          String
+}
+
+model CarouselImage {
+  id            Int      @id @default(autoincrement())
+  image         String
+  title         String
+  tagline       String
+}

@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { cors } from 'hono/cors';
+import userRouter from "./routes/userRouter";
 
 const app = new Hono();
 
@@ -25,6 +26,11 @@ app.get("/", (c) => {
     '<h1 style="text-align: center ; font-size: 50px">Code Club AGPIT</h1> <h2 style="text-align: center ; font-size: 30px">Backend API</h2> <p style="text-align: center ; font-size: 20px"> <a href="https://codeclubagpit.vercel.app/"> website link </p>'
   );
 });
+
+// In your main app file (index.ts or similar)
+app.route('/user', userRouter);
+app.route('/about', aboutRouter);
+
 
 // Initialize Prisma client
 const prisma = new PrismaClient({
