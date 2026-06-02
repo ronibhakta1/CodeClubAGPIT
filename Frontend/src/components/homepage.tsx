@@ -76,6 +76,12 @@ const Homepage = () => {
                                         </DropdownMenuItem>
                                         <DropdownMenuItem 
                                             className="cursor-pointer hover:bg-gray-800"
+                                            onClick={() => navigate("/members?board=AB")}
+                                        >
+                                            Assistant Board Members
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem 
+                                            className="cursor-pointer hover:bg-gray-800"
                                             onClick={() => navigate("/members?board=FY")}
                                         >
                                             Founder Board Members
