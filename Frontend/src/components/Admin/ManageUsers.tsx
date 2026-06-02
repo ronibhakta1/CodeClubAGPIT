@@ -74,9 +74,9 @@ export default function ManageUsers({
     const fetchUsers = async () => {
       try {
         const [syRes, tyRes, fyRes] = await Promise.all([
-          fetch("/club_members_SY.json"),
           fetch("/club_members_TY.json"),
           fetch("/club_members_FY.json"),
+          fetch("/club_members_Founder_Board.json"),
         ]);
         let fyData = await fyRes.json();
         let syData = await syRes.json();

@@ -1,5 +1,5 @@
 [
-   {
+  {
     "id": "sy-8",
     "name": "Bhavana Kambale",
     "email": "member@example.com",
@@ -15,7 +15,7 @@
     },
     "avatar": "/avatars/assistant_board/bhavana.jpeg"
   },
-   {
+  {
     "id": "sy-14",
     "name": "Anushka Sindagi",
     "email": "member@example.com",
@@ -31,7 +31,7 @@
     },
     "avatar": "/avatars/assistant_board/anushka.png"
   },
-   {
+  {
     "id": "sy-10",
     "name": "Pritesh Shriram",
     "email": "member@example.com",
@@ -47,7 +47,7 @@
     },
     "avatar": "/avatars/assistant_board/pritesh.jpeg"
   },
-   {
+  {
     "id": "sy-6",
     "name": "Eshaan Waghmare",
     "email": "member@example.com",
@@ -63,7 +63,7 @@
     },
     "avatar": "/avatars/assistant_board/eshaan.png"
   },
-   {
+  {
     "id": "sy-5",
     "name": "Harsh Madhekar",
     "email": "member@example.com",
@@ -175,7 +175,7 @@
     },
     "avatar": "/avatars/assistant_board/megha.png"
   },
- 
+
   {
     "id": "sy-11",
     "name": "Tanishk Chandrakant Mane",
@@ -224,7 +224,7 @@
     },
     "avatar": "/avatars/assistant_board/nouman.jpeg"
   },
- 
+
   {
     "id": "sy-15",
     "name": "Soujanya Rodage",
@@ -261,7 +261,7 @@
     "id": "sy-17",
     "name": "Ushank Pamu",
     "email": "member@example.com",
-    "linkedin": "www.linkedin.com/in/ushankpamu",
+    "linkedin": "https://www.linkedin.com/in/ushankpamu",
     "role": "Assistant Board Member",
     "domain": "Web Development",
     "yearOfStudy": "SY",

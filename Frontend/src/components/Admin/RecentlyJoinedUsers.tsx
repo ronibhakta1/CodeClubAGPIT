@@ -35,9 +35,9 @@ export default function RecentlyJoinedUsers() {
     const fetchUsers = async () => {
       try {
         const [fyResponse, syResponse, tyResponse] = await Promise.all([
-          fetch("/club_members_FY.json"),
-          fetch("/club_members_SY.json"),
+          fetch("/club_members_Founder_Board.json"),
           fetch("/club_members_TY.json"),
+          fetch("/club_members_FY.json"),
         ]);
 
         const fyData: User[] = await fyResponse.json();

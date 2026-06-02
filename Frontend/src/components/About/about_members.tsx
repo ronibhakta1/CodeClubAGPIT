@@ -29,6 +29,13 @@ interface CarouselImage {
     tagline: string;
 }
 
+const boardFiles: Record<string, string> = {
+    TY: "/club_members_TY.json",
+    SY: "/club_members_TY.json",
+    FY: "/club_members_FY.json",
+    Founder_Board: "/club_members_Founder_Board.json",
+};
+
 export function AboutMembers() {
     const [members, setMembers] = useState<Member[]>([]);
     const [carouselImages, setCarouselImages] = useState<CarouselImage[]>([]);
@@ -39,7 +46,7 @@ export function AboutMembers() {
     useEffect(() => {
         const fetchMembers = async () => {
             try {
-                const fileName = `/club_members_${selectedBoard}.json`;
+                const fileName = boardFiles[selectedBoard] || boardFiles.TY;
                 const response = await fetch(fileName);
 
                 if (!response.ok) {

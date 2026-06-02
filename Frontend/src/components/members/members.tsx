@@ -41,13 +41,13 @@ interface Member {
 
 const boardConfig = {
   SY: {
-    fileName: "/club_members_SY.json",
+    fileName: "/club_members_TY.json",
     title: "MAIN BOARD 2025-26",
     navLabel: "Main Board 2025-26",
     subtitle: "This section contains the current main board members",
   },
   TY: {
-    fileName: "/club_members_TY.json",
+    fileName: "/club_members_FY.json",
     title: "MAIN BOARD 2024-25",
     navLabel: "Main Board 2024-25",
     subtitle: "This section contains the previous main board members.",
@@ -59,7 +59,7 @@ const boardConfig = {
     subtitle: "This section contains the assistant board members",
   },
   FY: {
-    fileName: "/club_members_FY.json",
+    fileName: "/club_members_Founder_Board.json",
     title: "FOUNDER BOARD MEMBERS",
     navLabel: "Founder Board Members",
     subtitle: "Original board members from the previous cycle",
