@@ -370,13 +370,13 @@ const Members = () => {
         </div>
 
         {president && (
-          <Card className="w-full max-w-3xl p-4 text-white bg-zinc-900 h-auto border-zinc-700 mx-8 sm:mx-10 md:mx-14">
+         <Card className="w-full max-w-3xl p-4 text-white bg-zinc-900 h-auto border-2 border-zinc-700 hover:border-blue-500 rounded-2xl shadow-lg shadow-blue-500/20 transition-all duration-300 mx-8 sm:mx-10 md:mx-14">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-2 border-zinc-600">
                 <img
                   src={president.avatar || "/default-avatar.jpg"}
                   alt={president.name}
-                  className="w-full h-full rounded-full"
+                 className="w-full h-full rounded-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = "/default-avatar.jpg";
@@ -423,9 +423,9 @@ const Members = () => {
               className={`relative transition-transform duration-200 hover:scale-[1.03] hover:z-10 w-full max-w-full sm:max-w-none ${member.role === "President" ? "col-span-full sm:col-span-2 md:col-span-3" : ""}`}
               data-member-id={member.id}
             >
-              <Card
-                className={`${member.role === "President" ? "sm:h-auto h-auto" : "sm:h-[350px] h-[280px]"} flex flex-col text-white bg-zinc-900 w-full group border-zinc-700`}
-              >
+            <Card
+  className={`${member.role === "President" ? "sm:h-auto h-auto" : "sm:h-[350px] h-[280px]"} flex flex-col text-white bg-zinc-900 w-full group border-2 hover:border-blue-500 rounded-2xl shadow-lg shadow-blue-500/20`}
+>
                 <div className="p-4 flex flex-col items-center h-full">
                   <Avatar
                     className={`${member.role === "President" ? "w-32 h-32 sm:w-40 sm:h-40" : "sm:w-24 sm:h-24 w-16 h-16"} mb-4 border-2 border-zinc-600`}
@@ -434,7 +434,7 @@ const Members = () => {
                       <img
                         src={member.avatar || "/default-avatar.jpg"}
                         alt={member.name}
-                        className="w-full h-full rounded-full"
+                      className="w-full h-full rounded-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = "/default-avatar.jpg";

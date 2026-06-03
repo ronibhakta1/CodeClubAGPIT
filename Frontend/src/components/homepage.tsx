@@ -182,7 +182,7 @@ const Homepage = () => {
                 )}
 
                 <div className="flex-grow">
-                    <div className="flex flex-col grid-cols-2 items-center justify-center py-40">
+                    <div className="flex flex-col grid-cols-2 items-center justify-center py-24">
                         <div><CoverDemo /></div>
                     </div>
                     <TimelineDemo />
