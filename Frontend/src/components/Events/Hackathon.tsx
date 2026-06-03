@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import type { CarouselApi } from "@/components/Events/carousel";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,20 +23,30 @@ import {
   X,
 } from "lucide-react";
 import Footer from "../ui/Footer";
-const codingRoom1 = "/events/hackathon2k26/100pc1.jpg.jpeg";
-const codingRoom2 = "/events/hackathon2k26/100pc2.jpg.jpeg";
-const codingRoom3 = "/events/hackathon2k26/100pc3.jpg.jpeg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/Events/carousel";
+const codingRoom1 = "/events/hackathon2k26/100pc1.jpg";
+const codingRoom2 = "/events/hackathon2k26/100pc2.jpg";
+const codingRoom3 = "/events/hackathon2k26/100pc3.jpg";
 
-const facultyGroup = "/events/hackathon2k26/allprofessors.jpg.jpeg";
+const facultyGroup = "/events/hackathon2k26/allprofessors.jpg";
 
-const jury1 = "/events/hackathon2k26/jury1.jpg.jpeg";
-const jury2 = "/events/hackathon2k26/jury2.jpg.jpeg";
-const jury3 = "/events/hackathon2k26/jury3.jpg.jpeg";
+const jury1 = "/events/hackathon2k26/jury1.jpg";
+const jury2 = "/events/hackathon2k26/jury2.jpg";
+const jury3 = "/events/hackathon2k26/jury3.jpg";
+const jury4 ="/events/hackathon2k26/jury4.jpg";
+const jury5 ="/events/hackathon2k26/jury5.jpg";
+const jury6 ="/events/hackathon2k26/jury6.jpg";
 
-const samarthHall = "/events/hackathon2k26/samarthhall.jpg.jpeg";
+const samarthHall = "/events/hackathon2k26/samarthhall.jpg";
 
-const winner1 = "/events/hackathon2k26/winner1.jpg.jpeg";
-const winner2 = "/events/hackathon2k26/winner2.jpg.jpeg";
+const winner1 = "/events/hackathon2k26/winner1.jpg";
+const winner2 = "/events/hackathon2k26/winner2.jpg";
 
 // 2026 hackathon timing constants
 const HACKATHON_2026_START = new Date("2026-06-05T12:00:00");
@@ -80,7 +92,13 @@ const hackathon2025PhotoSections: HackathonPhotoSection[] = [
     photos: [
       { src: jury1, label: "Jury Review 1" },
       { src: jury2, label: "Jury Review 2" },
-      { src: jury3, label: "Jury Review 3" },
+        { src: jury3, label: "Jury Review 3" },
+          { src: jury4, label: "Jury Review 4" },
+          { src: jury5, label: "Jury Review 5" },
+          { src: jury6, label: "Jury Review 6" },
+      
+
+    
     ],
   },
   {
@@ -131,11 +149,29 @@ const Hackathon = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [phase, setPhase] = useState(getHackathonPhase());
+  const [juryApi, setJuryApi] = useState<CarouselApi | null>(null);
+  const [codingRoomApi, setCodingRoomApi] = useState<CarouselApi | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => setPhase(getHackathonPhase()), 1000 * 30);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!juryApi) return;
+    const interval = setInterval(() => {
+      juryApi.scrollNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [juryApi]);
+
+  useEffect(() => {
+    if (!codingRoomApi) return;
+    const interval = setInterval(() => {
+      codingRoomApi.scrollNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [codingRoomApi]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -536,36 +572,79 @@ const Hackathon = () => {
                       Gallery
                     </span>
                   </div>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {section.photos.map((photo) => (
-                      <figure
-                        key={`${section.title}-${photo.label}`}
-                        className={`group overflow-hidden rounded-lg border border-zinc-800 bg-black shadow-lg ${
-                          photo.wide ? "lg:col-span-2" : ""
-                        }`}
+                  {(section.title === "Jury" || section.title === "Coding Room") ? (
+                    <div className="relative overflow-hidden rounded-lg border border-zinc-800 bg-black p-2">
+                      <Carousel
+                        opts={{ loop: true, align: "start" }}
+                        setApi={section.title === "Jury" ? setJuryApi : setCodingRoomApi}
+                        className="relative w-full"
                       >
-                        <div
-                          className={`overflow-hidden bg-zinc-950 ${
-                            photo.orientation === "portrait"
-                              ? "aspect-[3/4]"
-                              : "aspect-[16/9]"
+                        <CarouselContent className="w-full">
+                          {section.photos.map((photo) => (
+                            <CarouselItem
+                              key={`${section.title}-${photo.label}`}
+                              className="basis-full sm:basis-1/2 lg:basis-1/3"
+                            >
+                              <figure className="group overflow-hidden rounded-lg border border-zinc-800 bg-black shadow-lg">
+                                <div
+                                  className={`overflow-hidden bg-zinc-950 ${
+                                    photo.orientation === "portrait"
+                                      ? "aspect-[3/4]"
+                                      : "aspect-[16/9]"
+                                  }`}
+                                >
+                                  <img
+                                    src={photo.src}
+                                    alt={`${section.title} - ${photo.label}`}
+                                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                  />
+                                </div>
+                                <figcaption className="border-t border-zinc-800 px-4 py-3">
+                                  <p className="text-sm font-semibold text-zinc-200">
+                                    {photo.label}
+                                  </p>
+                                </figcaption>
+                              </figure>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-zinc-900/90 hover:bg-zinc-800" />
+                        <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-zinc-900/90 hover:bg-zinc-800" />
+                      </Carousel>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {section.photos.map((photo) => (
+                        <figure
+                          key={`${section.title}-${photo.label}`}
+                          className={`group overflow-hidden rounded-lg border border-zinc-800 bg-black shadow-lg ${
+                            photo.wide ? "lg:col-span-2" : ""
                           }`}
                         >
-                          <img
-                            src={photo.src}
-                            alt={`${section.title} - ${photo.label}`}
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                            loading="lazy"
-                          />
-                        </div>
-                        <figcaption className="border-t border-zinc-800 px-4 py-3">
-                          <p className="text-sm font-semibold text-zinc-200">
-                            {photo.label}
-                          </p>
-                        </figcaption>
-                      </figure>
-                    ))}
-                  </div>
+                          <div
+                            className={`overflow-hidden bg-zinc-950 ${
+                              photo.orientation === "portrait"
+                                ? "aspect-[3/4]"
+                                : "aspect-[16/9]"
+                            }`}
+                          >
+                            <img
+                              src={photo.src}
+                              alt={`${section.title} - ${photo.label}`}
+                              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                              loading="lazy"
+                            />
+                          </div>
+                          <figcaption className="border-t border-zinc-800 px-4 py-3">
+                            <p className="text-sm font-semibold text-zinc-200">
+                              {photo.label}
+                            </p>
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
                 </section>
               ))}
             </div>

@@ -1,8 +1,9 @@
 import { Cover } from "@/components/ui/cover";
-
+import { useNavigate } from "react-router-dom";
 export function CoverDemo() {
+    const navigate = useNavigate();
     return (
-        <div>
+        <div >
             <div className="flex flex-col md:flex-row items-center justify-center md:space-x-4 space-y-3 md:space-y-0 relative z-20 py-6 -mt-20">
                 <img src="./agpit_logo.png" className="w-20 h-20 md:w-35 md:h-35" alt="AGPIT Logo" />
                 <div className="flex flex-col items-center">
@@ -18,6 +19,13 @@ export function CoverDemo() {
             <h1 className="text-4xl md:text-4xl lg:text-5xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-zinc-700 via-white to-zinc-700 dark:from-white dark:via-white dark:to-zinc-700">
                 Shaping Coders, Crafting Futures  <br /> —  <Cover>Code Club AGPIT</Cover>
             </h1>
+            <div className="flex justify-center mt-15">
+                <button
+                onClick={() => navigate("/events/hackathon")}
+                 className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all hover:scale-105 animate-bounce duration-1000-">
+                     Explore AGTechathon 2.0 →
+                      </button>
+                      </div>
         </div>
     );
 }
