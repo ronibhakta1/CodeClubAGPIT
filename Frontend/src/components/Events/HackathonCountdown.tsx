@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-// Set to actual hackathon times for real event phase
-const HACKATHON_START = new Date("2026-06-05T11:15:00");
-const HACKATHON_END = new Date("2026-06-14T12:00:00");
+// Set to actual hackathon times for real event phase (IST - Indian Standard Time UTC+5:30)
+const HACKATHON_START = new Date("2026-06-05T11:15:00+05:30");
+const HACKATHON_END = new Date("2026-06-14T11:15:00+05:30");
 const HACKATHON_2026_LOGO = "/events/image.png";
 
 function getTimeLeft() {
