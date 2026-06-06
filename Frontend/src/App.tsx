@@ -8,6 +8,7 @@ import Userpage from './components/user_page/Userpage'
 import Admin from './components/Admin/Admin'
 import Hackathon from './components/Events/Hackathon'
 import HackathonCountdownPage from './pages/hackathon-countdown'
+import HackathonCountdownTest from './components/Events/HackathonCountdownTest'
 import StaffLogin from './components/staff/StaffLogin';
 import StaffDashboard from './components/staff/StaffDashboard';
 import UserProfileSection from './components/user_page/UserProfileSection';
@@ -41,6 +42,7 @@ function App() {
             <Route path="/admin/create-staff" element={<Admin/>} />
             <Route path="/events/hackathon" element={<Hackathon />} />
             <Route path="/events/hackathon-countdown" element={<HackathonCountdownPage />} />
+            <Route path="/events/hackathon-countdown-test" element={<HackathonCountdownTest />} />
             <Route path="/staff/login" element={<StaffLogin />} />
             <Route path="/staff" element={<Navigate to="/staff/users" replace />} />
             <Route path="/staff/users" element={<StaffDashboard />} />
