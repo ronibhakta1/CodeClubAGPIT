@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 // Set to actual hackathon times for real event phase
 const HACKATHON_START = new Date("2026-06-05T11:15:00");
-const HACKATHON_END = new Date("2026-06-14T11:15:00");
+const HACKATHON_END = new Date("2026-06-14T12:00:00");
 const HACKATHON_2026_LOGO = "/events/AGTechathon-2.0.png";
 
 function getTimeLeft() {
