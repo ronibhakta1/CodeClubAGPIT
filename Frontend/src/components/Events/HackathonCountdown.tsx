@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // Set to actual hackathon times for real event phase
 const HACKATHON_START = new Date("2026-06-05T11:15:00");
 const HACKATHON_END = new Date("2026-06-14T11:15:00");
-const HACKATHON_2026_LOGO = "/events/image.png";
+const HACKATHON_2026_LOGO = "/events/AGTechathon-2.0.png";
 
 function getTimeLeft() {
   const now = new Date();
@@ -44,7 +44,7 @@ export default function HackathonCountdown() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-950 text-white relative overflow-hidden px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center pt-16 bg-zinc-950 text-white relative overflow-hidden px-4">
       {/* Subtle background glow */}
       <motion.div
         className="absolute -z-10 inset-0 flex items-center justify-center"
@@ -61,7 +61,7 @@ export default function HackathonCountdown() {
       <motion.img
         src={HACKATHON_2026_LOGO}
         alt="Hackathon Logo"
-        className="h-40 w-auto max-w-full rounded-lg mb-8 drop-shadow-xl md:h-56 lg:h-64"
+        className="h-40 w-auto max-w-full rounded-lg mb-8 drop-shadow-xl md:h-40 lg:h-40"
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.2, type: "spring" }}
@@ -148,6 +148,35 @@ export default function HackathonCountdown() {
           className="flex flex-col items-center justify-center mb-8"
           {...endedShake}
         >
+          {/* Show final 00:00:00 timer with bounce animation */}
+          <motion.div
+            className="flex gap-4 md:gap-10 text-center mb-8 items-end"
+            animate={{ y: [0, -20, 0] }}
+            transition={{ repeat: Infinity, duration: 0.8, ease: "easeInOut" }}
+          >
+            {["Hours", "Minutes", "Seconds"].map((label, i) => (
+              <motion.div
+                key={label}
+                className="flex flex-row items-end"
+              >
+                <div className="flex flex-col items-center">
+                  <motion.div
+                    className="text-6xl md:text-8xl lg:text-9xl font-mono font-extrabold text-red-400 drop-shadow-lg"
+                    animate={{ scale: [1, 1.15, 1] }}
+                    transition={{ repeat: Infinity, duration: 0.8, ease: "easeInOut" }}
+                  >
+                    00
+                  </motion.div>
+                  <div className="text-base md:text-xl mt-2 tracking-wide uppercase text-zinc-400 font-semibold">
+                    {label}
+                  </div>
+                </div>
+                {i < 2 && (
+                  <span className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-zinc-600 mb-6 md:mb-12 select-none mx-2">:</span>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
           <div className="text-4xl md:text-6xl font-extrabold text-zinc-100 mb-4 animate-bounce">Hackathon Ended</div>
           <div className="text-lg md:text-2xl text-zinc-300">Thank you for participating.</div>
         </motion.div>
