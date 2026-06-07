@@ -431,12 +431,12 @@ const Hackathon = () => {
                     >
                       Registrations Closed
                     </button>
-                    <a href="/events/hackathon-countdown">
+                    {/* <a href="/events/hackathon-countdown">
                       <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-bold text-zinc-950 transition hover:bg-zinc-200 sm:w-auto">
                         <Clock className="h-4 w-4" />
                         Countdown
                       </button>
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 
